@@ -16,11 +16,10 @@ class Step1 extends Component {
   render() {
     const step1 = data.step1;
     return (
-    <View style={{ backgroundColor: 'white',flex:1}}>
+    <View style={styles.screen}>
       <Image
         source={step1.step1Image}
         style={styles.backGroundImage}
-        resizeMode='stretch'
       />
       <View style={styles.logoOuterStyle}>
         <View style={styles.logoInnerStyle}>

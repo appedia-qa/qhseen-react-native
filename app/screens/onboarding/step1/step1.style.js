@@ -3,7 +3,14 @@ import { StyleSheet } from 'react-native';
 import {COLOR, width, height,} from '../../../constants';
 
 const styles = StyleSheet.create({
+  screen: {
+    flex:1,
+    justifyContent: 'center',
+  },
   buttonStyles: {
+    width: width * 0.14,
+    height: width * 0.14,
+    borderRadius: width * 0.13,
     alignSelf: 'center',
     alignItems: 'center',
     justifyContent: 'center',
@@ -12,18 +19,14 @@ const styles = StyleSheet.create({
     position:'absolute',
   },
   logoOuterStyle:{
-    backgroundColor: COLOR.LOGO_INSIDE_COLOR,
-    borderColor: COLOR.PRIMARY_COLOR,
-    height: 20,
-    borderWidth:2,
-    borderRadius:60,
-    position: "absolute",
     height: 183.32,
     width: 128.19,
-    top : height * 0.39,
-    left : width * 0.32,
+    borderColor: COLOR.PRIMARY_COLOR,
+    backgroundColor: COLOR.LOGO_INSIDE_COLOR,
+    borderWidth:2,
+    borderRadius:60,
+    alignSelf: 'center',
     alignItems: 'center',
-    // bottom: height * 0.386
   },
   logoInnerStyle:{
     height: 70,
@@ -32,7 +35,6 @@ const styles = StyleSheet.create({
     borderWidth:2,
     borderRadius:67,
     marginTop: 36,
-    
   },
   headingStyle:{
     fontSize: 20,
@@ -51,6 +53,8 @@ const styles = StyleSheet.create({
   backGroundImage:{
     width: width,
     height: height,
+    position: 'absolute',
+    zIndex: -10,
   }
 });
 
