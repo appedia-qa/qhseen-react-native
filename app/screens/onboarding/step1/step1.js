@@ -5,6 +5,7 @@ import {
 } from 'react-native';
 
 import {Button, Text} from '../../../components';
+import {screens} from '../../../config';
 import {data} from '../../../constants';
 import styles from './step1.style';
 
@@ -33,7 +34,7 @@ class Step1 extends Component {
       </View>
       <Button
         buttonStyles={styles.buttonStyles}
-        onPress={()=>{console.log('1122')}}/>
+        onPress={()=>this.props.navigation.navigate(screens.step2)}/>
     </View> 
   );
 }

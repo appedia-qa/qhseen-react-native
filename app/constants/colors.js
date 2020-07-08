@@ -32,7 +32,6 @@ export const COLOR = {
 
   PRIMARY_COLOR:            '#CE8678',
   LOGO_INSIDE_COLOR:        '#FFF4E6',
-  PRIMARY:                  '#FE654A',
   SECONDARY:                '#32db64',
   DANGER:                   '#f53d3d',
   LIGHT:                    '#f4f4f4',
