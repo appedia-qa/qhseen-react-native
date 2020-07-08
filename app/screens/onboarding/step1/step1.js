@@ -17,20 +17,21 @@ class Step1 extends Component {
     const step1 = data.step1;
     return (
     <View style={{ backgroundColor: 'white',flex:1}}>
-       <Image
-        source={step1.step1Image}
-        style={styles.step1Image}
-        // resizeMode='cover'
-      />
-      <View style={styles.viewStyle}>
-        <View style={styles.viewStyle2}>
-          <Text style={styles.textStyle}>{step1.description}</Text>
-        </View>
-      </View>
       <Image
-        source={step1.image}
-        style={styles.logo}
+        source={step1.step1Image}
+        style={styles.backGroundImage}
+        resizeMode='stretch'
       />
+      <View style={styles.logoOuterStyle}>
+        <View style={styles.logoInnerStyle}>
+        </View>
+        <Text style={styles.headingStyle}>
+          QSHEEN
+        </Text>
+        <Text style={styles.subHeadingStyle}>
+          LUXURY TALKS
+        </Text>
+      </View>
       <Button
         buttonStyles={styles.buttonStyles}
         onPress={()=>{console.log('1122')}}/>

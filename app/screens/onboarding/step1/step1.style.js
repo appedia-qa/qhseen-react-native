@@ -4,40 +4,51 @@ import {COLOR, width, height,} from '../../../constants';
 
 const styles = StyleSheet.create({
   buttonStyles: {
-    marginTop: 10,
     alignSelf: 'center',
-    // position: "absolute",
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: COLOR.PRIMARY_COLOR,
+    bottom: height * 0.06,
+    position:'absolute',
   },
-  viewStyle:{
+  logoOuterStyle:{
+    backgroundColor: COLOR.LOGO_INSIDE_COLOR,
     borderColor: COLOR.PRIMARY_COLOR,
     height: 20,
-    borderLeftWidth: 2,
-    borderTopWidth: 2,
+    borderWidth:2,
+    borderRadius:60,
     position: "absolute",
-    height: height * .05,
-    width: width * .09,
-    top : height * 0.24,
-    left : width * 0.05,
+    height: 183.32,
+    width: 128.19,
+    top : height * 0.39,
+    left : width * 0.32,
+    alignItems: 'center',
+    // bottom: height * 0.386
   },
-  viewStyle2:{
-    height: 150,
-    width: width * .77,
-    padding: 8,
-    bottom: 8,
+  logoInnerStyle:{
+    height: 70,
+    width: 43,
+    borderColor: COLOR.PRIMARY_COLOR,
+    borderWidth:2,
+    borderRadius:67,
+    marginTop: 36,
+    
   },
-  textStyle:{
-    fontSize: 30,
+  headingStyle:{
+    fontSize: 20,
     fontWeight: '700',
-    color:COLOR.WHITE
+    color:  COLOR.PRIMARY_COLOR,
+    letterSpacing:5,
+    marginTop: 10,
   },
-  logo:{
-    width: width * 0.232,
-    height: 135,
-    position: "absolute",
-    top: height * 0.60,
-    left: width * 0.085,
+  subHeadingStyle:{
+    fontSize: 5,
+    fontWeight: '700',
+    color:  COLOR.PRIMARY_COLOR,
+    letterSpacing:3,
+    top: 8,
   },
-  step1Image:{
+  backGroundImage:{
     width: width,
     height: height,
   }
