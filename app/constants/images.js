@@ -5,6 +5,7 @@ const step2Image = require('../assets/image/step2_image.png');
 const step3Image = require('../assets/image/step3_image.png');
 const step3Heading = require('../assets/image/step3_heading.png');
 const step3SubHeading = require('../assets/image/step3_subHeading.png');
+const logo_icon_group = require('../assets/image/logo_icon_group.png');
 
 const images = {
   logo,
@@ -14,6 +15,7 @@ const images = {
   step3Image,
   step3Heading,
   step3SubHeading,
+  logo_icon_group,
 };
 
 export { images };

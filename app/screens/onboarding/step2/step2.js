@@ -4,9 +4,9 @@ import {
   Image,
 } from 'react-native';
 
-import {Button, Text, Logo} from '../../../components';
+import {Button, Text} from '../../../components';
 import {screens} from '../../../config';
-import {data, images} from '../../../constants';
+import {images} from '../../../constants';
 import styles from './step2.styles';
 
 class Step2 extends Component {
@@ -25,10 +25,9 @@ class Step2 extends Component {
           resizeMode='stretch'
         />
         <View style={styles.contentContainer}>
-          <Logo
-            rightTitle
-            logoContainer={styles.logoContainer}
-            logotitleContainer={styles.logoTitleContainer}
+          <Image
+            source={images.logo_icon_group}
+            style={styles.logo}
           />
           <Text
             style={styles.screenMessage}

@@ -14,10 +14,7 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
   },
-  logoContainer: {
-    width: 165,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+  logo: {
     alignSelf: 'center',
     marginBottom: 27,
   },
