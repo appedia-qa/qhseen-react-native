@@ -3,7 +3,9 @@ import {
   View,
   Image,
 } from 'react-native';
-import {Button, Text, Logo} from '../../../components';
+import { CommonActions } from '@react-navigation/native';
+
+import {Button} from '../../../components';
 import {screens} from '../../../config';
 import {images} from '../../../constants';
 import styles from './step3.styles';
@@ -11,13 +13,14 @@ import styles from './step3.styles';
 class Step3 extends Component {
   constructor(props) {
     super(props);
+    this._onPressStep3 = this._onPressStep3.bind(this);
   }
- 
+  _onPressStep3(type) {
+    this.props.navigation.dispatch(CommonActions.reset({ index: 0, routes: [{name:screens.bottomTabs}] }));
+  };
   render() {
     return (
-      <View
-      style={styles.screen}
-      >
+      <View style={styles.screen}>
         <Image
           source={images.step3Image}
           style={styles.backgroundImage}
@@ -36,11 +39,12 @@ class Step3 extends Component {
           />
           <Button
             buttonStyles={styles.buttonStyles}
+            onPress={this._onPressStep3}
           />
         </View>
       </View>
-  );
-}
+    );
+  }
 };
 
 export default Step3;

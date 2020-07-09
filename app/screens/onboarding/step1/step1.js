@@ -12,10 +12,16 @@ import styles from './step1.style';
 class Step1 extends Component {
   constructor(props) {
     super(props);
+    this._onPressStep1 = this._onPressStep1.bind(this);
   }
- 
+  _onPressStep1(type) {
+    this.props.navigation.replace(
+      screens.step2
+    )
+  };
   render() {
     const step1 = data.step1;
+   
     return (
     <View style={styles.screen}>
       <Image
@@ -28,7 +34,7 @@ class Step1 extends Component {
       />
       <Button
         buttonStyles={styles.buttonStyles}
-        onPress={()=>this.props.navigation.navigate(screens.step2)}/>
+        onPress={this._onPressStep1}/>
     </View> 
   );
 }

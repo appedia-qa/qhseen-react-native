@@ -12,8 +12,13 @@ import styles from './step2.styles';
 class Step2 extends Component {
   constructor(props) {
     super(props);
+    this._onPressStep2 = this._onPressStep2.bind(this);
   }
- 
+  _onPressStep2() {
+    this.props.navigation.replace(
+      screens.step3
+    );
+  };
   render() {
     return (
       <View
@@ -36,7 +41,7 @@ class Step2 extends Component {
           </Text>
           <Button
             buttonStyles={styles.buttonStyles}
-            onPress={()=>this.props.navigation.navigate(screens.step3)}
+            onPress={this._onPressStep2}
           />
         </View>
       </View>

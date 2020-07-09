@@ -15,18 +15,14 @@ const styles = StyleSheet.create({
   contentContainer:{
   },
   screenHeading: {
-    // width: 219,
-    // height: 13,
     width: width * 0.564,
     height: height * 0.0188,  
     alignSelf: 'center',
     marginBottom: 28,
   },
   screenSubHeading: {
-    width: 207,
-    height: 59,
-    // width: width * 0.553,
-    // height: height * 0.072,  
+    width: width * 0.553,
+    height: height * 0.072,  
     alignSelf: 'center',
     marginBottom: 19,
   },
