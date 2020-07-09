@@ -1,3 +1,8 @@
+import {connect} from 'react-redux';
 import Step1 from './step1';
 
-export default Step1;
+const mapStateToProps = ({onboardingData}) => ({
+  onboardingData,
+})
+
+export default connect(mapStateToProps)(Step1);

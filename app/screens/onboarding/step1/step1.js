@@ -21,7 +21,6 @@ class Step1 extends Component {
   };
   render() {
     const step1 = data.step1;
-   
     return (
     <View style={styles.screen}>
       <Image
