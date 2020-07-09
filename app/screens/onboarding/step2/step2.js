@@ -37,6 +37,7 @@ class Step2 extends Component {
           </Text>
           <Button
             buttonStyles={styles.buttonStyles}
+            onPress={()=>this.props.navigation.navigate(screens.step3)}
           />
         </View>
       </View>

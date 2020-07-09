@@ -22,16 +22,10 @@ class Step1 extends Component {
         source={step1.step1Image}
         style={styles.backGroundImage}
       />
-      <View style={styles.logoOuterStyle}>
-        <View style={styles.logoInnerStyle}>
-        </View>
-        <Text style={styles.headingStyle}>
-          QSHEEN
-        </Text>
-        <Text style={styles.subHeadingStyle}>
-          LUXURY TALKS
-        </Text>
-      </View>
+      <Image
+        source={step1.step1Logo}
+        style={styles.step1logoStyle}
+      />
       <Button
         buttonStyles={styles.buttonStyles}
         onPress={()=>this.props.navigation.navigate(screens.step2)}/>
