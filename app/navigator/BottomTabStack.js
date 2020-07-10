@@ -5,7 +5,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import {screens} from '../config';
 import {icons} from '../helpers';
-import App from '../screens/app/App';
+import Profile from '../screens/profile/index';
 import Cart from '../screens/cart/Cart';
 
 import styles from './bottomTabStyle';
@@ -32,20 +32,12 @@ function tabNavigator() {
       tabBarOptions= {barStyleIos.tabBarOptions}         
     >
       <BottomTabs.Screen
-        name={screens.app}
+        name={screens.profile}
         options={{
-          tabBarLabel: screens.app,
-          tabBarIcon:icons.home
+          tabBarLabel: screens.profile,
+          tabBarIcon:icons.profile
           }}
-        component={App}
-      />
-      <BottomTabs.Screen
-        name='Cart'
-        options={{
-          tabBarLabel:'Cart',
-          tabBarIcon:icons.home
-          }}
-        component={Cart}
+        component={Profile}
       />
     </BottomTabs.Navigator>
   );
@@ -61,20 +53,12 @@ function materialTabNavigator() {
       barStyle= {styles.barStyle}            
     >
       <MaterialBottomTabs.Screen
-        name={screens.app}
+        name={screens.profile}
         options={{
-          tabBarLabel: screens.app,
-          tabBarIcon:icons.home
+          tabBarLabel: screens.profile,
+          tabBarIcon:icons.profile
           }}
-        component={App}
-      />
-      <MaterialBottomTabs.Screen
-        name='Cart'
-        options={{
-          tabBarLabel:'Cart',
-          tabBarIcon:icons.home
-          }}
-        component={Cart}
+        component={Profile}
       />
     </MaterialBottomTabs.Navigator>
   );

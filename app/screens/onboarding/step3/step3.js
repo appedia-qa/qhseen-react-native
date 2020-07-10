@@ -19,6 +19,7 @@ class Step3 extends Component {
     this.props.navigation.dispatch(CommonActions.reset({ index: 0, routes: [{name:screens.bottomTabs}] }));
   };
   render() {
+    //console.log(this.props);
     return (
       <View style={styles.screen}>
         <Image

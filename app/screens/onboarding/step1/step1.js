@@ -13,12 +13,17 @@ class Step1 extends Component {
   constructor(props) {
     super(props);
     this._onPressStep1 = this._onPressStep1.bind(this);
+    this.props;
   }
   _onPressStep1(type) {
+    this.props.onboardingData.step1Complete?
+    null:
+    this.props.checkStep1(true)
     this.props.navigation.replace(
       screens.step2
     )
-  };
+    };
+  
   render() {
     const step1 = data.step1;
     return (
@@ -33,10 +38,11 @@ class Step1 extends Component {
       />
       <Button
         buttonStyles={styles.buttonStyles}
-        onPress={this._onPressStep1}/>
+        onPress={this._onPressStep1}
+      />
     </View> 
-  );
-}
+    );
+  };
 };
 
 export default Step1;

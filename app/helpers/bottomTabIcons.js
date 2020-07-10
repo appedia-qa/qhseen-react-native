@@ -1,9 +1,10 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Octicons from 'react-native-vector-icons/Octicons';
 
 const icons= {
-  home: ( {color} ) => (
-    <Icon name="home" color={color} size={26} />
+  profile: ( {color} ) => (
+    <Octicons name="person" color={color} size={26} />
   ),
 };
 

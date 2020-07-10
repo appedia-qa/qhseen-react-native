@@ -31,6 +31,8 @@ export const COLOR = {
   transparent                    :  'transparent',
 
   PRIMARY_COLOR:            '#CE8678',
+  PROFILE_BG:               '#82375C',
+  PROFILE_ITEM:             '#232324',
   LOGO_INSIDE_COLOR:        '#FFF4E6',
   SECONDARY:                '#32db64',
   DANGER:                   '#f53d3d',
@@ -40,6 +42,7 @@ export const COLOR = {
   BLACK:			              '#000000',
   LIGHT_MONO:	              '#f1f1f1',
   DARK_MONO:                '#feb5a9',
+  MERCURY:                  '#E8E8E8',
   SHADOW_COLOR:             'rgba(0,0,0,0.16)',
   OVERLAY:                  'rgba(0, 0, 0, 0.6)',
   NEGATIVE:                 RED,

@@ -1,5 +1,5 @@
 export const screens = {
-  app:'App',
+  profile:'Profile',
 
   bottomTabs: 'bottomTabs',
   mainStack: 'mainStack',
