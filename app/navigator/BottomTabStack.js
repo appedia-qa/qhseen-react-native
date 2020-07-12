@@ -59,6 +59,13 @@ function materialTabNavigator() {
       inactiveColor="#8F8E93"
       barStyle= {styles.barStyle}            
     >
+      <BottomTabs.Screen
+        name={screens.home}
+        options={{
+          tabBarLabel: screens.home
+        }}
+        component={Home}
+      />
       <MaterialBottomTabs.Screen
         name={screens.profile}
         options={{

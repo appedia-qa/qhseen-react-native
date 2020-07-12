@@ -50,5 +50,6 @@ export const COLOR = {
   RED:                      RED,
   LIGHT_GRAY:               '#858687',
   LIGHT_BLACK:              'rgba(0,0,0,0.5)',
-  LIGHT_WHITE:              'rgb(211, 211, 211)'
+  LIGHT_WHITE:              'rgb(211, 211, 211)',
+  SHADOW_GRAY:              '#0000001A',
 };
