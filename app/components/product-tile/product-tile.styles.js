@@ -29,6 +29,20 @@ const styles = StyleSheet.create({
     marginBottom: 4,
     marginHorizontal: 5,
   },
+  button: {
+    width: '87%',
+    borderRadius: 10,
+    paddingVertical: 8,
+    backgroundColor: COLOR.BLACK,
+    flexDirection: 'row',
+    marginBottom: 10,
+  },
+  buttonTitle: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: COLOR.WHITE,
+    marginRight: 10,
+  },
 });
 
 export default styles;

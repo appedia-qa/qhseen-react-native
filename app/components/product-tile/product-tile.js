@@ -8,8 +8,10 @@ import {
   Text,
   Touchable,
   Card,
+  Button,
 } from '../';
 import styles from './product-tile.styles';
+import { images } from '../../constants';
 
 class ProductTile extends Component {
   render() {
@@ -28,6 +30,12 @@ class ProductTile extends Component {
           <Text style={styles.price}>
             QR 1000
           </Text>
+          <Button
+            buttonStyles={styles.button}
+            buttonTitle={'ADD TO CART'}
+            buttonTitleStyles={styles.buttonTitle}
+            rightIcon={<Image source={images.cart} />}
+          />
         </Touchable>
       </Card>
     );
