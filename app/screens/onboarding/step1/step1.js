@@ -3,10 +3,11 @@ import {
   View,
   Image,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 import {Button, Text} from '../../../components';
 import {screens} from '../../../config';
-import {data} from '../../../constants';
+import {data, COLOR} from '../../../constants';
 import styles from './step1.style';
 
 class Step1 extends Component {
@@ -15,14 +16,13 @@ class Step1 extends Component {
     this._onPressStep1 = this._onPressStep1.bind(this);
     this.props;
   }
-  _onPressStep1(type) {
-    this.props.onboardingData.step1Complete?
-    null:
-    this.props.checkStep1(true)
+
+  _onPressStep1() {
+    this.props.onboardingData.step1Complete? null: this.props.checkStep1(true);
     this.props.navigation.replace(
       screens.step2
-    )
-    };
+    );
+  }
   
   render() {
     const step1 = data.step1;
@@ -39,6 +39,7 @@ class Step1 extends Component {
       <Button
         buttonStyles={styles.buttonStyles}
         onPress={this._onPressStep1}
+        icon={<Icon name="arrowright" color={COLOR.WHITE} size={26} />}
       />
     </View> 
     );

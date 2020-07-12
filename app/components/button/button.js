@@ -1,5 +1,4 @@
 import React from 'react';
-import Icon from 'react-native-vector-icons/AntDesign';
 
 import {Touchable} from '../touchable';
 import { COLOR,} from '../../constants';
@@ -10,10 +9,19 @@ class Button extends React.Component {
     return (
       <Touchable
         onPress={this.props.onPress}
-        style={[styles.buttonContainer, this.props.buttonStyles? this.props.buttonStyles : null, this.props.disabled? { opacity: 0.8 } : null]}
+        style={[
+          styles.buttonContainer,
+          this.props.buttonStyles? this.props.buttonStyles : null,
+          this.props.disabled? { opacity: 0.8 } : null
+        ]}
         disabled={this.props.disabled}
       >
-        <Icon name="arrowright" color={COLOR.WHITE} size={26} />
+        {
+          this.props.icon?
+          // <Icon name="arrowright" color={COLOR.WHITE} size={26} />
+          this.props.icon
+          : null
+        }
       </Touchable>
     );
   }

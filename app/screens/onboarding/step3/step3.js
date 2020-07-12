@@ -4,10 +4,11 @@ import {
   Image,
 } from 'react-native';
 import { CommonActions } from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 import {Button} from '../../../components';
 import {screens} from '../../../config';
-import {images} from '../../../constants';
+import {images, COLOR} from '../../../constants';
 import styles from './step3.styles';
 
 class Step3 extends Component {
@@ -15,9 +16,11 @@ class Step3 extends Component {
     super(props);
     this._onPressStep3 = this._onPressStep3.bind(this);
   }
-  _onPressStep3(type) {
+
+  _onPressStep3() {
     this.props.navigation.dispatch(CommonActions.reset({ index: 0, routes: [{name:screens.bottomTabs}] }));
   };
+
   render() {
     //console.log(this.props);
     return (
@@ -41,6 +44,7 @@ class Step3 extends Component {
           <Button
             buttonStyles={styles.buttonStyles}
             onPress={this._onPressStep3}
+            icon={<Icon name="arrowright" color={COLOR.WHITE} size={26} />}
           />
         </View>
       </View>
