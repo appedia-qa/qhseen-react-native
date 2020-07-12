@@ -52,4 +52,6 @@ export const COLOR = {
   LIGHT_BLACK:              'rgba(0,0,0,0.5)',
   LIGHT_WHITE:              'rgb(211, 211, 211)',
   SHADOW_GRAY:              '#0000001A',
+  BLACK_TEXT:               '#232324',
+  BROWN_TEXT:               '#82375C',
 };
