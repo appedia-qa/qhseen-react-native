@@ -11,6 +11,7 @@ export default function rootStack() {
   return (
     <RootNavigator.Navigator 
       headerMode='none'
+      initialRouteName={screens.bottomTabs}
     > 
       <RootNavigator.Screen name={screens.mainStack} component={MainStack} />
       <RootNavigator.Screen name={screens.bottomTabs} component={BottomStack} />

@@ -6,7 +6,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {screens} from '../config';
 import {icons} from '../helpers';
 import Profile from '../screens/profile/index';
-import Cart from '../screens/cart/Cart';
+import Home from '../screens/home';
 
 import styles from './bottomTabStyle';
 
@@ -31,6 +31,13 @@ function tabNavigator() {
       initialRouteName="screens.app"
       tabBarOptions= {barStyleIos.tabBarOptions}         
     >
+      <BottomTabs.Screen
+        name={screens.home}
+        options={{
+          tabBarLabel: screens.home
+        }}
+        component={Home}
+      />
       <BottomTabs.Screen
         name={screens.profile}
         options={{
