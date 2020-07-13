@@ -18,7 +18,6 @@ class Step1 extends Component {
   }
 
   _onPressStep1() {
-    this.props.onboardingData.step1Complete? null: this.props.checkStep1(true);
     this.props.navigation.replace(
       screens.step2
     );

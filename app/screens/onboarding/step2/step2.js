@@ -17,13 +17,10 @@ class Step2 extends Component {
     this.props;
   }
 
-  _onPressStep2(type) {
-    if(this.props.onboardingData.step1Complete) {
-      this.props.checkStep2(true);
-      this.props.navigation.replace(
-        screens.step3
-      );
-    }
+  _onPressStep2() {
+    this.props.navigation.replace(
+      screens.step3
+    );
   };
 
   render() {

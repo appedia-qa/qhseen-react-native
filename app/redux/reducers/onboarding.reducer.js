@@ -1,17 +1,19 @@
+import {
+  ONBOARDING_STEPS_COMPLETE,
+} from '../types';
+
 const initial = {
-  step1Complete: false,
-  step2Complete: false,
-  step3Complete: false,
+  onboardingStepsComlete: false,
 };
 
 export default function (state = initial, action) {
-  const {type,payload} = action;
+  const {type} = action;
   switch(type) {
-    case 'change_step1_state':
-      return {...state,step1Complete:payload};
-      case 'change_step2_state':
-        console.log(payload);
-        return {...state,step2Complete:payload};
+    case ONBOARDING_STEPS_COMPLETE: {
+      return {
+        onboardingStepsComlete: true,
+      };
+    }
     default: return state;
   }
 }
