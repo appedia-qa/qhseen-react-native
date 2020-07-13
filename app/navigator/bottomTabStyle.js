@@ -1,14 +1,18 @@
 import {StyleSheet} from 'react-native';
+import {COLOR} from '../constants';
 
 const styles=StyleSheet.create({
   barStyle:{
-    backgroundColor: '#FFFFFF',
-    borderColor: '#8F8E93',
-    borderWidth: 0.5,         
-    borderTopLeftRadius:20, 
-    borderTopRightRadius:20,
+    backgroundColor: '#FFFFFF',   
+    borderTopLeftRadius: 20, 
+    borderTopRightRadius: 20,
     bottom:0,
     overflow: 'hidden',
+    shadowOffset: {width: 0, height: 0},
+    shadowRadius: 5,
+    shadowOpacity: 1,
+    shadowColor: COLOR.SHADOW_GRAY,
+    elevation: 5,
   },
   labelStyle: {
     fontSize: 12,
