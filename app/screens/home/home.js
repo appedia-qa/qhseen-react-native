@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 
-import {ProductTile, Input, Header} from '../../components';
+import {ProductTile, Input, Header, SnapCarousel} from '../../components';
 import { images } from '../../constants';
 import styles from './home.styles';
 
@@ -12,7 +12,8 @@ class Home extends Component {
       <Header
         onSearchPress={() => alert('asds')}
       />
-      <View style={{ height: 100, }} />
+      {/* <View style={{ height: 100, }} /> */}
+      <SnapCarousel />
       <ProductTile/>
       <Input
         containerStyles={{

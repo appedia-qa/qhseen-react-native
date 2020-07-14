@@ -12,6 +12,7 @@ const myorder = require('../assets/image/profile/myorder.png');
 const heart = require('../assets/image/profile/heart.png');
 const cart = require('../assets/image/icons/cart.png');
 const search = require('../assets/image/icons/search.png');
+const slider_image = require('../assets/image/slider-image.png');
 
 const images = {
   logo,
@@ -28,6 +29,7 @@ const images = {
   heart,
   cart,
   search,
+  slider_image,
 };
 
 export { images };

@@ -6,3 +6,4 @@ export * from './product-tile';
 export * from './card';
 export * from './input';
 export * from './header';
+export * from './snap-carousel';
