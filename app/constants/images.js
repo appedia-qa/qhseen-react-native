@@ -11,6 +11,7 @@ const chevron = require('../assets/image/profile/chevron-right.png');
 const myorder = require('../assets/image/profile/myorder.png');
 const heart = require('../assets/image/profile/heart.png');
 const cart = require('../assets/image/icons/cart.png');
+const search = require('../assets/image/icons/search.png');
 
 const images = {
   logo,
@@ -26,6 +27,7 @@ const images = {
   myorder,
   heart,
   cart,
+  search,
 };
 
 export { images };

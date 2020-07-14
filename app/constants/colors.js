@@ -42,7 +42,7 @@ export const COLOR = {
   BLACK:			              '#000000',
   LIGHT_MONO:	              '#f1f1f1',
   DARK_MONO:                '#feb5a9',
-  MERCURY:                  '#E8E8E8',
+  // MERCURY:                  '#E8E8E8',
   SHADOW_COLOR:             'rgba(0,0,0,0.16)',
   OVERLAY:                  'rgba(0, 0, 0, 0.6)',
   NEGATIVE:                 RED,
@@ -54,4 +54,6 @@ export const COLOR = {
   SHADOW_GRAY:              '#0000001A',
   BLACK_TEXT:               '#232324',
   BROWN_TEXT:               '#82375C',
+  MERCURY:                  '#E6E6E6',
+  LIGHT_TEXT_EMPORER:       '#545454',
 };
