@@ -59,4 +59,5 @@ export const COLOR = {
   CONTAINER_SERENADE:       '#FFF4E8',
   TEXT_PINK:                '#CE8678',
   TEXT_CAMELOT:             '#82375C',
+  SWIPER_DOT:               '#D19130',
 };

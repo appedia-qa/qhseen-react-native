@@ -28,6 +28,13 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     alignItems: 'center',
   },
+  sliderContainer: {
+    marginVpaddertical: 25,
+  },
+  sliderImage: {
+    backgroundColor: 'black',
+    borderRadius: 25,
+  },
 });
 
 export default styles;

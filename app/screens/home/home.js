@@ -6,7 +6,7 @@ import {
   Text
 } from 'react-native';
 
-import {ProductTile, Header, SnapCarousel, Touchable} from '../../components';
+import {ProductTile, Header, SnapCarousel, Touchable, Slider} from '../../components';
 import { images } from '../../constants';
 import styles from './home.styles';
 
@@ -43,7 +43,12 @@ class Home extends Component {
               ItemSeparatorComponent={() => <View style={{ height: 13.5 }} />}
               keyExtractor={(item, index) => String(index)}
             />
-            
+
+            <Slider
+              sliderContainerStyles={styles.sliderContainer}
+              sliderImageStyles={styles.sliderImage}
+            />
+
             <Text style={styles.sectionHeading}>{'MOST SELLING'}</Text>
             <Touchable
               onPress={() => {}}
