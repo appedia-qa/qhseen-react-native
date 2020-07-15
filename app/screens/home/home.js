@@ -43,6 +43,25 @@ class Home extends Component {
               ItemSeparatorComponent={() => <View style={{ height: 13.5 }} />}
               keyExtractor={(item, index) => String(index)}
             />
+            
+            <Text style={styles.sectionHeading}>{'MOST SELLING'}</Text>
+            <Touchable
+              onPress={() => {}}
+              style={{alignSelf: 'flex-end', marginRight: 16, marginBottom: 11}}
+            >
+              <Text style={styles.viewAll}>{'View All'}</Text>
+            </Touchable>
+            <FlatList
+              data={[1,2,2,2,2,2,2]}
+              renderItem={() => (
+                <View style={{ width: '50%', alignItems: 'center' }}>
+                  <ProductTile/>
+                </View>
+              )}
+              numColumns={2}
+              ItemSeparatorComponent={() => <View style={{ height: 13.5 }} />}
+              keyExtractor={(item, index) => String(index)}
+            />
           </View>
         </ScrollView>
       </View>
