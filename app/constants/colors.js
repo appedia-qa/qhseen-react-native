@@ -57,4 +57,6 @@ export const COLOR = {
   MERCURY:                  '#E6E6E6',
   LIGHT_TEXT_EMPORER:       '#545454',
   CONTAINER_SERENADE:       '#FFF4E8',
+  TEXT_PINK:                '#CE8678',
+  TEXT_CAMELOT:             '#82375C',
 };

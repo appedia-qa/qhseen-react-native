@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import {
   View,
   ScrollView,
-  FlatList
+  FlatList,
+  Text
 } from 'react-native';
 
-import {ProductTile, Header, SnapCarousel} from '../../components';
+import {ProductTile, Header, SnapCarousel, Touchable} from '../../components';
 import { images } from '../../constants';
 import styles from './home.styles';
 
@@ -24,6 +25,13 @@ class Home extends Component {
             containerStyle={styles.carousalContainer}
           />
           <View style={styles.productsContainer}>
+            <Text style={styles.sectionHeading}>{'NEW COLLECTION'}</Text>
+            <Touchable
+              onPress={() => {}}
+              style={{alignSelf: 'flex-end', marginRight: 16, marginBottom: 11}}
+            >
+              <Text style={styles.viewAll}>{'View All'}</Text>
+            </Touchable>
             <FlatList
               data={[1,2,2,2,2,2,2]}
               renderItem={() => (

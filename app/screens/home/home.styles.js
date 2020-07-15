@@ -12,6 +12,16 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 20,
   },
+  sectionHeading: {
+    fontSize: 20,
+    fontWeight: '700',
+    color: COLOR.TEXT_CAMELOT,
+  },
+  viewAll: {
+    fontSize: 14,
+    fontWeight: '500',
+    color: COLOR.TEXT_PINK,
+  },
   productsContainer: {
     flex: 1,
     backgroundColor: COLOR.CONTAINER_SERENADE,
