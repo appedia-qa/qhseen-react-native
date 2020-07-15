@@ -43,22 +43,21 @@ class SnapCarousel extends Component {
     );
   }
   render() {
-    console.log(this.state)
     return (
-      <View>
-      <Carousel
-        data={[
-          { uri: 'https://i.imgur.com/2nCt3Sbl.jpg' },
-          { uri: 'https://images.unsplash.com/photo-1518550687729-819219298d98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80' },
-          { uri: 'https://i.imgur.com/2nCt3Sbl.jpg' },
-        ]}
-        renderItem={this._renderItem}
-        sliderWidth={width}
-        sliderHeight={height * 0.29}
-        itemWidth={width * 0.88}
-        onSnapToItem={(index) => this.setState({ activeSlide: index }) }
-      />
-      {this._renderPagination()}
+      <View style={this.props.containerStyle}>
+        <Carousel
+          data={[
+            { uri: 'https://i.imgur.com/2nCt3Sbl.jpg' },
+            { uri: 'https://images.unsplash.com/photo-1518550687729-819219298d98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80' },
+            { uri: 'https://i.imgur.com/2nCt3Sbl.jpg' },
+          ]}
+          renderItem={this._renderItem}
+          sliderWidth={width}
+          sliderHeight={height * 0.29}
+          itemWidth={width * 0.88}
+          onSnapToItem={(index) => this.setState({ activeSlide: index }) }
+        />
+        {this._renderPagination()}
       </View>
     );
   }
