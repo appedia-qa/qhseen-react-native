@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   sliderContainer: {
-    marginVpaddertical: 25,
+    marginVertical: 25,
   },
   sliderImage: {
     backgroundColor: 'black',
