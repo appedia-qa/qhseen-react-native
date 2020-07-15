@@ -42,6 +42,7 @@ class Home extends Component {
               numColumns={2}
               ItemSeparatorComponent={() => <View style={{ height: 13.5 }} />}
               keyExtractor={(item, index) => String(index)}
+              contentContainerStyle={{ paddingBottom: 5 }}
             />
 
             <Slider
@@ -66,6 +67,7 @@ class Home extends Component {
               numColumns={2}
               ItemSeparatorComponent={() => <View style={{ height: 13.5 }} />}
               keyExtractor={(item, index) => String(index)}
+              contentContainerStyle={{ paddingBottom: 5 }}
             />
           </View>
         </ScrollView>
