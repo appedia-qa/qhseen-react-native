@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
   View,
   ScrollView,
+  Image,
 } from 'react-native';
 
 import {
@@ -9,7 +10,7 @@ import {
   Touchable,
   Text,
 } from '../../components';
-import { COLOR } from '../../constants';
+import { COLOR, images } from '../../constants';
 import {Login} from './login';
 import styles from './auth.styles';
 
@@ -24,6 +25,7 @@ class Auth extends Component {
 
     this.state = {
       selectedAuthType: authType.LOGIN,
+      showSocialAuthOptions: true,
     };
 
     this._onPressAuthType = this._onPressAuthType.bind(this);
@@ -69,6 +71,21 @@ class Auth extends Component {
           </Touchable>
         </View>
         <Login/>
+
+        {
+          this.state.showSocialAuthOptions ?
+          <View style={styles.socialAuthContainer}>
+            <Text style={styles.socialAuthHeader}>{'Or Join With'}</Text>
+            <View style={styles.authIconsContainer}>
+              <Touchable style={[styles.socialIconContainer, { marginRight: 30 }]}>
+                <Image source={images.fbIcon} style={styles.socialIcon} resizeMode={'contain'} />
+              </Touchable>
+              <Touchable style={styles.socialIconContainer}>
+                <Image source={images.googleIcon} style={styles.socialIcon} resizeMode={'contain'} />
+              </Touchable>
+            </View>
+          </View> : null
+        }
       </ScrollView>
     );
   }

@@ -27,6 +27,31 @@ const styles = StyleSheet.create({
   selectedAuthBar: {
     backgroundColor: COLOR.PRIMARY_COLOR,
   },
+  socialAuthContainer: {
+    marginTop: 72,
+    alignSelf: 'center',
+    alignItems: 'center'
+  },
+  socialAuthHeader: {
+    fontSize: 18,
+    fontWeight: '300',
+    color: COLOR.BLACK_TEXT,
+  },
+  authIconsContainer: {
+    flexDirection: 'row',
+    marginTop: 16,
+  },
+  socialIconContainer: {
+    width: 46,
+    height: 46,
+    backgroundColor: COLOR.PRIMARY_COLOR,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 46,
+  },
+  socialIcon: {
+    tintColor: 'white', height: 18, width: 18
+  },
 });
 
 export default styles;

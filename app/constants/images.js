@@ -20,6 +20,8 @@ const brand4 = require('../assets/image/brands/brand4.png');
 const d2 = require('../assets/image/designers/d2.jpg');
 const d3 = require('../assets/image/designers/d3.jpg');
 const square = require('../assets/image/icons/square.png');
+const fbIcon = require('../assets/image/icons/bxl-facebook.png');
+const googleIcon = require('../assets/image/icons/bxl-google.png');
 
 const images = {
   logo,
@@ -44,6 +46,8 @@ const images = {
   d2,
   d3,
   square,
+  fbIcon,
+  googleIcon,
 };
 
 export { images };
