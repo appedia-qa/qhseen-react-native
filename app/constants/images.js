@@ -19,6 +19,7 @@ const brand3 = require('../assets/image/brands/brand3.png');
 const brand4 = require('../assets/image/brands/brand4.png');
 const d2 = require('../assets/image/designers/d2.jpg');
 const d3 = require('../assets/image/designers/d3.jpg');
+const square = require('../assets/image/icons/square.png');
 
 const images = {
   logo,
@@ -42,6 +43,7 @@ const images = {
   brand4,
   d2,
   d3,
+  square,
 };
 
 export { images };

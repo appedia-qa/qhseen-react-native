@@ -10,6 +10,7 @@ import {
   Text,
 } from '../../components';
 import { COLOR } from '../../constants';
+import {Login} from './login';
 import styles from './auth.styles';
 
 let authType = {
@@ -67,6 +68,7 @@ class Auth extends Component {
             </View>
           </Touchable>
         </View>
+        <Login/>
       </ScrollView>
     );
   }

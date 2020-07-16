@@ -62,4 +62,6 @@ export const COLOR = {
   TEXT_CAMELOT:             '#82375C',
   SWIPER_DOT:               '#D19130',
   TEXT_GRAY:                '#8E8E93',
+  TEXT_LIGHT:               '#707070',
+  BUTTON_BROWN:             '#82375C',
 };
