@@ -34,7 +34,8 @@ class Login extends Component {
             placeholder={'Enter your Password'}
             placeholderTextColor={COLOR.TEXT_LIGHT}
             style={styles.input}
-
+            rightIcon={images.eyeOff}
+            onRightIconsPress={()=>{}}
           />
         </View>
         <Touchable

@@ -12,6 +12,7 @@ import {
 } from '../../components';
 import { COLOR, images } from '../../constants';
 import {Login} from './login';
+import {Signup} from './signup';
 import styles from './auth.styles';
 
 let authType = {
@@ -70,8 +71,13 @@ class Auth extends Component {
             </View>
           </Touchable>
         </View>
-        <Login/>
-
+        {
+          selectedAuthType === authType.LOGIN?
+          <Login/>:
+          selectedAuthType === authType.SIGNUP?
+          <Signup/>:
+          null
+        }
         {
           this.state.showSocialAuthOptions ?
           <View style={styles.socialAuthContainer}>

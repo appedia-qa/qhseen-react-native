@@ -22,6 +22,7 @@ const d3 = require('../assets/image/designers/d3.jpg');
 const square = require('../assets/image/icons/square.png');
 const fbIcon = require('../assets/image/icons/bxl-facebook.png');
 const googleIcon = require('../assets/image/icons/bxl-google.png');
+const eyeOff = require('../assets/image/icons/eye-off.png');
 
 const images = {
   logo,
@@ -48,6 +49,7 @@ const images = {
   square,
   fbIcon,
   googleIcon,
+  eyeOff,
 };
 
 export { images };

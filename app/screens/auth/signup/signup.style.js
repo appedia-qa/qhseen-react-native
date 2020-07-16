@@ -9,8 +9,8 @@ const styles = StyleSheet.create({
   },
   inputHeading: {
     fontSize: 14,
-    fontWeight: '300',
-    color: COLOR.TEXT_LIGHT,
+    fontWeight: '500',
+    color: COLOR.PROFILE_ITEM,
     marginBottom: 6,
   },
   inputContainer: {
@@ -21,25 +21,17 @@ const styles = StyleSheet.create({
     paddingHorizontal: 7,
   },
   input: {
+    fontFamily: "300",
     fontSize: 12,
   },
-  forgotPWCont: {
-    alignSelf: 'flex-end',
-    marginTop: 18,
-  },
-  forgotPW: {
-    fontSize: 12,
-    color: COLOR.TEXT_LIGHT,
-    textDecorationLine: 'underline',
-  },
-  loginButton: {
+  SignButton: {
     width: '100%',
     paddingVertical: 8,
     alignItems: 'center',
     backgroundColor: COLOR.BUTTON_BROWN,
-    marginTop: 28,
+    marginTop: 19,
   },
-  loginButtonTitle: {
+  SignButtonTitle: {
     fontSize: 20,
     fontWeight: '700',
     color: COLOR.WHITE,
@@ -53,14 +45,35 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     borderWidth: 1
   },
-  rememberMeContainer: {
+  signDesignerContainer: {
     flexDirection: 'row',
-    marginTop: 11,
   },
-  rememberMeText: {
+  designerText: {
     fontSize: 12,
     color: COLOR.TEXT_LIGHT,
     marginLeft: 12,
+    alignSelf:'center',
+  },
+  termsContainer: {
+    flexDirection: 'row',
+    marginTop: 21,
+  },
+  termsText: {
+    fontSize: 12,
+    color: COLOR.TEXT_LIGHT,
+    marginLeft: 12,
+    alignSelf:'center',
+  },
+  condition: {
+    alignSelf:'center',
+
+  },
+  conditionText: {
+    alignSelf:'center',
+    fontSize: 12,
+    color: COLOR.TEXT_LIGHT,
+    fontWeight: '500',
+    textDecorationLine: 'underline',
   },
 });
 
