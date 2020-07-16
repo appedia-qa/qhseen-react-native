@@ -13,8 +13,7 @@ class Brands extends Component {
   _renderItem = (item) => {
     const brands = item;
     return (
-      <> 
-        <Card style={styles.card}>
+      <Card style={styles.card}>
         <View style={styles.imageContainer}>
           <Image
             source={brands.val}
@@ -22,8 +21,7 @@ class Brands extends Component {
             resizeMode='center'
           />
         </View>
-        </Card>
-      </>
+      </Card>
     );
   }
   render() {
