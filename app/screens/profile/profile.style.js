@@ -4,9 +4,6 @@ import {width, height, COLOR} from '../../constants';
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    backgroundColor: COLOR.PROFILE_BG,
   },
   contentContainer: {
     width,

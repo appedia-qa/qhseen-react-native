@@ -61,4 +61,5 @@ export const COLOR = {
   TEXT_PINK:                '#CE8678',
   TEXT_CAMELOT:             '#82375C',
   SWIPER_DOT:               '#D19130',
+  TEXT_GRAY:                '#8E8E93',
 };

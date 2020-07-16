@@ -11,7 +11,7 @@ import {
 import {
   data,
 } from '../../constants';
-import ProfileDetail from '../../components/profiledetails/profileDetail';
+import Auth from '../auth';
 import ProfileSection from './profile-section';
 import styles from './profile.style';
 
@@ -23,10 +23,8 @@ class Profile extends Component {
   render() {
     const profile = data.profile;
     return (
-      <View
-        style={styles.screen}
-      >
-        <ProfileSection/>
+      <View style={styles.screen}>
+        <Auth navigation={this.props.navigation} />
       </View>
     );
   }
