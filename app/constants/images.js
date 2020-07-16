@@ -13,6 +13,12 @@ const heart = require('../assets/image/profile/heart.png');
 const cart = require('../assets/image/icons/cart.png');
 const search = require('../assets/image/icons/search.png');
 const slider_image = require('../assets/image/slider-image.png');
+const brand1 = require('../assets/image/brands/brand1.png');
+const brand2 = require('../assets/image/brands/brand2.png');
+const brand3 = require('../assets/image/brands/brand3.png');
+const brand4 = require('../assets/image/brands/brand4.png');
+const d2 = require('../assets/image/designers/d2.jpg');
+const d3 = require('../assets/image/designers/d3.jpg');
 
 const images = {
   logo,
@@ -30,6 +36,12 @@ const images = {
   cart,
   search,
   slider_image,
+  brand1,
+  brand2,
+  brand3,
+  brand4,
+  d2,
+  d3,
 };
 
 export { images };

@@ -8,6 +8,8 @@ import {
 
 import {ProductTile, Header, SnapCarousel, Touchable, Slider} from '../../components';
 import { images } from '../../constants';
+import {Brands} from './brands/index';
+import {Designers} from './designers/index';
 import styles from './home.styles';
 
 class Home extends Component {
@@ -25,6 +27,22 @@ class Home extends Component {
             containerStyle={styles.carousalContainer}
           />
           <View style={styles.productsContainer}>
+            <Text style={styles.sectionHeading}>{'DESIGNERS'}</Text>
+            <Touchable
+              onPress={() => {}}
+              style={{alignSelf: 'flex-end', marginRight: 16, marginBottom: 11}}
+            >
+              <Text style={styles.viewAll}>{'View All'}</Text>
+            </Touchable>
+            <Designers/>
+            <Text style={styles.sectionHeading}>{'OUR BRANDS'}</Text>
+            <Touchable
+              onPress={() => {}}
+              style={{alignSelf: 'flex-end', marginRight: 16, marginBottom: 11}}
+            >
+              <Text style={styles.viewAll}>{'View All'}</Text>
+            </Touchable>
+            <Brands/>
             <Text style={styles.sectionHeading}>{'NEW COLLECTION'}</Text>
             <Touchable
               onPress={() => {}}
