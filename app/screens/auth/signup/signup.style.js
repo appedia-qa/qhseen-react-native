@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 7,
   },
   input: {
-    fontFamily: "300",
+    fontWeight: "300",
     fontSize: 12,
   },
   SignButton: {

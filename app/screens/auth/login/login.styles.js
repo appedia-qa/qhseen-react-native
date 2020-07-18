@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 7,
   },
   input: {
+    fontWeight: "300",
     fontSize: 12,
   },
   forgotPWCont: {

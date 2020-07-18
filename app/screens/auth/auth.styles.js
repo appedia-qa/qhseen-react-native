@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { COLOR } from '../../constants';
+import { COLOR, height } from '../../constants';
 
 const styles = StyleSheet.create({
   screen: {
@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
   },
   authTypeContainer: {
     width: '100%',
-    marginTop: 52,
+    marginTop: height * 0.055,
     alignItems: 'center',
     justifyContent: 'space-evenly',
     flexDirection: 'row',

@@ -10,7 +10,7 @@ import {
   Touchable,
   Text,
 } from '../../components';
-import { COLOR, images } from '../../constants';
+import {COLOR, images, width, height} from '../../constants';
 import {Login} from './login';
 import {Signup} from './signup';
 import styles from './auth.styles';
@@ -80,7 +80,10 @@ class Auth extends Component {
         }
         {
           this.state.showSocialAuthOptions ?
-          <View style={styles.socialAuthContainer}>
+          <View style={[
+            styles.socialAuthContainer,
+            this.state.selectedAuthType == authType.LOGIN ? {marginTop: height * 0.08} : {marginTop: 25} 
+          ]}>
             <Text style={styles.socialAuthHeader}>{'Or Join With'}</Text>
             <View style={styles.authIconsContainer}>
               <Touchable style={[styles.socialIconContainer, { marginRight: 30 }]}>
