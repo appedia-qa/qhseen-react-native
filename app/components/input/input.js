@@ -30,6 +30,7 @@ class Input extends Component {
           underlineColorAndroi={'transparent'}
           placeholderTextColor={COLOR.BLACK}
           selectionColor={COLOR.BLACK}
+          keyboardType = {this.props.keyboardType}
           onChangeText={this.props.onChangeText}
           {...this.props}
           style={[styles.input, this.props.style]}
