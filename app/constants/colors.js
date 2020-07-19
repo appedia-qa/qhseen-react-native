@@ -34,6 +34,7 @@ export const COLOR = {
   PROFILE_BG:               '#82375C',
   PROFILE_ITEM:             '#232324',
   DESIGNER_LOC:             '#8E8E93',
+  QR:                       '#82375C',
   LOGO_INSIDE_COLOR:        '#FFF4E6',
   SECONDARY:                '#32db64',
   DANGER:                   '#f53d3d',

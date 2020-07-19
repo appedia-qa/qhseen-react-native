@@ -11,6 +11,8 @@ const chevron = require('../assets/image/profile/chevron-right.png');
 const myorder = require('../assets/image/profile/myorder.png');
 const heart = require('../assets/image/profile/heart.png');
 const cart = require('../assets/image/icons/cart.png');
+const trash = require('../assets/image/icons/trash.png');
+const cartImage = require('../assets/image/Cart/Cart.png');
 const search = require('../assets/image/icons/search.png');
 const slider_image = require('../assets/image/slider-image.png');
 const brand1 = require('../assets/image/brands/brand1.png');
@@ -50,6 +52,8 @@ const images = {
   fbIcon,
   googleIcon,
   eyeOff,
+  trash,
+  cartImage,
 };
 
 export { images };
