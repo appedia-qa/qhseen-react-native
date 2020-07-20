@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
   counterContainer: {
     alignSelf: 'flex-end',
     width: width * 0.379,
-    height: height * 0.0418,
+    // height: height * 0.0418,
     justifyContent: 'space-between',
     alignItems: 'center',
     flexDirection: 'row',
@@ -86,8 +86,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   decrementImage: {
-    width: width * 0.0700,
-    height: width * 0.0700,
+    width: width * 0.05,
+    height: 34,
     marginHorizontal: 10,
   },
   increment: {
@@ -98,8 +98,8 @@ const styles = StyleSheet.create({
     alignItems:'center',
   },
   incrementImage: {
-    width: width * 0.0700,
-    height: width * 0.0700,
+    width: width * 0.05,
+    height: 34,
     marginHorizontal: 10,
   },
   counterNumberStyle: {
@@ -114,6 +114,8 @@ const styles = StyleSheet.create({
   },
   touchableContainer: {
     flexDirection: 'row',
+    marginTop:13,
+    alignSelf: 'center',
   },
   noteText: {
     fontSize: 14,
@@ -123,8 +125,6 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-end',
   },
   noteTextContainer: {
-    marginTop:10,
-    marginLeft:18,
   },
 
 });
