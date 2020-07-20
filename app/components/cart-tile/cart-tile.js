@@ -39,14 +39,14 @@ class CartTile extends Component {
   render() {
     return (
       <Card style={styles.card}>
-        <View style={styles.firstInnerContainer}>
+        <View style={styles.firstContainer}>
           <View style={styles.imageContainer}>
             <Image source={images.cartImage} style={styles.image}/>
           </View>
-          <View style={{marginTop:13}}>
+          <View style={styles.noteTextContainer}>
             <Touchable style={styles.touchableContainer}>
               <Text style={styles.noteText}>Add Note </Text>
-              <FontAwesome5 name="comment" color={"#CE8678"} size={35} />
+              <FontAwesome5 name="comment" color={"#CE8678"} size={25} />
             </Touchable>
           </View>
         </View>
@@ -65,11 +65,13 @@ class CartTile extends Component {
           </View>
           <View style={styles.counterContainer}>
             <Touchable style={styles.decrement} onPress={({type='decrement'})=>this._onPresscounter(type)}>
-                <Text style={styles.decrementText}>{'-   '}</Text>
+                <Image source={images.minus} style={styles.decrementImage}/>
             </Touchable> 
-            <Text style={styles.counterNumber}>{this.state.counter}</Text>
+            <View style={styles.counterNumberStyle}>
+              <Text style={styles.counterNumber}>{this.state.counter}</Text>
+            </View>
             <Touchable style={styles.increment} onPress={({type='increment'})=>this._onPresscounter(type)}>
-                <Text style={styles.incrementText}>{'   +'}</Text>
+                <Image source={images.plus} style={styles.incrementImage}/>
             </Touchable> 
           </View>
         </View>  

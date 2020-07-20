@@ -4,6 +4,7 @@ import {width, height, COLOR} from '../../constants';
 const styles = StyleSheet.create({
   card: {
     width: width * 0.92,
+    height: height * 0.21798,
     borderRadius: 10,
     flexDirection: 'row',
     justifyContent: 'flex-start',
@@ -13,6 +14,8 @@ const styles = StyleSheet.create({
   image: {
     width: width * 0.27,
     height: width * 0.27,
+    // width: 101,
+    // height: 101,
     borderRadius: 15,
   },
   imageContainer:{
@@ -56,7 +59,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     flex:2,
   },
-  firstInnerContainer: {
+  firstContainer: {
     marginTop: 14,
     marginBottom: 16,
     justifyContent:'space-around',
@@ -65,15 +68,14 @@ const styles = StyleSheet.create({
   },
   counterContainer: {
     alignSelf: 'flex-end',
-    width: width * 0.479,
-    height: height * 0.041,
-    justifyContent: 'space-evenly',
+    width: width * 0.379,
+    height: height * 0.0418,
+    justifyContent: 'space-between',
     alignItems: 'center',
     flexDirection: 'row',
     borderWidth: 1,
     borderRadius: 7,
     borderColor: COLOR.TEXT_LIGHT,
-    flex: 1,
     marginRight: 16,
   },
   decrement: {
@@ -82,11 +84,11 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     justifyContent: 'center',
     alignItems: 'center',
-    fontSize: 30,
   },
-  decrementText: {
-    fontSize: 30, 
-    alignSelf: 'center',
+  decrementImage: {
+    width: width * 0.0700,
+    height: width * 0.0700,
+    marginHorizontal: 10,
   },
   increment: {
     borderLeftColor: COLOR.TEXT_LIGHT,
@@ -95,14 +97,20 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     alignItems:'center',
   },
-  incrementText: {
-    fontSize: 30,
+  incrementImage: {
+    width: width * 0.0700,
+    height: width * 0.0700,
+    marginHorizontal: 10,
+  },
+  counterNumberStyle: {
     alignSelf: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   counterNumber: {
     fontSize: 30,
-    alignSelf: 'center',
-    padding: 20,
+    fontWeight: '400',
+    alignSelf : 'center',
   },
   touchableContainer: {
     flexDirection: 'row',
@@ -113,6 +121,10 @@ const styles = StyleSheet.create({
     fontWeight: '300',
     textDecorationLine: 'underline',
     alignSelf: 'flex-end',
+  },
+  noteTextContainer: {
+    marginTop:10,
+    marginLeft:18,
   },
 
 });

@@ -25,6 +25,8 @@ const square = require('../assets/image/icons/square.png');
 const fbIcon = require('../assets/image/icons/bxl-facebook.png');
 const googleIcon = require('../assets/image/icons/bxl-google.png');
 const eyeOff = require('../assets/image/icons/eye-off.png');
+const plus = require('../assets/image/icons/plus.png');
+const minus = require('../assets/image/icons/minus.png');
 
 const images = {
   logo,
@@ -54,6 +56,8 @@ const images = {
   eyeOff,
   trash,
   cartImage,
+  plus,
+  minus,
 };
 
 export { images };
