@@ -23,6 +23,7 @@ const square = require('../assets/image/icons/square.png');
 const fbIcon = require('../assets/image/icons/bxl-facebook.png');
 const googleIcon = require('../assets/image/icons/bxl-google.png');
 const eyeOff = require('../assets/image/icons/eye-off.png');
+const dana = require('../assets/image/designers/dana.png');
 
 const images = {
   logo,
@@ -50,6 +51,7 @@ const images = {
   fbIcon,
   googleIcon,
   eyeOff,
+  dana,
 };
 
 export { images };

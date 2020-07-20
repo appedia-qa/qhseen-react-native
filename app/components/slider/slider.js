@@ -20,11 +20,17 @@ class Slider extends Component {
         <Swiper
           dot={ <View style={[styles.sliderDot, this.props.dotStyle]} />}
           activeDot={ <View style={[styles.sliderActiveDot, this.props.activeDotStyle]} />}
-          paginationStyle={{ bottom: 15 }}
+          paginationStyle={[
+            { bottom: 15 },
+            this.props.paginationStyle? this.props.paginationStyle : null
+          ]}
           autoplay
           autoplayTimeout={1.5}
         >
           {
+            this.props.renderedContent?
+            this.props.renderedContent()
+            :
             content.map((item, index) => {
               return (
                 <Image
