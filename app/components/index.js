@@ -8,4 +8,3 @@ export * from './input';
 export * from './header';
 export * from './snap-carousel';
 export * from './slider';
-export * from './cart-tile';

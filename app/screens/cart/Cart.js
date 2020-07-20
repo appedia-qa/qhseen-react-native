@@ -6,7 +6,9 @@ import {
   Text
 } from 'react-native';
 
-import { Header, CartTile} from '../../components';
+import {COLOR} from '../../constants';
+import {Header, Input, Touchable, Button,} from '../../components';
+import {CartTile} from './cart-tile/cart-tile';
 import styles from './cart.style';
 
 class Cart extends Component {
@@ -16,29 +18,64 @@ class Cart extends Component {
         <Header
           onSearchPress={() => alert('asds')}
         />
-        <View style={styles.headingContainer}>
-          <Text style={styles.sectionHeading}>{'CART'}</Text>
-        </View>
-          <ScrollView
-            showsVerticalScrollIndicator={false}
-            bounces={false}
-            style={styles.cartScrollView}>
-           
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          bounces={false}
+          style={styles.cartScrollView}>
+          <View style={styles.cartView}>
+            <Text style={styles.sectionHeading}>CART</Text>
             <FlatList
-              data={[1,2,2,2,2,2,2]}
+              data={[1,2,2,2,2]}
+              showsVerticalScrollIndicator={false}
               renderItem={() => (
                 <View style={styles.cardTileContainer}>
                   <CartTile/>
                 </View>
               )}
               numColumns={1}
-              ItemSeparatorComponent={() => <View style={{ height: 13.5 }} />}
+              ItemSeparatorComponent={() => <View style={{ height: 15 }} />}
               keyExtractor={(item, index) => String(index)}
-              contentContainerStyle={{ paddingBottom: 5 }}
+              contentContainerStyle={{ marginBottom: 95 }}
             />
-          </ScrollView>
-        </View>
-
+            <View style={styles.couponContainer}>
+              <Input
+                  containerStyles={styles.inputContainer}
+                  placeholder={'Enter Coupon Code'}
+                  placeholderTextColor={COLOR.DESIGNER_LOC}
+                  textAlign={'center'}
+                  style={styles.input}
+              />
+              <Touchable style={styles.couponContainerButton}>
+                <Text style={styles.couponButtonText}>{'ADD COUPON'}</Text>
+              </Touchable>
+            </View>
+            <View style={styles.detailContainer}>
+              <View style={styles.textContainer}>
+                <Text style={styles.leftText}>{'Subtotal'}</Text>
+                <Text style={styles.rightText}>{"QR 000.00"}</Text>
+              </View>
+              <View style={styles.textContainer}>
+                <Text style={styles.leftText}>{'Discount'}</Text>
+                <Text style={styles.rightText}>{'5%'}</Text>
+              </View>
+              <View style={styles.textContainer}>
+                <Text style={styles.leftText}>{'Shipping'}</Text>
+                <Text style={styles.rightText}>{'QR 000.00'}</Text>
+              </View>
+              <View style={styles.divider}/>
+              <View style={styles.totalTextContainer}>
+                <Text style={styles.total}>{'Total'}</Text>
+                <Text style={styles.totalValue}>{'QR 000.00'}</Text>
+              </View>
+            </View>
+            <Button
+              buttonTitle={'CHECKOUT'}
+              buttonStyles={styles.CheckoutButton}
+              buttonTitleStyles={styles.CheckoutButtonTitle}
+            />
+          </View>
+        </ScrollView>
+      </View>
     );
   }
 }

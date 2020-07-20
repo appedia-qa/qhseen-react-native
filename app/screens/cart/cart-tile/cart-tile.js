@@ -9,10 +9,9 @@ import {
   Text,
   Touchable,
   Card,
-  Button,
-} from '../';
+} from '../../../components';
 import styles from './cart-tile.style';
-import { images } from '../../constants';
+import { images } from '../../../constants';
 
 class CartTile extends Component {
   constructor(props) {
@@ -40,28 +39,22 @@ class CartTile extends Component {
     return (
       <Card style={styles.card}>
         <View style={styles.firstContainer}>
-          {/* <View style={styles.imageContainer}> */}
-            <Image source={images.cartImage} style={styles.image}/>
-          {/* </View> */}
-          {/* <View style={styles.noteTextContainer}> */}
-            <Touchable style={styles.touchableContainer}>
-              <Text style={styles.noteText}>Add Note </Text>
-              <FontAwesome5 name="comment" color={"#CE8678"} size={25} />
-            </Touchable>
-          {/* </View> */}
+          <Image source={images.cartImage} style={styles.image}/>
+          <Touchable style={styles.noteTextContainer}>
+            <Text style={styles.noteText}>Add Note </Text>
+            <FontAwesome5 name="comment" color={"#CE8678"} size={25} />
+          </Touchable>
         </View>
         <View style={styles.secondContainer}>
           <View style={styles.secondInnerContainer}>
             <View style={styles.productContainer}>
               <Text style={styles.productNameText}>Product Name</Text>
               <Text style={styles.designerNameText}>Designer Name</Text>
-              <Text style={styles.QRText}>QR 250</Text>
+              <Text style={styles.price}>QR 250</Text>
             </View>
-            <View style={styles.iconContainer}>
-              <Touchable>
-                <Image source={images.trash} style={styles.icon}/>
-              </Touchable>
-            </View>
+            <Touchable style={styles.trashContainer}>
+              <Image source={images.trash} style={styles.trashIcon}/>
+            </Touchable>
           </View>
           <View style={styles.counterContainer}>
             <Touchable style={styles.decrement} onPress={({type='decrement'})=>this._onPresscounter(type)}>
