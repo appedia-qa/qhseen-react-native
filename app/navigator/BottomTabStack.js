@@ -8,7 +8,8 @@ import {icons} from '../helpers';
 import Profile from '../screens/profile/index';
 import Home from '../screens/home';
 import Cart from '../screens/cart';
-import Designers from '../screens/designers';
+import DesignerStack from '../navigator/DesignerStack';
+import Category from '../screens/category';
 
 import styles from './bottomTabStyle';
 
@@ -36,22 +37,31 @@ function tabNavigator() {
         name={screens.home}
         options={{
           tabBarLabel: screens.home,
-          tabBarIcon:icons.home
+          tabBarIcon: icons.home, 
         }}
         component={Home}
       />
       <BottomTabs.Screen
-        name={screens.designers}
+        name={screens.category}
         options={{
-          tabBarLabel: screens.designers
+          tabBarLabel: screens.category,
+          tabBarIcon: icons.category,
         }}
-        component={Designers}
+        component={Category}
+      />
+      <BottomTabs.Screen
+        name={screens.designerStack}
+        options={{
+          tabBarLabel: 'Designer',
+          tabBarIcon: icons.designer,
+        }}
+        component={DesignerStack}
       />
       <BottomTabs.Screen
         name={screens.profile}
         options={{
           tabBarLabel: screens.profile,
-          tabBarIcon:icons.profile
+          tabBarIcon: icons.profile,
           }}
         component={Profile}
       />
@@ -59,7 +69,7 @@ function tabNavigator() {
         name={screens.cart}
         options={{
           tabBarLabel: screens.cart,
-          tabBarIcon:icons.cart
+          tabBarIcon: icons.cart,
           }}
         component={Cart}
       />
@@ -78,31 +88,41 @@ function materialTabNavigator() {
       <MaterialBottomTabs.Screen
         name={screens.home}
         options={{
-          tabBarLabel: screens.home
+          tabBarLabel: screens.home,
+          tabBarIcon: icons.home,
         }}
         component={Home}
       />
       <MaterialBottomTabs.Screen
-        name={screens.designers}
+        name={screens.category}
         options={{
-          tabBarLabel: screens.designers
+          tabBarLabel: screens.category,
+          tabBarIcon: icons.category,
         }}
-        component={Designers}
+        component={Category}
+      />
+      <MaterialBottomTabs.Screen
+        name={screens.designerStack}
+        options={{
+          tabBarLabel: 'Designer',
+          tabBarIcon: icons.designer,
+        }}
+        component={DesignerStack}
       />
       <MaterialBottomTabs.Screen
         name={screens.profile}
         options={{
           tabBarLabel: screens.profile,
-          tabBarIcon:icons.profile
-          }}
+          tabBarIcon: icons.profile,
+        }}
         component={Profile}
       />
       <MaterialBottomTabs.Screen
         name={screens.cart}
         options={{
           tabBarLabel: screens.cart,
-          tabBarIcon:icons.cart
-          }}
+          tabBarIcon: icons.cart,
+        }}
         component={Cart}
       />
     </MaterialBottomTabs.Navigator>

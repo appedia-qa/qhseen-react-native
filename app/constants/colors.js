@@ -33,6 +33,7 @@ export const COLOR = {
   PRIMARY_COLOR:            '#CE8678',
   PROFILE_BG:               '#82375C',
   PROFILE_ITEM:             '#232324',
+  LOCATION_TEXT:            '#2A3747',
   PRODUCT_TEXT:             '#434343',
   DESIGNER_LOC:             '#8E8E93',
   COUPON_TEXT:              '#919191',

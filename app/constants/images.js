@@ -30,7 +30,12 @@ const minus = require('../assets/image/icons/minus.png');
 const dana = require('../assets/image/designers/dana.png');
 const anissa_cover = require('../assets/image/designers/anissa-cover.png');
 const sarah_cover = require('../assets/image/designers/sarah-cover.png');
-
+const blonde_cover = require('../assets/image/designers/blonde.png');
+const category_cover = require('../assets/image/category/category-cover.png');
+const category = require('../assets/image/category/category.png');
+const category1 = require('../assets/image/category/category1.png');
+const category2 = require('../assets/image/category/category2.png');
+const rectangle = require('../assets/image/category/rectangle.png');
 const images = {
   logo,
   step1Image,
@@ -64,6 +69,12 @@ const images = {
   dana,
   anissa_cover,
   sarah_cover,
+  blonde_cover,
+  category_cover,
+  category,
+  category1,
+  category2,
+  rectangle,
 };
 
 export { images };

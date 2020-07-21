@@ -1,3 +1,3 @@
-import Designer from './designers';
+import Designers from './designers';
 
-export default Designer;
+export default Designers;

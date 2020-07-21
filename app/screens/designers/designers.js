@@ -12,6 +12,7 @@ import {
   Card,
   Touchable,
 } from '../../components';
+import {screens} from '../../config';
 import {images, data} from '../../constants';
 import styles from './designers.styles';
 
@@ -32,11 +33,12 @@ class Designers extends Component {
       );
     });
   }
-  _renderItem = ({ item, index }) => {
+  _renderItem = ({item}) => {
     return (
       <Card style={styles.designerCard}>
         <Touchable
           style={{ width: '100%', alignItems: 'center' }}
+          onPress={()=>{this.props.navigation.navigate(screens.designerdetail,{item})}}
         >
           <Image
             source={images.dana}
