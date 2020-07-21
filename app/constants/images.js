@@ -27,6 +27,9 @@ const googleIcon = require('../assets/image/icons/bxl-google.png');
 const eyeOff = require('../assets/image/icons/eye-off.png');
 const plus = require('../assets/image/icons/plus.png');
 const minus = require('../assets/image/icons/minus.png');
+const dana = require('../assets/image/designers/dana.png');
+const anissa_cover = require('../assets/image/designers/anissa-cover.png');
+const sarah_cover = require('../assets/image/designers/sarah-cover.png');
 
 const images = {
   logo,
@@ -58,6 +61,9 @@ const images = {
   cartImage,
   plus,
   minus,
+  dana,
+  anissa_cover,
+  sarah_cover,
 };
 
 export { images };

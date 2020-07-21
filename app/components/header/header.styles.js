@@ -4,7 +4,11 @@ import {width, height, COLOR} from '../../constants';
 const styles = StyleSheet.create({
   safeArea: {
     width,
-    backgroundColor: COLOR.WHITE,
+  },
+  transparentStyles: {
+    backgroundColor: COLOR.transparent,
+    position: 'absolute',
+    zIndex: 10,
   },
   headerContainer: {
     paddingVertical: 10,

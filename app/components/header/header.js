@@ -15,7 +15,7 @@ import styles from './header.styles';
 
 class Header extends Component {
   render() {
-    const shadowStyles = !this.props.transparent? styles.shadowStyles : null;
+    const shadowStyles = this.props.transparent? styles.transparentStyles : styles.shadowStyles;
     return (
       <SafeAreaView style={[styles.safeArea, shadowStyles, this.props.headerContainer]}>
         <View style={styles.headerContainer}>
