@@ -5,6 +5,7 @@ export const screens = {
   profile: 'Profile',
   home: 'Home',
   cart: 'Cart',
+  designers: 'Designers',
 
   step1: 'step1',
   step2: 'step2',

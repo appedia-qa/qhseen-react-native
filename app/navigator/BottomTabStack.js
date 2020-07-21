@@ -8,6 +8,7 @@ import {icons} from '../helpers';
 import Profile from '../screens/profile/index';
 import Home from '../screens/home';
 import Cart from '../screens/cart';
+import Designers from '../screens/designers';
 
 import styles from './bottomTabStyle';
 
@@ -29,7 +30,6 @@ function tabNavigator() {
   return(
     <BottomTabs.Navigator
       headerMode='none'
-      initialRouteName="screens.app"
       tabBarOptions= {barStyleIos.tabBarOptions}         
     >
       <BottomTabs.Screen
@@ -39,6 +39,13 @@ function tabNavigator() {
           tabBarIcon:icons.home
         }}
         component={Home}
+      />
+      <BottomTabs.Screen
+        name={screens.designers}
+        options={{
+          tabBarLabel: screens.designers
+        }}
+        component={Designers}
       />
       <BottomTabs.Screen
         name={screens.profile}
@@ -64,10 +71,9 @@ function materialTabNavigator() {
   return (
     <MaterialBottomTabs.Navigator
       headerMode='none'
-      initialRouteName="screens.app"
       activeColor="#CE8677"
       inactiveColor="#8F8E93"
-      barStyle= {styles.barStyle}            
+      barStyle={styles.barStyle}
     >
       <MaterialBottomTabs.Screen
         name={screens.home}
@@ -75,6 +81,13 @@ function materialTabNavigator() {
           tabBarLabel: screens.home
         }}
         component={Home}
+      />
+      <MaterialBottomTabs.Screen
+        name={screens.designers}
+        options={{
+          tabBarLabel: screens.designers
+        }}
+        component={Designers}
       />
       <MaterialBottomTabs.Screen
         name={screens.profile}
