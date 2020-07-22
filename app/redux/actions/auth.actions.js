@@ -5,7 +5,7 @@ import {
   USER_LOGIN_FAILED,
 } from '../types';
 
-export const onboardingActionCreator = {
+export const authActionsCreator = {
   userLoginRequest: createAction(USER_LOGIN_REQUEST),
   userLoginSuccess: createAction(USER_LOGIN_SUCCESS),
   userLoginFailed: createAction(USER_LOGIN_FAILED),
