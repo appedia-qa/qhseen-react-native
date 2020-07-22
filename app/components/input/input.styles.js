@@ -21,6 +21,11 @@ const styles = StyleSheet.create({
     paddingVertical: 0,
     color: COLOR.BLACK,
   },
+  warningMessage: {
+    fontSize: 11,
+    color: COLOR.RED,
+    marginLeft: 5,
+  },
 });
 
 export default styles;

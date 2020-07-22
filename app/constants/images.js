@@ -36,6 +36,8 @@ const category = require('../assets/image/category/category.png');
 const category1 = require('../assets/image/category/category1.png');
 const category2 = require('../assets/image/category/category2.png');
 const rectangle = require('../assets/image/category/rectangle.png');
+const eye = require('../assets/image/icons/eye.png');
+
 const images = {
   logo,
   step1Image,
@@ -75,6 +77,7 @@ const images = {
   category1,
   category2,
   rectangle,
+  eye,
 };
 
 export { images };

@@ -14,10 +14,12 @@ import {COLOR, images, width, height} from '../../constants';
 import {Login} from './login';
 import {Signup} from './signup';
 import styles from './auth.styles';
+import { SignupDesigner } from './signupDesigner';
 
 let authType = {
   LOGIN: 'LOG IN',
-  SIGNUP: 'SIGN UP'
+  SIGNUP: 'SIGN UP',
+  DESIGNER: 'DESIGNER',
 }
 
 class Auth extends Component {
@@ -30,16 +32,23 @@ class Auth extends Component {
     };
 
     this._onPressAuthType = this._onPressAuthType.bind(this);
+    this._loginUser = this._loginUser.bind(this);
   }
 
   _onPressAuthType(type) {
     if (this.state.selectedAuthType != type) this.setState({selectedAuthType: type});
   }
 
+  _loginUser(params) {
+    console.log(params);
+  }
+
   render() {
     const {selectedAuthType} = this.state;
     return (
-      <ScrollView style={styles.screen}>
+      <ScrollView
+        style={styles.screen}
+        contentContainerStyle={{paddingBottom: 20}}>
         <Header />
 
         <View style={styles.authTypeContainer}>
@@ -61,11 +70,11 @@ class Auth extends Component {
             <View style={styles.itemContainer}>
               <Text style={[
                 styles.authItemText,
-                selectedAuthType != authType.SIGNUP? { color: COLOR.TEXT_GRAY } : null
+                selectedAuthType != authType.SIGNUP && selectedAuthType != authType.DESIGNER? { color: COLOR.TEXT_GRAY } : null
               ]}>
                 {authType.SIGNUP}
               </Text>
-              { (selectedAuthType == authType.SIGNUP) &&
+              { (selectedAuthType == authType.SIGNUP || selectedAuthType == authType.DESIGNER) &&
                   <View style={[styles.highlighter, styles.selectedAuthBar]} />
               }
             </View>
@@ -73,13 +82,19 @@ class Auth extends Component {
         </View>
         {
           selectedAuthType === authType.LOGIN?
-          <Login/>:
+          <Login
+            loginPress={this._loginUser}
+          />:
           selectedAuthType === authType.SIGNUP?
-          <Signup/>:
+          <Signup
+            selectDesignerSignup={() => this.setState({ selectedAuthType: authType.DESIGNER })}
+          />:
+          selectedAuthType === authType.DESIGNER?
+          <SignupDesigner />:
           null
         }
         {
-          this.state.showSocialAuthOptions ?
+          this.state.showSocialAuthOptions && selectedAuthType !== authType.DESIGNER?
           <View style={[
             styles.socialAuthContainer,
             this.state.selectedAuthType == authType.LOGIN ? {marginTop: height * 0.08} : {marginTop: 25} 

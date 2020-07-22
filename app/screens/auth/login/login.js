@@ -11,9 +11,36 @@ import { COLOR, images } from '../../../constants';
 import styles from './login.styles';
 
 class Login extends Component {
-  state = {
-    rememberMe: false
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      rememberMe: false,
+      showWarning: false,
+      showPassword: false,
+      form: {
+        email: '',
+        password: '',
+      },
+    };
+
+    this._handleHandleLogin = this._handleHandleLogin.bind(this);
+  }
+
+  _handleHandleLogin() {
+    const { form } = this.state;
+    if (form.email.length == 0 || form.password.length == 0) {
+      this.setState({
+        showWarning: true,
+      });
+    } else {
+      this.props.loginPress({
+        email: form.email,
+        password: form.password,
+      });
+    }
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -24,6 +51,11 @@ class Login extends Component {
             placeholder={'Enter your email address'}
             placeholderTextColor={COLOR.TEXT_LIGHT}
             style={styles.input}
+            showWarning={this.state.showWarning}
+            value={this.state.form.email}
+            onChangeText={(text) => {
+              this.setState({...this.state, form: {...this.state.form, email: text}});
+            }}
           />
         </View>
         <View style={{ height: 19 }} />
@@ -34,8 +66,14 @@ class Login extends Component {
             placeholder={'Enter your Password'}
             placeholderTextColor={COLOR.TEXT_LIGHT}
             style={styles.input}
-            rightIcon={images.eyeOff}
-            onRightIconsPress={()=>{}}
+            rightIcon={this.state.showPassword? images.eye : images.eyeOff}
+            onRightIconsPress={()=> this.setState({ showPassword: !this.state.showPassword })}
+            showWarning={this.state.showWarning}
+            value={this.state.form.password}
+            onChangeText={(text) => {
+              this.setState({...this.state, form: {...this.state.form, password: text}});
+            }}
+            secureTextEntry={!this.state.showPassword}
           />
         </View>
         <Touchable
@@ -48,6 +86,7 @@ class Login extends Component {
           buttonTitle={'LOG IN'}
           buttonStyles={styles.loginButton}
           buttonTitleStyles={styles.loginButtonTitle}
+          onPress={this._handleHandleLogin}
         />
         <View style={styles.rememberMeContainer}>
           {/* <Touchable>

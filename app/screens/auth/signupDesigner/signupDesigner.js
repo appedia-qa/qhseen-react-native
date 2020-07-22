@@ -18,7 +18,7 @@ class SignupDesigner extends Component {
     
   render() {
     return (
-      <>
+      <View style={styles.container}>
         <View>
           <Text style={styles.inputHeading}>{'First Name'}</Text>
           <Input
@@ -107,7 +107,7 @@ class SignupDesigner extends Component {
           buttonStyles={styles.SignButton}
           buttonTitleStyles={styles.SignButtonTitle}
         />
-      </>
+      </View>
     );
   }
 }
