@@ -105,18 +105,107 @@ const data = {
     {
       image: images.category1,
       name: 'Fashion',
+      product: [
+        {
+          images: images.cate1,
+          price: "QR 400",
+          productName: 'productGood'
+        },
+        {
+          images: images.cate2,
+          price: 'QR 1900',
+          productName: 'productName'
+        },
+        {
+          images: images.cate3,
+          price: 'QR 1000',
+          productName: 'productName'
+        },        
+        {
+          images: images.cate4,
+          price: 'QR 1300',
+          productName: 'productName'
+      },
+      ],
+
     },
     {
       image: images.category,
       name: 'Beauty',
+      product: [
+        {
+          images: images.b1,
+          price: "QR 400",
+          productName: 'productGood'
+        },
+        {
+          images: images.b2,
+          price: 'QR 1900',
+          productName: 'productName'
+        },
+        {
+          images: images.b1,
+          price: 'QR 1000',
+          productName: 'productName'
+        },        
+        {
+          images: images.b2,
+          price: 'QR 1300',
+          productName: 'productName'
+      },
+      ],
     },
     {
       image: images.category2,
       name: 'Jewellery',
+      product: [
+        {
+          images: images.j,
+          price: "QR 400",
+          productName: 'productGood'
+        },
+        {
+          images: images.j,
+          price: 'QR 1900',
+          productName: 'productName'
+        },
+        {
+          images: images.j,
+          price: 'QR 1000',
+          productName: 'productName'
+        },        
+        {
+          images: images.j,
+          price: 'QR 1300',
+          productName: 'productName'
+      },
+      ],
     },
     {
       image: images.category1,
       name: 'Bags & Accessories',
+      product: [
+        {
+          images: images.a1,
+          price: "QR 400",
+          productName: 'productGood'
+        },
+        {
+          images: images.a2,
+          price: 'QR 1900',
+          productName: 'productName'
+        },
+        {
+          images: images.a1,
+          price: 'QR 1000',
+          productName: 'productName'
+        },        
+        {
+          images: images.a2,
+          price: 'QR 1300',
+          productName: 'productName'
+      },
+      ],
     },
   ]
 };
