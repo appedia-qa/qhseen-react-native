@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
     height: height * 0.6,
     marginTop:40,
     ...StyleSheet.absoluteFillObject,
+    zIndex: -10,
   },
   designerAlign: {
     justifyContent:'flex-end',

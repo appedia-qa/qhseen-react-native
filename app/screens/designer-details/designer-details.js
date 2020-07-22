@@ -22,9 +22,9 @@ class DesignerDetails extends Component {
       <View style={styles.screen}>
         <Header/>
         <Image
-            source={images.blonde_cover}
-            style={styles.designerCover}
-            resizeMode= 'cover'
+          source={images.blonde_cover}
+          style={styles.designerCover}
+          resizeMode= 'cover'
         />
         <View style={styles.designerAlign}>
           <View style={styles.contentContainer}>
@@ -51,21 +51,21 @@ class DesignerDetails extends Component {
                   <Text style={styles.tagsHeading}>{'Tags'}</Text>
                 </View>
                 <FlatList
-                    data={designer.tags}
-                    renderItem={({item}) => {
-                      return (
-                        <View style={styles.tagsContainer}>
-                          <Text style={styles.tags}>{item}</Text>
-                        </View>
-                      );
-                    }}
-                    ItemSeparatorComponent={() => <View style={{ height: 13 }} />}
-                    keyExtractor={(item, index) => String(index)}
-                    style={{ flex: 1 }}
-                    horizontal
-                    contentContainerStyle={{marginLeft:25 ,marginBottom:10,}}
-                    showsHorizontalScrollIndicator={false}
-                    bounces={false}
+                  data={designer.tags}
+                  renderItem={({item}) => {
+                    return (
+                      <View style={styles.tagsContainer}>
+                        <Text style={styles.tags}>{item}</Text>
+                      </View>
+                    );
+                  }}
+                  ItemSeparatorComponent={() => <View style={{ height: 13 }} />}
+                  keyExtractor={(item, index) => String(index)}
+                  style={{ flex: 1 }}
+                  horizontal
+                  contentContainerStyle={{marginLeft:25 ,marginBottom:10,}}
+                  showsHorizontalScrollIndicator={false}
+                  bounces={false}
                 />
                 <View style={styles.messageContainer}>          
                   <View style={styles.divider}/>
