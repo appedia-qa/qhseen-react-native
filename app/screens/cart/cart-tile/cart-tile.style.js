@@ -20,7 +20,8 @@ const styles = StyleSheet.create({
   },
   image: {
     width: width * 0.27,
-    height: width * 0.27,
+    aspectRatio: 1,
+    alignSelf: 'center',
     // width: 101,
     // height: 101,
     borderRadius: 15,

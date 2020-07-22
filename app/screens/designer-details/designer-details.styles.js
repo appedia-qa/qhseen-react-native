@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     height: height,
     borderTopLeftRadius: 28,
     borderTopRightRadius: 28,
-    paddingTop: 46,
+    paddingTop: height * 0.065,
     backgroundColor: COLOR.WHITE,
     flex:1,
   },
