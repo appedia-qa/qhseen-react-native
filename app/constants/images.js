@@ -37,7 +37,19 @@ const category1 = require('../assets/image/category/category1.png');
 const category2 = require('../assets/image/category/category2.png');
 const rectangle = require('../assets/image/category/rectangle.png');
 const eye = require('../assets/image/icons/eye.png');
-const designersURL = `http://qsheen.appedia.qa/designers/`;
+const back = require('../assets/image/icons/arrowback.png');
+const cate1 = require('../assets/image/category/f1.png');
+const cate2 = require('../assets/image/category/f2.png');
+const cate3 = require('../assets/image/category/f3.png');
+const cate4 = require('../assets/image/category/f4.png');
+const cate5 = require('../assets/image/category/f5.png');
+const category_detail_cover = require('../assets/image/category/category-detail.png');
+const a1 = require('../assets/image/category/a1.png');
+const a2 = require('../assets/image/category/a2.png');
+const b1 = require('../assets/image/category/b1.png');
+const b2 = require('../assets/image/category/b2.png');
+const j = require('../assets/image/category/j.png');
+
 const images = {
   logo,
   step1Image,
@@ -78,6 +90,18 @@ const images = {
   category2,
   rectangle,
   eye,
+  back,
+  cate1,
+  cate2,
+  cate3,
+  cate4,
+  cate5,
+  category_detail_cover,
+  a1,
+  a2,
+  b1,
+  b2,
+  j,
 };
 
-export { images, designersURL };
+export { images };

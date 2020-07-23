@@ -1,16 +1,11 @@
 import React, { Component} from 'react';
 import {
   View,
-  Image,
 } from 'react-native';
 
 import {
-  Text,
-  Touchable,
+  DropDownHolder
 } from '../../components';
-import {
-  data,
-} from '../../constants';
 import Auth from '../auth';
 import ProfileSection from './profile-section';
 import styles from './profile.style';
@@ -21,10 +16,15 @@ class Profile extends Component {
   }
 
   render() {
-    const profile = data.profile;
+    const {authData} = this.props;
     return (
       <View style={styles.screen}>
-        <Auth navigation={this.props.navigation} />
+        {
+          !authData.data? 
+          <Auth navigation={this.props.navigation} />
+          :
+          <ProfileSection />
+        }
       </View>
     );
   }

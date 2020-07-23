@@ -9,7 +9,7 @@ import Profile from '../screens/profile/index';
 import Home from '../screens/home';
 import Cart from '../screens/cart';
 import DesignerStack from '../navigator/DesignerStack';
-import Category from '../screens/category';
+import CategoryStack from '../navigator/CategoryStack';
 
 import styles from './bottomTabStyle';
 
@@ -42,12 +42,12 @@ function tabNavigator() {
         component={Home}
       />
       <BottomTabs.Screen
-        name={screens.category}
+        name={screens.categoryStack}
         options={{
-          tabBarLabel: screens.category,
+          tabBarLabel: 'Category',
           tabBarIcon: icons.category,
         }}
-        component={Category}
+        component={CategoryStack}
       />
       <BottomTabs.Screen
         name={screens.designerStack}
@@ -99,7 +99,7 @@ function materialTabNavigator() {
           tabBarLabel: screens.category,
           tabBarIcon: icons.category,
         }}
-        component={Category}
+        component={CategoryStack}
       />
       <MaterialBottomTabs.Screen
         name={screens.designerStack}

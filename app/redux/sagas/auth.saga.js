@@ -2,14 +2,23 @@ import { take, put, call, fork, all } from 'redux-saga/effects';
 import {
   USER_LOGIN_REQUEST,
 } from '../types';
+import {
+  authActionsCreator,
+} from '../actions';
 import { login } from '../api';
 
 function* loginSaga({ payload }) {
   try {
     const response = yield call(login, payload);
-    console.log(response);
+    if (response.success) {
+      const user = {
+        ...response.user,
+        token: response.success.token,
+      };
+      yield put(authActionsCreator.userLoginSuccess({ user }));
+    }
   } catch(err) {
-    console.log(err);
+    yield put(authActionsCreator.userLoginFailed({ error: err? err : 'User Login Failed!' }));
   }
 }
 

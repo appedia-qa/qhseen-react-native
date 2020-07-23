@@ -39,6 +39,8 @@ export const COLOR = {
   COUPON_TEXT:              '#919191',
   TOTAL:                    '#585B5E',
   QR:                       '#82375C',
+  BACK:                     '#FFF4E8',
+  LOADMORE:                 '#3A333E',
   LOGO_INSIDE_COLOR:        '#FFF4E6',
   COUPON_COLOR:             '#FCFCFC',
   SECONDARY:                '#32db64',
