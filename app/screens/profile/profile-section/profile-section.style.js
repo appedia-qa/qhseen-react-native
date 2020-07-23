@@ -4,13 +4,15 @@ import {width, height, COLOR} from '../../../constants';
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    justifyContent: 'flex-end',
     alignItems: 'center',
     backgroundColor: COLOR.PROFILE_BG,
+    zIndex: 10,
   },
   contentContainer: {
     width,
-    height: height * 0.80,
+    height: height * 0.634,
+    justifyContent: 'flex-start',
+    marginTop: height * 0.074,
   },
   profileImage: {
     width: width * 0.362,
@@ -21,6 +23,8 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
     justifyContent: 'flex-start',
     top:height * 0.04,
+    zIndex: -10,
+
   },
   profileEdit: {
     width: width * 0.1,
@@ -30,7 +34,6 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-end',
     alignItems: 'flex-end',
     justifyContent: 'flex-end',
-    // padding:
   },
   align: {
     width: width,
@@ -42,6 +45,7 @@ const styles = StyleSheet.create({
     justifyContent:'flex-start',
     alignItems: 'center',
     alignSelf: 'center',
+    paddingBottom: 120,
   },
   heading:{
     width:width * 0.32,
@@ -49,7 +53,7 @@ const styles = StyleSheet.create({
     color: COLOR.PROFILE_BG,
     fontWeight: '700',
     fontSize: 24,
-    marginBottom: 38,
+    marginBottom: 32,
   },
   details:{
     width:width * 0.9,
