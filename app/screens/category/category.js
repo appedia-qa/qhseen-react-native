@@ -13,6 +13,7 @@ import {
   Card,
   Touchable,
 } from '../../components';
+import {screens} from '../../config';
 import {images, data} from '../../constants';
 import styles from './category.style';
 
@@ -38,7 +39,7 @@ class Category extends Component {
     return (
       <Touchable
         style={{ width: '100%', alignItems: 'center' }}
-        onPress={()=>{}}
+        onPress={()=>{this.props.navigation.navigate(screens.categorydetail,{item})}}
       >
         <ImageBackground
           source={item.image}
