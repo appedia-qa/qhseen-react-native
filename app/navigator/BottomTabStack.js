@@ -99,7 +99,7 @@ function materialTabNavigator() {
           tabBarLabel: screens.category,
           tabBarIcon: icons.category,
         }}
-        component={Category}
+        component={CategoryStack}
       />
       <MaterialBottomTabs.Screen
         name={screens.designerStack}
