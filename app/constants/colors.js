@@ -38,6 +38,7 @@ export const COLOR = {
   DESIGNER_LOC:             '#8E8E93',
   COUPON_TEXT:              '#919191',
   TOTAL:                    '#585B5E',
+  RESET_TEXT:               'rgba(189,198,207,0.1)',
   QR:                       '#82375C',
   BACK:                     '#FFF4E8',
   LOADMORE:                 '#3A333E',

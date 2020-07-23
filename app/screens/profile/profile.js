@@ -20,9 +20,10 @@ class Profile extends Component {
     return (
       <View style={styles.screen}>
         {
-          !authData.data? 
-          <ProfileSection />:
+          !authData.data?     
           <Auth navigation={this.props.navigation} />
+          :
+          <ProfileSection />
         }
       </View>
     );

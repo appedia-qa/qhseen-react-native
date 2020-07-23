@@ -95,13 +95,17 @@ class Auth extends Component {
             selectedAuthType === authType.LOGIN?
             <Login
               loginPress={this._loginUser}
+              navigation={this.props.navigation}
             />:
             selectedAuthType === authType.SIGNUP?
             <Signup
               selectDesignerSignup={() => this.setState({ selectedAuthType: authType.DESIGNER })}
+              navigation={this.props.navigation}
             />:
             selectedAuthType === authType.DESIGNER?
-            <SignupDesigner />:
+            <SignupDesigner
+              navigation={this.props.navigation}
+             />:
             null
           }
           {
