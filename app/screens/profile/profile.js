@@ -4,6 +4,7 @@ import {
 } from 'react-native';
 
 import {
+  DropDownHolder
 } from '../../components';
 import Auth from '../auth';
 import ProfileSection from './profile-section';
@@ -15,6 +16,7 @@ class Profile extends Component {
   }
 
   render() {
+    const {authData} = this.props;
     return (
       <View style={styles.screen}>
         {

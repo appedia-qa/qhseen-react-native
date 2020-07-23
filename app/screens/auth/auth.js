@@ -10,6 +10,7 @@ import {
   Touchable,
   Text,
   Spinner,
+  DropDownHolder,
 } from '../../components';
 import {COLOR, images, width, height} from '../../constants';
 import {Login} from './login';
@@ -34,6 +35,12 @@ class Auth extends Component {
 
     this._onPressAuthType = this._onPressAuthType.bind(this);
     this._loginUser = this._loginUser.bind(this);
+  }
+
+  componentDidUpdate() {
+    if (this.props.authData.error) {
+      DropDownHolder.alert('error', 'Error', this.props.authData.error);
+    }
   }
 
   _onPressAuthType(type) {
