@@ -37,7 +37,7 @@ const category1 = require('../assets/image/category/category1.png');
 const category2 = require('../assets/image/category/category2.png');
 const rectangle = require('../assets/image/category/rectangle.png');
 const eye = require('../assets/image/icons/eye.png');
-
+const designersURL = `http://qsheen.appedia.qa/designers/`;
 const images = {
   logo,
   step1Image,
@@ -80,4 +80,4 @@ const images = {
   eye,
 };
 
-export { images };
+export { images, designersURL };

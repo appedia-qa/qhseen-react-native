@@ -14,9 +14,14 @@ import {
   Touchable,
 } from '../../components';
 import {images, data} from '../../constants';
+import { STORAGE_URL } from '../../config';
 import styles from './category.style';
 
 class Category extends Component {
+  componentDidMount() {
+    this.props.fetchCategoriesRequest();
+  }
+
   _sliderContent = () => {
     return [1,2,2].map(item => {
       return (
@@ -41,7 +46,7 @@ class Category extends Component {
         onPress={()=>{}}
       >
         <ImageBackground
-          source={item.image}
+        source={{uri: STORAGE_URL+'category/'+item.cover_img}}
           style={styles.categoryCover}
           resizeMode="cover"
         >
@@ -53,6 +58,7 @@ class Category extends Component {
   }
   render() {
     const {category} = data;
+    const {categoriesData} = this.props;
     return (
       <View style={styles.screen}>
         <Header
@@ -67,7 +73,7 @@ class Category extends Component {
         />
         <Card style={styles.listContainer}>
           <FlatList
-            data={category}
+            data={categoriesData.data}
             renderItem={(item) => {
               return (
                 <View style={{ width: '50%', alignItems: 'center' }}>
