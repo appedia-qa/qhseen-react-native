@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
   innerText: {
     fontSize: 9,
     fontWeight: '300',
-    color: COLOR.BLACK,
+    color: COLOR.LIGHT_TEXT_EMPORER,
   },
   credit: {
     width: 52.5,
