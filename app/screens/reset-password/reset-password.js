@@ -9,8 +9,8 @@ import {
   Text,
   Input,
   Button,
-} from '../../../../components';
-import {COLOR} from '../../../../constants'
+} from '../../components';
+import {COLOR} from '../../constants'
 import styles from './reset-password.style';
 
 class ResetPassword extends Component {

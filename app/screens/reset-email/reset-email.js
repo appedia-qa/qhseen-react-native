@@ -9,9 +9,9 @@ import {
   Text,
   Input,
   Button,
-} from '../../../../components';
-import {screens} from '../../../../config';
-import {COLOR} from '../../../../constants'
+} from '../../components';
+import {screens} from '../../config';
+import {COLOR} from '../../constants'
 import styles from './reset-email.style';
 
 class ResetEmail extends Component {
