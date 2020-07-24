@@ -33,7 +33,7 @@ class Input extends Component {
               }
             }}
             // ref={ref => this.input = ref}
-            underlineColorAndroi={'transparent'}
+            underlineColorAndroid='transparent'
             placeholderTextColor={COLOR.BLACK}
             selectionColor={COLOR.BLACK}
             keyboardType = {this.props.keyboardType}

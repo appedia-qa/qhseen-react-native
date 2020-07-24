@@ -17,6 +17,7 @@ export const screens = {
   resetpassword: 'ResetPassword',
   profilesection: 'ProfileSection',
   payment: 'Payment',
+  creditinfo: 'CreditInfo',
 
   step1: 'step1',
   step2: 'step2',

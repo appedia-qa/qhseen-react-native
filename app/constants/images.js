@@ -53,6 +53,11 @@ const cash = require ('../assets/image/payment/cash.png');
 const credit_card = require ('../assets/image/payment/credit-card.png');
 const paypal = require ('../assets/image/payment/paypal.png');
 const payment_header = require ('../assets/image/payment/payment-header.png');
+const lock = require ('../assets/image/Cart/lock.png');
+const secure = require ('../assets/image/Cart/secure.png');
+const logoA = require ('../assets/image/Cart/LogoA.png');
+const logoB = require ('../assets/image/Cart/LogoB.png');
+const logoC = require ('../assets/image/Cart/logoC.png');
 
 const images = {
   logo,
@@ -110,6 +115,11 @@ const images = {
   paypal,
   payment_header,
   credit_card,
+  lock,
+  secure,
+  logoA,
+  logoB,
+  logoC,
 };
 
 export { images };

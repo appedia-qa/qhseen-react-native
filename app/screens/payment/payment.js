@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 import CircleCheckBox from 'react-native-circle-checkbox';
 
+import {screens} from '../../config';
 import {
   Text,
   Button,
@@ -118,7 +119,7 @@ class Payment extends Component {
           buttonTitle={'CONFIRM'}
           buttonStyles={styles.confirm}
           buttonTitleStyles={styles.confirmTitle}
-          onPress={()=>{}}
+          onPress={()=>{this.props.navigation.navigate(screens.creditinfo)}}
         />
       </ScrollView>
     );
