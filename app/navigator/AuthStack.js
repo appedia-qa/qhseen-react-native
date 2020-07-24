@@ -3,8 +3,8 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import {screens} from '../config';
 import Profile from '../screens/profile/index';
-import ResetEmail from '../screens/auth/login/reset-email';
-import ResetPassword from '../screens/auth/login/reset-password';
+import ResetEmail from '../screens/reset-email';
+import ResetPassword from '../screens/reset-password';
 import ProfileSection from '../screens/profile/profile-section';
 
 const AuthStack = createStackNavigator();

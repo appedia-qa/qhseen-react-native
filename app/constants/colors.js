@@ -36,6 +36,7 @@ export const COLOR = {
   LOCATION_TEXT:            '#2A3747',
   PRODUCT_TEXT:             '#434343',
   DESIGNER_LOC:             '#8E8E93',
+  Gray_PAYMENT:             '#EBEBEB',
   COUPON_TEXT:              '#919191',
   TOTAL:                    '#585B5E',
   RESET_TEXT:               'rgba(189,198,207,0.1)',

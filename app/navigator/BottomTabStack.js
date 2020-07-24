@@ -6,10 +6,11 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {screens} from '../config';
 import {icons} from '../helpers';
 import Home from '../screens/home';
-import Cart from '../screens/cart';
 import DesignerStack from '../navigator/DesignerStack';
 import CategoryStack from '../navigator/CategoryStack';
 import AuthStack from '../navigator/AuthStack';
+import CartStack from '../navigator/CartStack';
+
 
 import styles from './bottomTabStyle';
 
@@ -66,12 +67,12 @@ function tabNavigator() {
         component={AuthStack}
       />
       <BottomTabs.Screen
-        name={screens.cart}
+        name={screens.cartStack}
         options={{
-          tabBarLabel: screens.cart,
+          tabBarLabel: 'Cart',
           tabBarIcon: icons.cart,
           }}
-        component={Cart}
+        component={CartStack}
       />
     </BottomTabs.Navigator>
   );
@@ -118,12 +119,12 @@ function materialTabNavigator() {
         component={AuthStack}
       />
       <MaterialBottomTabs.Screen
-        name={screens.cart}
+        name={screens.cartStack}
         options={{
-          tabBarLabel: screens.cart,
+          tabBarLabel: 'Cart',
           tabBarIcon: icons.cart,
         }}
-        component={Cart}
+        component={CartStack}
       />
     </MaterialBottomTabs.Navigator>
   );
