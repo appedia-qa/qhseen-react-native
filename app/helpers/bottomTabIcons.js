@@ -13,7 +13,7 @@ const icons= {
   cart: ( {color} ) => (
     <Fontisto name="shopping-bag" color={color} size={26} />
   ),
-  category: ( {color} ) => (
+  brand: ( {color} ) => (
     <FontAwesome name="stack-exchange" color={color} size={26} />
   ),
   designer: ( {color} ) => (

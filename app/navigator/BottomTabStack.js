@@ -8,6 +8,7 @@ import {icons} from '../helpers';
 import Home from '../screens/home';
 import DesignerStack from '../navigator/DesignerStack';
 import CategoryStack from '../navigator/CategoryStack';
+import BrandStack from '../navigator/BrandStack';
 import AuthStack from '../navigator/AuthStack';
 import CartStack from '../navigator/CartStack';
 
@@ -43,17 +44,17 @@ function tabNavigator() {
         component={Home}
       />
       <BottomTabs.Screen
-        name={screens.categoryStack}
+        name={screens.brandStack}
         options={{
-          tabBarLabel: 'Category',
-          tabBarIcon: icons.category,
+          tabBarLabel: 'Brands',
+          tabBarIcon: icons.brand,
         }}
-        component={CategoryStack}
+        component={BrandStack}
       />
       <BottomTabs.Screen
         name={screens.designerStack}
         options={{
-          tabBarLabel: 'Designer',
+          tabBarLabel: 'Designers',
           tabBarIcon: icons.designer,
         }}
         component={DesignerStack}
@@ -95,17 +96,17 @@ function materialTabNavigator() {
         component={Home}
       />
       <MaterialBottomTabs.Screen
-        name={screens.category}
+        name={screens.brands}
         options={{
-          tabBarLabel: screens.category,
-          tabBarIcon: icons.category,
+          tabBarLabel: screens.brands,
+          tabBarIcon: icons.brand,
         }}
-        component={CategoryStack}
+        component={BrandStack}
       />
       <MaterialBottomTabs.Screen
         name={screens.designerStack}
         options={{
-          tabBarLabel: 'Designer',
+          tabBarLabel: 'Designers',
           tabBarIcon: icons.designer,
         }}
         component={DesignerStack}

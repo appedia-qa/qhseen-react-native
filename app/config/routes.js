@@ -5,4 +5,5 @@ export const END_POINTS = {
   login: `login`,
   designers: `designers`,
   categories: `categories`,
+  brands: `brands`,
 };
