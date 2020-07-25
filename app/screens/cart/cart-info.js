@@ -10,7 +10,7 @@ import {screens} from '../../config';
 import {COLOR} from '../../constants';
 import {Header, Input, Touchable, Button,} from '../../components';
 import {CartTile} from './cart-tile/cart-tile';
-import styles from './cart.style';
+import styles from './cart-info.style';
 
 class Cart extends Component {
   render() {
@@ -73,7 +73,7 @@ class Cart extends Component {
               buttonTitle={'CHECKOUT'}
               buttonStyles={styles.CheckoutButton}
               buttonTitleStyles={styles.CheckoutButtonTitle}
-              onPress={() => {this.props.navigation.navigate(screens.payment)}}
+              onPress={() => {this.props.navigation.navigate(screens.shippingaddress)}}
             />
           </View>
         </ScrollView>
