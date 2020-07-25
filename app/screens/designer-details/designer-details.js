@@ -13,6 +13,7 @@ import {
   Touchable,
 } from '../../components';
 import {images, COLOR} from '../../constants';
+import { STORAGE_URL } from '../../config';
 import styles from './designer-details.styles';
 
 class DesignerDetails extends Component {
@@ -22,7 +23,7 @@ class DesignerDetails extends Component {
       <View style={styles.screen}>
         <Header/>
         <Image
-          source={images.blonde_cover}
+          source={{uri: STORAGE_URL+'designers/'+designer.cover_img}}
           style={styles.designerCover}
           resizeMode= 'cover'
         />
@@ -30,7 +31,7 @@ class DesignerDetails extends Component {
           <View style={styles.contentContainer}>
             <View style={styles.profileImage}>
               <Image
-                source={designer.image}
+                source={{uri: STORAGE_URL+'designers/'+designer.profile_img}}
                 style={styles.image}
                 resizeMode= 'contain'
               />
@@ -46,7 +47,7 @@ class DesignerDetails extends Component {
                 </View>
                 <View style={styles.aboutContainer}>
                   <Text style={styles.about}>{'About Me'}</Text>
-                  <Text style={styles.message}>{designer.message}</Text>
+                  <Text style={styles.message}>{designer.about_me}</Text>
                   <View style={styles.divider}/>
                   <Text style={styles.tagsHeading}>{'Tags'}</Text>
                 </View>

@@ -14,9 +14,15 @@ import {
 } from '../../components';
 import {screens} from '../../config';
 import {images, data} from '../../constants';
+import { STORAGE_URL } from '../../config';
 import styles from './designers.styles';
 
 class Designers extends Component {
+
+  componentDidMount() {
+    this.props.fetchDesignersRequest();
+  }
+
   _sliderContent = () => {
     return [1,2,2,2].map(item => {
       return (
@@ -41,24 +47,25 @@ class Designers extends Component {
           onPress={()=>{this.props.navigation.navigate(screens.designerdetail,{item})}}
         >
           <Image
-            source={images.dana}
+            source={{uri: STORAGE_URL+'designers/'+item.cover_img}}
             style={styles.designerCover}
             resizeMode="cover"
           />
           <View style={styles.designerImageContainer}>
             <Image
-              source={item.image}
+              source={{uri: STORAGE_URL+'designers/'+item.profile_img}}
               style={styles.designerImage}
             />
           </View>
           <Text style={styles.designerName}>{item.name}</Text>
-          <Text style={styles.designerMessage}>Lorem ipsum dolor sit amet, consetetur sadips</Text>
+          <Text style={styles.designerMessage}>{item.about_me}</Text>
         </Touchable>
       </Card>
     );
   }
   render() {
     const {designers} = data;
+    const {designersData} = this.props;
     return (
       <View style={styles.screen}>
         <Header
@@ -71,7 +78,7 @@ class Designers extends Component {
         />
         <View style={styles.listContainer}>
           <FlatList
-            data={designers.data}
+            data={designersData.data}
             renderItem={(item) => {
               return (
                 <View style={{ width: '50%', alignItems: 'center' }}>
