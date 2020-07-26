@@ -68,7 +68,7 @@ class Signup extends Component {
           buttonTitle={'SIGN UP'}
           buttonStyles={styles.SignButton}
           buttonTitleStyles={styles.SignButtonTitle}
-          onPress={()=>{this.props.navigation.navigate(screens.profilesection)}}
+          onPress={()=>{this.props.navigation.navigate(screens.otp)}}
         />
         <View style={styles.termsContainer}>
           <Checkbox
