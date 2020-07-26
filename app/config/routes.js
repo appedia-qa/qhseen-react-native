@@ -3,6 +3,7 @@ export const STORAGE_URL = 'http://qsheen.appedia.qa/';
 
 export const END_POINTS = {
   login: `login`,
+  home: `home`,
   designers: `designers`,
   categories: `categories`,
   brands: `brands`,
