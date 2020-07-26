@@ -68,14 +68,16 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: '25%',
     padding: 3,
-    backgroundColor: COLOR.WHITE,
+    backgroundColor: COLOR.BACKGROUND_GRAY,
     borderRadius: width * 0.16,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   designerImage: {
     width: width * 0.16,
     height: width * 0.16,
     borderRadius: width * 0.16,
-    
+    overflow: 'hidden',
   },
   designerName: {
     fontSize: 14,

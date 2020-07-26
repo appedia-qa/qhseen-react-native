@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 
 import {COLOR} from '../../constants';
+import {screens} from '../../config';
 import {Header, Input, Touchable, Button,} from '../../components';
 import {CartTile} from './cart-tile/cart-tile';
 import styles from './cart-info.style';

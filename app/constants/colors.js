@@ -75,4 +75,5 @@ export const COLOR = {
   TEXT_GRAY:                '#8E8E93',
   TEXT_LIGHT:               '#707070',
   BUTTON_BROWN:             '#82375C',
+  BACKGROUND_GRAY:          '#E5E2E2',
 };

@@ -55,6 +55,7 @@ class Brands extends Component {
             <Image
               source={{uri: STORAGE_URL+'brands/'+item.profile_img}}
               style={styles.designerImage}
+              resizeMode='center'
             />
           </View>
           <Text style={styles.designerName}>{item.name}</Text>
