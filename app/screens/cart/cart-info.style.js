@@ -108,13 +108,12 @@ const styles = StyleSheet.create({
     color: COLOR.PRODUCT_TEXT,
   },
   CheckoutButton: {
-    width: width * 0.917,
-    height: height * 0.0703,
-    alignSelf: 'center',
+    width: width * 0.92,
+    paddingVertical: 17,
     alignItems: 'center',
+    alignSelf: 'center',
     backgroundColor: COLOR.PRIMARY_COLOR,
-    marginBottom: 137,
-
+    marginBottom: 20,
   },
   CheckoutButtonTitle: {
     fontSize: 20,

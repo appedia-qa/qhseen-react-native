@@ -20,8 +20,9 @@ const styles = StyleSheet.create({
     marginBottom: 45,
   },
   brandImage: {
-    aspectRatio: 6/9,
-    alignSelf: 'center'
+    width: '80%',
+    aspectRatio: 1.4,
+    alignSelf: 'center',
   },
 });
 

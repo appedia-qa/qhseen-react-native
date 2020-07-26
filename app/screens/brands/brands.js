@@ -15,12 +15,12 @@ import {
 import {screens} from '../../config';
 import {images, data} from '../../constants';
 import { STORAGE_URL } from '../../config';
-import styles from './designers.styles';
+import styles from './brands.styles';
 
-class Designers extends Component {
+class Brands extends Component {
 
   componentDidMount() {
-    this.props.fetchDesignersRequest();
+    this.props.fetchBrandsRequest();
   }
 
   _sliderContent = () => {
@@ -47,24 +47,25 @@ class Designers extends Component {
           onPress={()=>{this.props.navigation.navigate(screens.designerdetail,{item})}}
         >
           <Image
-            source={{uri: STORAGE_URL+'designers/'+item.cover_img}}
+            source={{uri: STORAGE_URL+'brands/'+item.cover_img}}
             style={styles.designerCover}
             resizeMode="cover"
           />
           <View style={styles.designerImageContainer}>
             <Image
-              source={{uri: STORAGE_URL+'designers/'+item.profile_img}}
+              source={{uri: STORAGE_URL+'brands/'+item.profile_img}}
               style={styles.designerImage}
             />
           </View>
           <Text style={styles.designerName}>{item.name}</Text>
-          <Text style={styles.designerMessage}>{item.about_me}</Text>
+          <Text style={styles.designerMessage}>{item.description}</Text>
         </Touchable>
       </Card>
     );
   }
   render() {
-    const {designers} = this.props.data;
+    const {designers} = data;
+    const {brandsData} = this.props;
     return (
       <View style={styles.screen}>
         <Header
@@ -77,7 +78,7 @@ class Designers extends Component {
         />
         <View style={styles.listContainer}>
           <FlatList
-            data={designersData.data}
+            data={brandsData.data}
             renderItem={(item) => {
               return (
                 <View style={{ width: '50%', alignItems: 'center' }}>
@@ -99,4 +100,4 @@ class Designers extends Component {
   }
 }
 
-export default Designers;
+export default Brands;

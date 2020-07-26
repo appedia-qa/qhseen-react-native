@@ -3,12 +3,14 @@ export const screens = {
   mainStack: 'mainStack',
   designerStack: 'designerStack',
   categoryStack: 'categoryStack',
+  brandStack: 'brandStack',
   authStack: 'authStack',
   cartStack: 'cartStack',
 
   profile: 'Profile',
   home: 'Home',
   category: 'Category',
+  brands: 'Brands',
   categorydetail: 'CategoryDetail',
   cart: 'Cart',
   designers: 'Designers',
@@ -16,6 +18,7 @@ export const screens = {
   resetemail: 'ResetEmail',
   resetpassword: 'ResetPassword',
   profilesection: 'ProfileSection',
+  shippingaddress: 'ShippingAddress',
   payment: 'Payment',
   creditinfo: 'CreditInfo',
 
