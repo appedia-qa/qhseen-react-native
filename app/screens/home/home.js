@@ -32,6 +32,7 @@ class Home extends Component {
           style={styles.catalogueScrollView}>
           <SnapCarousel
             containerStyle={styles.carousalContainer}
+            data={data ? data.ads : null}
           />
           <View style={styles.productsContainer}>
             <Text style={styles.sectionHeading}>{'DESIGNERS'}</Text>
@@ -62,7 +63,7 @@ class Home extends Component {
               <Text style={styles.viewAll}>{'View All'}</Text>
             </Touchable>
             <FlatList
-              data={data ? data.products.data : []}
+              data={data ? data.products : []}
               renderItem={(item) => (
                 <View style={{ width: '50%', alignItems: 'center' }}>
                   <ProductTile item={item.item}/>
@@ -87,7 +88,7 @@ class Home extends Component {
               <Text style={styles.viewAll}>{'View All'}</Text>
             </Touchable>
             <FlatList
-              data={data ? data.products.data : []}
+              data={data ? data.products : []}
               renderItem={(item) => (
                 <View style={{ width: '50%', alignItems: 'center' }}>
                   <ProductTile item={item.item}/>

@@ -24,20 +24,21 @@ class Designers extends Component {
   }
 
   _sliderContent = () => {
-    return [1,2,2,2].map(item => {
+    const {designersData} = this.props;
+    return designersData.data !== null ? designersData.data.ads.map(item => {
       return (
-        <View style={styles.sliderContentContainer}>
+        <View style={styles.sliderContentContainer} key={item.id}>
           <Image
-            source={images.dana} 
+            source={{uri: STORAGE_URL+'designers/'+item.cover_img}} 
             style={styles.sliderDesigner}
           />
           <View style={styles.sliderContent}>
-            <Text style={styles.sliderTitle}>Dana</Text>
-            <Text style={styles.sliderDetails}>Ad Slogan or message Goes here</Text>
+            <Text style={styles.sliderTitle}>{item.name}</Text>
+            <Text style={styles.sliderDetails}>{item.about_me}</Text>
           </View>
         </View>
       );
-    });
+    }) : [];
   }
   _renderItem = ({item}) => {
     return (
@@ -77,7 +78,7 @@ class Designers extends Component {
         />
         <View style={styles.listContainer}>
           <FlatList
-            data={designersData.data}
+            data={designersData.data !== null ? designersData.data.designer : []}
             renderItem={(item) => {
               return (
                 <View style={{ width: '50%', alignItems: 'center' }}>

@@ -24,20 +24,21 @@ class Brands extends Component {
   }
 
   _sliderContent = () => {
-    return [1,2,2,2].map(item => {
+    const {brandsData} = this.props;
+    return brandsData.data !== null ? brandsData.data.ads.map(item => {
       return (
-        <View style={styles.sliderContentContainer}>
+        <View style={styles.sliderContentContainer} key={item.id}>
           <Image
-            source={images.dana} 
+            source={{uri: STORAGE_URL+'brands/'+item.cover_img}} 
             style={styles.sliderDesigner}
           />
           <View style={styles.sliderContent}>
-            <Text style={styles.sliderTitle}>Dana</Text>
-            <Text style={styles.sliderDetails}>Ad Slogan or message Goes here</Text>
+            <Text style={styles.sliderTitle}>{item.name}</Text>
+            <Text style={styles.sliderDetails}>{item.description}</Text>
           </View>
         </View>
       );
-    });
+    }) : [];
   }
   _renderItem = ({item}) => {
     return (
@@ -65,7 +66,6 @@ class Brands extends Component {
     );
   }
   render() {
-    const {designers} = data;
     const {brandsData} = this.props;
     return (
       <View style={styles.screen}>
@@ -79,7 +79,7 @@ class Brands extends Component {
         />
         <View style={styles.listContainer}>
           <FlatList
-            data={brandsData.data}
+            data={brandsData.data !== null ? brandsData.data.brands : []}
             renderItem={(item) => {
               return (
                 <View style={{ width: '50%', alignItems: 'center' }}>

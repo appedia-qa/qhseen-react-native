@@ -11,29 +11,28 @@ import {
 import {width, images, height} from '../../constants';
 import styles from './snap-carousel.styles';
 
+import { STORAGE_URL } from '../../config';
+
 class SnapCarousel extends Component {
   state = {
     activeSlide: 0,
   };
   _renderItem = ({item}, parallaxProps) => {
+    let image = item.location ? STORAGE_URL+'designers/'+item.cover_img : item.status ? STORAGE_URL+'products/'+item.cover_img : STORAGE_URL+'brands/'+item.cover_img;
+    console.log('image: ', image);
     return (
       <View style={styles.item}>
         <Image
-          source={item}
+          source={{uri: image}}
           style={styles.image}
         />
-        {/* <View >
-          <Text style={styles.title} numberOfLines={2}>
-            asdasd asdasd asd asd
-          </Text>
-        </View> */}
       </View>
     );
   }
-  _renderPagination = () => {
+  _renderPagination = (length) => {
     return (
       <Pagination
-        dotsLength={3}
+        dotsLength={length}
         activeDotIndex={this.state.activeSlide}
         containerStyle={styles.paginationContainer}
         dotStyle={styles.dot}
@@ -46,10 +45,10 @@ class SnapCarousel extends Component {
     return (
       <View style={this.props.containerStyle}>
         <Carousel
-          data={[
-            { uri: 'https://i.imgur.com/2nCt3Sbl.jpg' },
-            { uri: 'https://images.unsplash.com/photo-1518550687729-819219298d98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80' },
-            { uri: 'https://i.imgur.com/2nCt3Sbl.jpg' },
+          data={this.props.data ? this.props.data : [
+            'https://i.imgur.com/2nCt3Sbl.jpg',
+            'https://images.unsplash.com/photo-1518550687729-819219298d98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
+            'https://i.imgur.com/2nCt3Sbl.jpg',
           ]}
           renderItem={this._renderItem}
           sliderWidth={width}
@@ -57,7 +56,7 @@ class SnapCarousel extends Component {
           itemWidth={width * 0.88}
           onSnapToItem={(index) => this.setState({ activeSlide: index }) }
         />
-        {this._renderPagination()}
+        {this._renderPagination(this.props.data ? this.props.data.length : 3)}
       </View>
     );
   }
