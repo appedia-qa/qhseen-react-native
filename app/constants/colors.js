@@ -39,6 +39,7 @@ export const COLOR = {
   SHIPPING_TEXT:            '#191919',
   Gray_PAYMENT:             '#EBEBEB',
   COUPON_TEXT:              '#919191',
+  RECOMMENDATIONS:          '#F4F4F4EA',
   TOTAL:                    '#585B5E',
   RESET_TEXT:               'rgba(189,198,207,0.1)',
   QR:                       '#82375C',

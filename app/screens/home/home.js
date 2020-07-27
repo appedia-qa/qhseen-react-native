@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 
 import {ProductTile, Header, SnapCarousel, Touchable, Slider} from '../../components';
+import {screens} from '../../config';
 import { images } from '../../constants';
 import {Brands} from './brands/index';
 import {Designers} from './designers/index';
@@ -24,7 +25,11 @@ class Home extends Component {
     return (
       <View style={styles.container}>
         <Header
-          onSearchPress={() => alert('asds')}
+          onSearchPress={() =>      
+            this.props.navigation.navigate(screens.mainStack, {
+            screen: screens.recommendations,
+            })
+          }
         />
         <ScrollView
           showsVerticalScrollIndicator={false}

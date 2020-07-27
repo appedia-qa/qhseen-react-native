@@ -13,6 +13,7 @@ import {
   DropDownHolder,
 } from '../../components';
 import {COLOR, images, width, height} from '../../constants';
+import {screens} from '../../config';
 import {Login} from './login';
 import {Signup} from './signup';
 import styles from './auth.styles';
@@ -60,7 +61,13 @@ class Auth extends Component {
         <ScrollView
           style={styles.screen}
           contentContainerStyle={{paddingBottom: 20}}>
-          <Header />
+          <Header 
+            onSearchPress={() =>      
+              this.props.navigation.navigate(screens.mainStack, {
+              screen: screens.recommendations,
+              })
+            }
+          />
 
           <View style={styles.authTypeContainer}>
             <Touchable onPress={()=> this._onPressAuthType(authType.LOGIN)}>

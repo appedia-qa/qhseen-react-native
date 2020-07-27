@@ -17,7 +17,10 @@ class Cart extends Component {
     return (
       <View style={styles.container}>
         <Header
-          onSearchPress={() => alert('asds')}
+          onSearchPress={() =>      
+            this.props.navigation.navigate(screens.mainStack, {
+            screen: screens.recommendations,
+          })}
         />
         <ScrollView
           showsVerticalScrollIndicator={false}

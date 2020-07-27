@@ -10,7 +10,8 @@ import {
   Input,
   Button,
 } from '../../components';
-import {COLOR} from '../../constants'
+import {screens} from '../../config';
+import {COLOR} from '../../constants';
 import styles from './reset-password.style';
 
 class ResetPassword extends Component {
@@ -18,6 +19,10 @@ class ResetPassword extends Component {
     return (
       <SafeAreaView style={styles.safeAreaView}>
         <Header
+          onSearchPress={() =>      
+            this.props.navigation.navigate(screens.mainStack, {
+            screen: screens.recommendations,
+          })}
         />
         <View style={styles.mainContainer}>
           <Text style={styles.heading}>{'Reset Password'}</Text>

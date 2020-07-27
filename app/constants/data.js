@@ -65,6 +65,58 @@ const data = {
     },
     ],
   },
+  recommendations: {
+    data:[
+    {
+      name: 'Beauty',
+    },
+    {
+      name: 'Fragrances',
+    },
+    {
+      name: 'Rings',
+    },
+    {
+      name: 'Glasses',
+    },
+    {
+      name: 'Suits',
+    },
+    {
+      name: 'Cardigans & Sweaters',
+    },
+    {
+      name: 'Jeans',
+    },
+    {
+      name: 'Shirts',
+    },
+    {
+      name: 'Jogger & Sweaters',
+    },
+    {
+      name: 'Tights',
+    },
+    {
+      name: 'Shemagh',
+    },
+    {
+      name: 'Dinin Oud',
+    },
+    {
+      name: 'Oriental perfumes',
+    },
+    {
+      name: 'Shirts',
+    },
+    {
+      name: 'Jogger & Sweaters',
+    },
+    {
+      name: 'Tighter',
+    },
+    ],
+  },
   brands: {
     image:[ 
       {

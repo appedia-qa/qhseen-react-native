@@ -19,6 +19,10 @@ class ResetEmail extends Component {
     return (
       <SafeAreaView style={styles.safeAreaView}>
         <Header
+          onSearchPress={() =>      
+            this.props.navigation.navigate(screens.mainStack, {
+            screen: screens.recommendations,
+          })}
         />
         <View style={styles.mainContainer}>
           <Text style={styles.heading}>{'Reset Password'}</Text>
