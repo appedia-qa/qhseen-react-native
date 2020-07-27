@@ -28,21 +28,21 @@ const styles = StyleSheet.create({
   searchContainer: {
     height: 30,
     width: width * 0.80,
-    backgroundColor: COLOR.MERCURY,
+    backgroundColor: COLOR.White,
     borderRadius: 30,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
   },
   searchText: {
-    fontSize: 12,
+    fontSize: 20,
     flex: 1,
     color: COLOR.LIGHT_TEXT_EMPORER,
     marginHorizontal: 10,
   },
   searchIcon: {
-    width: 15,
-    height: 15,
+    width: 30,
+    height: 30,
     marginLeft: 8,
   },
 });

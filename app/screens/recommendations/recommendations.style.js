@@ -36,11 +36,6 @@ const styles = StyleSheet.create({
     fontWeight: '300',
     color: COLOR.BLACK,
   },
-  chevron: {
-    width: 9,
-    height: 15,
-  },
-
 });
 
 export default styles;

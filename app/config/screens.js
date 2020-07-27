@@ -27,4 +27,5 @@ export const screens = {
   step2: 'step2',
   step3: 'step3',
   recommendations: 'Recommendations',
+  searchresult: 'SearchResult',
 };

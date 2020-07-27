@@ -153,6 +153,18 @@ const data = {
       },
      ]
   },
+  search: {
+    image:[ 
+      {
+        key: 1,
+        val: images.search1,
+      },
+      {
+        key: 2,
+        val: images.search2,
+      },
+     ]
+  },
   category:[
     {
       image: images.category1,

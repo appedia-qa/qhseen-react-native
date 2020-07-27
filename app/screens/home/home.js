@@ -30,6 +30,11 @@ class Home extends Component {
             screen: screens.recommendations,
             })
           }
+          onSubmitEditing={()=>{    
+            this.props.navigation.navigate(screens.mainStack, {
+            screen: screens.searchresult,
+            })
+          }}
         />
         <ScrollView
           showsVerticalScrollIndicator={false}
