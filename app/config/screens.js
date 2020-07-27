@@ -17,6 +17,7 @@ export const screens = {
   designerdetail: 'DesignerDetails',
   resetemail: 'ResetEmail',
   resetpassword: 'ResetPassword',
+  otp: 'Otp',
   profilesection: 'ProfileSection',
   shippingaddress: 'ShippingAddress',
   payment: 'Payment',
