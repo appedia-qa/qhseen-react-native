@@ -64,7 +64,7 @@ class Designers extends Component {
     );
   }
   render() {
-    const {designers} = this.props.data;
+    const {designersData} = this.props;
     return (
       <View style={styles.screen}>
         <Header

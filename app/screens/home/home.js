@@ -62,10 +62,10 @@ class Home extends Component {
               <Text style={styles.viewAll}>{'View All'}</Text>
             </Touchable>
             <FlatList
-              data={[1,2,2,2,2,2,2]}
-              renderItem={() => (
+              data={data ? data.products.data : []}
+              renderItem={(item) => (
                 <View style={{ width: '50%', alignItems: 'center' }}>
-                  <ProductTile/>
+                  <ProductTile item={item.item}/>
                 </View>
               )}
               numColumns={2}
@@ -87,10 +87,10 @@ class Home extends Component {
               <Text style={styles.viewAll}>{'View All'}</Text>
             </Touchable>
             <FlatList
-              data={[1,2,2,2,2,2,2]}
-              renderItem={() => (
+              data={data ? data.products.data : []}
+              renderItem={(item) => (
                 <View style={{ width: '50%', alignItems: 'center' }}>
-                  <ProductTile/>
+                  <ProductTile item={item.item}/>
                 </View>
               )}
               numColumns={2}
