@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component,useState } from 'react';
 import {
   View,
   Image,
@@ -11,35 +11,40 @@ import {
   Input,
 } from '../../components';
 import {images, COLOR} from '../../constants';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import styles from './header.styles';
 
 class Header extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      showWhich: false,
+    };;
+  }
   render() {
     const shadowStyles = this.props.transparent? styles.transparentStyles : styles.shadowStyles;
     return (
       <SafeAreaView style={[styles.safeArea, shadowStyles, this.props.headerContainer]}>
         <View style={styles.headerContainer}>
-          {
-            this.props.onSearchPress?
-            <Touchable
-              onPress={this.props.onSearchPress}
-              style={styles.searchContainer}
-            >
-              <Image source={images.search} style={styles.searchIcon} />
-              <Text style={styles.searchText}>Search items</Text>
-            </Touchable> :
+        <Touchable
+          onPress={()=>{}}
+        >
+          <FontAwesome name="list-alt" color={COLOR.BLACK} size={30} />
+        </Touchable>
             <Input
               containerStyles={[styles.searchContainer, { borderWidth: 0, }]}
               style={styles.searchText}
-              placeholder={'Search items'}
+              placeholder={this.props.placeholder? this.props.placeholder:'Search items'}
               placeholderTextColor={COLOR.LIGHT_TEXT_EMPORER}
-              leftIcon={images.search}
-              leftIconStyles={styles.searchIcon}
+              onChangeText={()=>{}}
+              onSubmitEditing={this.props.onSubmitEditing}
             />
-          }
-          {/* <Image
-
-          /> */}
+            <Touchable
+              onPress={this.props.onSearchPress}
+            >
+              <Image source={images.search} style={styles.searchIcon} />
+            </Touchable>
         </View>
       </SafeAreaView>
     );

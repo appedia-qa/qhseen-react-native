@@ -12,7 +12,6 @@ import BrandStack from '../navigator/BrandStack';
 import AuthStack from '../navigator/AuthStack';
 import CartStack from '../navigator/CartStack';
 
-
 import styles from './bottomTabStyle';
 
 const isIos = Platform.OS === "ios"; 

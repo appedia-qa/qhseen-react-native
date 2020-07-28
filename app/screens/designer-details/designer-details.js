@@ -13,7 +13,7 @@ import {
   Touchable,
 } from '../../components';
 import {images, COLOR} from '../../constants';
-import { STORAGE_URL } from '../../config';
+import { STORAGE_URL,screens } from '../../config';
 import styles from './designer-details.styles';
 
 class DesignerDetails extends Component {
@@ -21,7 +21,13 @@ class DesignerDetails extends Component {
     const designer = this.props.route.params.item;
     return (
       <View style={styles.screen}>
-        <Header/>
+        <Header
+          onSearchPress={() =>      
+            this.props.navigation.navigate(screens.mainStack, {
+            screen: screens.recommendations,
+            })
+          }
+        />
         <Image
           source={{uri: STORAGE_URL+'designers/'+designer.cover_img}}
           style={styles.designerCover}

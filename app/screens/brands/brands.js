@@ -71,6 +71,11 @@ class Brands extends Component {
       <View style={styles.screen}>
         <Header
           transparent
+          onSearchPress={() =>      
+            this.props.navigation.navigate(screens.mainStack, {
+            screen: screens.recommendations,
+            })
+          }
         />
         <Slider
           sliderContainerStyles={styles.sliderContainer}

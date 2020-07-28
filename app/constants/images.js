@@ -59,6 +59,9 @@ const logoA = require ('../assets/image/Cart/LogoA.png');
 const logoB = require ('../assets/image/Cart/LogoB.png');
 const logoC = require ('../assets/image/Cart/logoC.png');
 const userAccount = require('../assets/image/icons/user-account.png');
+const search1 = require ('../assets/image/searchResult/search1.png');
+const search2 = require ('../assets/image/searchResult/search2.png');
+const sorry = require ('../assets/image/searchResult/sorry.png');
 
 const images = {
   logo,
@@ -122,6 +125,9 @@ const images = {
   logoB,
   logoC,
   userAccount,
+  sorry,
+  search1,
+  search2,
 };
 
 export { images };
