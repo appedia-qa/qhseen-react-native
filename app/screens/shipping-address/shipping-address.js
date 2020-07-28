@@ -13,6 +13,7 @@ import {
   Button,
   Input,
   Card,
+  Header,
 } from '../../components';
 import {screens} from '../../config';
 import {COLOR} from '../../constants';
@@ -29,6 +30,19 @@ class ShippingAddress extends Component {
   render() {
     return (
       <ScrollView style={styles.screen}>
+        <Header
+          placeholder={'Shipping Address'}
+          onSearchPress={() =>      
+            this.props.navigation.navigate(screens.mainStack, {
+            screen: screens.recommendations,
+            })
+          }
+          onSubmitEditing={()=>{    
+            this.props.navigation.navigate(screens.mainStack, {
+            screen: screens.searchresult,
+          })
+          }}
+        />
         <Card style={styles.mainContainer}>
           <View style={styles.innerContainer}>
             <Input

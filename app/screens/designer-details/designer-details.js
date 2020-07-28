@@ -22,11 +22,17 @@ class DesignerDetails extends Component {
     return (
       <View style={styles.screen}>
         <Header
+          placeholder={'Designers'}
           onSearchPress={() =>      
             this.props.navigation.navigate(screens.mainStack, {
             screen: screens.recommendations,
             })
           }
+          onSubmitEditing={()=>{    
+            this.props.navigation.navigate(screens.mainStack, {
+            screen: screens.searchresult,
+          })
+          }}
         />
         <Image
           source={{uri: STORAGE_URL+'designers/'+designer.cover_img}}

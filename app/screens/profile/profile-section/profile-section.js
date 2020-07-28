@@ -28,7 +28,18 @@ class ProfileSection extends Component {
       <View
         style={styles.screen}
       >
-        <Header/>
+        <Header
+          onSearchPress={() =>      
+            this.props.navigation.navigate(screens.mainStack, {
+            screen: screens.recommendations,
+            })
+          }
+          onSubmitEditing={()=>{    
+            this.props.navigation.navigate(screens.mainStack, {
+            screen: screens.searchresult,
+          })
+          }}
+        />
         <View style={styles.contentContainer}>
           <Card style={styles.profileImage}>
             <View style={styles.profileEdit}/>

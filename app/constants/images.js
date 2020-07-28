@@ -62,6 +62,8 @@ const userAccount = require('../assets/image/icons/user-account.png');
 const search1 = require ('../assets/image/searchResult/search1.png');
 const search2 = require ('../assets/image/searchResult/search2.png');
 const sorry = require ('../assets/image/searchResult/sorry.png');
+const notification = require ('../assets/image/header/Notification_Icon.png');
+const drawer = require ('../assets/image/header/drawer.png');
 
 const images = {
   logo,
@@ -128,6 +130,8 @@ const images = {
   sorry,
   search1,
   search2,
+  notification,
+  drawer,
 };
 
 export { images };

@@ -9,7 +9,9 @@ import {
   Text,
   Card,
   Touchable,
+  Header,
 } from '../../components';
+import {screens} from '../../config';
 import {images, data} from '../../constants';
 import styles from './recommendations.style';
 
@@ -22,6 +24,18 @@ class Recommendations extends Component {
     const {recommendations} = data;
     return (
       <View style={styles.screen}>
+        <Header
+          onSearchPress={() =>      
+            this.props.navigation.navigate(screens.mainStack, {
+            screen: screens.recommendations,
+            })
+          }
+          onSubmitEditing={()=>{    
+            this.props.navigation.navigate(screens.mainStack, {
+            screen: screens.searchresult,
+          })
+          }}
+        />
         <Card style={styles.mainContainer}>
           <Text style={styles.heading}>{'Recommendations'}</Text>
           <FlatList

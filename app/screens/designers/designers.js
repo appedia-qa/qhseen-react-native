@@ -69,12 +69,17 @@ class Designers extends Component {
     return (
       <View style={styles.screen}>
         <Header
-          transparent
+          placeholder={'Designers'}
           onSearchPress={() =>      
             this.props.navigation.navigate(screens.mainStack, {
             screen: screens.recommendations,
             })
           }
+          onSubmitEditing={()=>{    
+            this.props.navigation.navigate(screens.mainStack, {
+            screen: screens.searchresult,
+          })
+          }}
         />
         <Slider
           sliderContainerStyles={styles.sliderContainer}

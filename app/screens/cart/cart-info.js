@@ -17,10 +17,17 @@ class Cart extends Component {
     return (
       <View style={styles.container}>
         <Header
+          placeholder={'Shopping Cart'}
           onSearchPress={() =>      
             this.props.navigation.navigate(screens.mainStack, {
             screen: screens.recommendations,
-          })}
+            })
+          }
+          onSubmitEditing={()=>{    
+            this.props.navigation.navigate(screens.mainStack, {
+            screen: screens.searchresult,
+          })
+          }}
         />
         <ScrollView
           showsVerticalScrollIndicator={false}
