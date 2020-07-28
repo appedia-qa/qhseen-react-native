@@ -12,28 +12,48 @@ import {
   Slider,
   Card,
   Touchable,
+  ProductTile
 } from '../../components';
-import {screens} from '../../config';
+import {screens, STORAGE_URL} from '../../config';
 import {images ,height} from '../../constants';
 import {CategoryTile} from './category-tile/category-tile';
 import styles from './category-detail.style';
 
 class CategoryDetail extends Component {
+
+  constructor(props) {
+    super(props);
+    const { params } = this.props.route;
+  }
+
+
+  async componentDidMount() {
+    const category = this.props.route.params.item;
+    if(category && category.category_id){
+      this.props.fetchProductsByCategoriesRequest({ 
+        category_id: category.category_id, 
+        sub_category_id: category.id 
+      });
+    }
+  }
+
   _sliderContent = () => {
-    return [1,2,2,2].map(item => {
+    const {productsData} = this.props;
+    return productsData.data ? productsData.data.map(item => {
       return (
         <Image
-          source={images.category_detail_cover} 
+          key={item.id}
+          source={{uri: STORAGE_URL+'products/'+item.cover_img}} 
           style={styles.sliderCategory}
           resizeMode= 'cover'
         />
       );
-    });
+    }) : [];
   }
   
   render() {
     const category = this.props.route.params.item;
-    console.log(category);
+    const {productsData} = this.props;
     return (
       <View style={styles.screen}>
         <Header/>
@@ -41,7 +61,7 @@ class CategoryDetail extends Component {
           <View style={styles.buttonAlign}>
             <Touchable 
               style={styles.arrowBackground}
-              onPress={()=>{this.props.navigation.navigate(screens.category)}}
+              onPress={()=>{this.props.navigation.goBack()}}
             >
               <Image style={styles.arrow} source={images.back} />
             </Touchable>   
@@ -52,10 +72,10 @@ class CategoryDetail extends Component {
           <ScrollView>
             <View>
             <FlatList
-                data={category.product}
+                data={productsData.data}
                 renderItem={(item) => (
                   <View style={{ width: '50%', alignItems: 'center' }}>
-                    <CategoryTile item={item}/>
+                    <ProductTile item={item.item}/>
                   </View>
                 )}
                 numColumns={2}
@@ -74,10 +94,10 @@ class CategoryDetail extends Component {
               activeDotStyle={styles.activeDotStyle}
             />
             <FlatList
-                data={category.product}
+                data={productsData.data}
                 renderItem={(item) => (
                   <View style={{ width: '50%', alignItems: 'center' }}>
-                    <CategoryTile item={item}/>
+                    <ProductTile item={item.item}/>
                   </View>
                 )}
                 numColumns={2}
@@ -90,9 +110,7 @@ class CategoryDetail extends Component {
             <Touchable>
               <Card style={styles.loadMoreContainer}>
                 <Text style={styles.loadmoreText}>{'Load More'}</Text>
-                <View
-                  style={styles.iconLoadMoreAlign}
-                >
+                <View style={styles.iconLoadMoreAlign}>
                   <Image style={styles.iconLoadMore} source={images.chevron} />
                 </View>         
               </Card>
