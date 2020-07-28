@@ -1,14 +1,18 @@
 import { StyleSheet } from 'react-native';
-import { COLOR, height } from '../../constants';
+import { COLOR, height,width } from '../../constants';
 
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
     backgroundColor: COLOR.WHITE,
   },
+  coverImage: {
+    width,
+    height: height * 0.22, 
+  },
   authTypeContainer: {
     width: '100%',
-    marginTop: height * 0.055,
+    marginTop: height * 0.0246,
     alignItems: 'center',
     justifyContent: 'space-evenly',
     flexDirection: 'row',

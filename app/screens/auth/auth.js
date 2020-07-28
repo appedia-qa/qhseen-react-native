@@ -61,19 +61,11 @@ class Auth extends Component {
         <ScrollView
           style={styles.screen}
           contentContainerStyle={{paddingBottom: 20}}>
-        <Header
-          onSearchPress={() =>      
-            this.props.navigation.navigate(screens.mainStack, {
-            screen: screens.recommendations,
-            })
-          }
-          onSubmitEditing={()=>{    
-            this.props.navigation.navigate(screens.mainStack, {
-            screen: screens.searchresult,
-          })
-          }}
-        />
-
+          <Image
+            source={images.login_cover}
+            style={styles.coverImage}
+            resizeMode= 'stretch'
+          />
           <View style={styles.authTypeContainer}>
             <Touchable onPress={()=> this._onPressAuthType(authType.LOGIN)}>
               <View style={styles.itemContainer}>
