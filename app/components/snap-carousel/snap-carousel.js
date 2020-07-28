@@ -19,7 +19,6 @@ class SnapCarousel extends Component {
   };
   _renderItem = ({item}, parallaxProps) => {
     let image = item.location ? STORAGE_URL+'designers/'+item.cover_img : item.status ? STORAGE_URL+'products/'+item.cover_img : STORAGE_URL+'brands/'+item.cover_img;
-    console.log('image: ', image);
     return (
       <View style={styles.item}>
         <Image

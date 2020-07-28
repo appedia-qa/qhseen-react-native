@@ -7,7 +7,6 @@ import {screens} from '../config';
 import {icons} from '../helpers';
 import Home from '../screens/home';
 import DesignerStack from '../navigator/DesignerStack';
-import CategoryStack from '../navigator/CategoryStack';
 import BrandStack from '../navigator/BrandStack';
 import AuthStack from '../navigator/AuthStack';
 import CartStack from '../navigator/CartStack';
@@ -105,7 +104,7 @@ function materialTabNavigator() {
       <MaterialBottomTabs.Screen
         name={screens.designerStack}
         options={{
-          tabBarLabel: 'Designers',
+          tabBarLabel: screens.designers,
           tabBarIcon: icons.designer,
         }}
         component={DesignerStack}

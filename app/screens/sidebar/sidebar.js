@@ -6,55 +6,24 @@ import {
 import {
   Text, Touchable
 } from '../../components';
+
+import {screens} from '../../config';
 import { images } from '../../constants';
 import styles from './sidebar.styles';
-
-const categories = [
-  {
-    title: 'Fashion',
-    subCategories: [
-      'subCategory',
-      'subCategory',
-      'subCategory'
-    ],
-  },
-  {
-    title: 'Beauty',
-    subCategories: [
-      'subCategory',
-      'subCategory',
-      'subCategory'
-    ],
-  },
-  {
-    title: 'Bags & accessories',
-    subCategories: [
-      'subCategory',
-      'subCategory',
-      'subCategory'
-    ],
-  },
-  {
-    title: 'Jewellery',
-    subCategories: [
-      'subCategory',
-      'subCategory',
-      'subCategory'
-    ],
-  },
-];
 
 class Sidebar extends Component {
   state={
     selectedCategory: null,
   };
+  componentDidMount() {
+    this.props.fetchCategoriesRequest();
+  }
   render() {
+    const {categoriesData} = this.props;
     return (
       <SafeAreaView style={styles.screen}>
         <View style={styles.header}>
-          <Image
-            source={images.userAccount}
-          />
+          <Image source={images.userAccount} />
           <View style={{ flex: 1, marginLeft: 6, marginTop: 6 }}>
             <Text style={styles.userName}>Guest User</Text>
             <Text style={styles.loginAction}>Guest User</Text>
@@ -63,19 +32,15 @@ class Sidebar extends Component {
         </View>
         <View style={styles.headerSeperator} />
 
-        <Touchable
-          style={styles.rowItem}
-        >
+        <Touchable style={styles.rowItem} onPress={() => this.props.navigation.navigate(screens.designerStack)}>
           <Text style={styles.rowTitle}>Designers</Text>
         </Touchable>
-        <Touchable
-          style={[styles.rowItem, {paddingBottom: 20}]}
-        >
+        <Touchable style={[styles.rowItem, {paddingBottom: 20}]} onPress={() => this.props.navigation.navigate(screens.brands)}>
           <Text style={styles.rowTitle}>Brands</Text>
         </Touchable>
         <View style={styles.rowSeparator} />
         <FlatList
-          data={categories}
+          data={categoriesData.data}
           renderItem={this._renderCategoryItem}
           keyExtractor={(item, index) => String(index)}
           style={{width: '100%'}}
@@ -98,18 +63,24 @@ class Sidebar extends Component {
             }
           }}
         >
-          <Text style={styles.rowTitle}>{item.title}</Text>
+          <Text style={styles.rowTitle}>{item.name}</Text>
           <Text style={styles.plusSign}>{selectedCategory == index? '-' : '+'}</Text>
         </Touchable>
         {
           selectedCategory == index?
           <FlatList
-            data={item.subCategories}
+            data={item.sub_categories}
             renderItem={({item, index}) => (
-              <Touchable
-                style={styles.subCategoryContainer}
+              <Touchable 
+                style={styles.subCategoryContainer} 
+                onPress={() => this.props.navigation.navigate(screens.bottomTabs, {
+                  screen: screens.categorydetail,
+                  params: {
+                    item,
+                  }
+                })} 
               >
-                <Text style={styles.subCategory}>{item}</Text>
+                <Text style={styles.subCategory}>{item.name}</Text>
               </Touchable>
             )}
             ItemSeparatorComponent={() => <View style={{ height: 5 }} />}
