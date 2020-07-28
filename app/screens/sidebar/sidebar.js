@@ -35,7 +35,7 @@ class Sidebar extends Component {
         <Touchable style={styles.rowItem} onPress={() => this.props.navigation.navigate(screens.designerStack)}>
           <Text style={styles.rowTitle}>Designers</Text>
         </Touchable>
-        <Touchable style={[styles.rowItem, {paddingBottom: 20}]} onPress={() => this.props.navigation.navigate(screens.brands)}>
+        <Touchable style={[styles.rowItem, {paddingBottom: 20}]} onPress={() => this.props.navigation.navigate(screens.brandStack)}>
           <Text style={styles.rowTitle}>Brands</Text>
         </Touchable>
         <View style={styles.rowSeparator} />
@@ -73,7 +73,7 @@ class Sidebar extends Component {
             renderItem={({item, index}) => (
               <Touchable 
                 style={styles.subCategoryContainer} 
-                onPress={() => this.props.navigation.navigate(screens.bottomTabs, {
+                onPress={() => this.props.navigation.navigate(screens.mainStack, {
                   screen: screens.categorydetail,
                   params: {
                     item,
