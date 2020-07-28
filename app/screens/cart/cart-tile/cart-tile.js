@@ -4,6 +4,7 @@ import {
   Image,
 } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import Modal from 'react-native-modal';
 
 import {
   Text,
@@ -18,6 +19,7 @@ class CartTile extends Component {
     super(props);
 
     this.state = {
+      isModalVisible:false,
       counter:1,
     };
     this._onPresscounter = this._onPresscounter.bind(this);
@@ -34,7 +36,11 @@ class CartTile extends Component {
       }
     }
   }
-
+  toggleModal=()=>{
+    this.setState({
+      isModalVisible: !this.state.isModalVisible
+    })
+  }
   render() {
     return (
       <Card style={styles.card}>
@@ -52,7 +58,7 @@ class CartTile extends Component {
               <Text style={styles.designerNameText}>Designer Name</Text>
               <Text style={styles.price}>QR 250</Text>
             </View>
-            <Touchable style={styles.trashContainer}>
+            <Touchable onPress={()=>this.toggleModal()} style={styles.trashContainer}>
               <Image source={images.trash} style={styles.trashIcon}/>
             </Touchable>
           </View>
@@ -67,7 +73,22 @@ class CartTile extends Component {
               <Image source={images.plus} style={styles.incrementImage}/>
             </Touchable> 
           </View>
-        </View>  
+        </View>
+        <Modal isVisible={this.state.isModalVisible}>
+          <View style={styles.deleteConfirmationDialogue}>
+            <View style={styles.deleteConfirmationTextBox}>
+              <Text style={styles.deleteConfirmationText}>Are you sure you want to delete this item from your Cart?</Text>
+            </View>
+            <View style={styles.deleteButtonsContainer}>
+            <Touchable style={styles.deleteButtonsSubContainerCancel} onPress={()=>this.toggleModal()}>
+              <Text style={styles.deleteCancelStyles}>Cancel</Text>
+            </Touchable> 
+            <Touchable style={styles.deleteButtonsSubContainer} onPress={()=>this.toggleModal()}>
+              <Text style={styles.deleteOkStyles}>Ok</Text>
+            </Touchable> 
+            </View>
+          </View>
+        </Modal>
       </Card>
     );
   }

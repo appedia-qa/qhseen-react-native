@@ -49,6 +49,7 @@ const a2 = require('../assets/image/category/a2.png');
 const b1 = require('../assets/image/category/b1.png');
 const b2 = require('../assets/image/category/b2.png');
 const j = require('../assets/image/category/j.png');
+const clothMeasurement=require('../assets/image/Cart/ClothMeasurements2x.png')
 
 const images = {
   logo,
@@ -102,6 +103,7 @@ const images = {
   b1,
   b2,
   j,
+  clothMeasurement
 };
 
 export { images };
