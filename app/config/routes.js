@@ -7,4 +7,5 @@ export const END_POINTS = {
   designers: `designers`,
   categories: `categories`,
   brands: `brands`,
+  products_by_categories: `product-by-category`,
 };
