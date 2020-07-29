@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
   View,
   Image,
-  ScrollView
+  ScrollView,
+  ImageBackground,
 } from 'react-native';
 import CircleCheckBox from 'react-native-circle-checkbox';
 
@@ -10,6 +11,7 @@ import {
   Text,
   Button,
   Input,
+  Header,
 } from '../../components';
 import {images, COLOR, width} from '../../constants';
 import styles from './credit-info.styles';
@@ -25,19 +27,27 @@ class CreditInfo extends Component {
   }
   render() {
     return (
-      <ScrollView style={styles.screen}>
-        <Image
-          style={styles.paymentHeader}
-          source={images.payment_header}
+      <ScrollView
+        style={styles.screen}
+        bounces={false}
+        showsVerticalScrollIndicator={false}
+      >
+        <Header
+          title={'Pay'}
         />
-        <Text style={styles.sectionHeading}>Payment Method</Text>
-        <View style={styles.paymentInfo}>
-          <Text style={styles.order}>
-            {'Order 0015110'}
-          </Text>
-          <Text style={styles.price}>
-            {'QAR 2,520'}
-          </Text>
+        <View style={styles.headerContainer}>
+          <Image
+            style={styles.paymentHeader}
+            source={images.payment_header}
+          />
+          <View style={styles.paymentInfo}>
+            <Text style={styles.order}>
+              {'Order 0015110'}
+            </Text>
+            <Text style={styles.price}>
+              {'QAR 2,520'}
+            </Text>
+          </View>
         </View>
         <View style={styles.mainContainer}>
           <View style={styles.upperContainer}>
