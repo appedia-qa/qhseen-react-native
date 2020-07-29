@@ -6,9 +6,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLOR.WHITE,
   },
+  headerContainer: {
+    width: width,
+    height: height * 0.13,
+  },
   paymentHeader:{
     width: width,
-    height: height * 0.247,
+    height: height * 0.13,
     ...StyleSheet.absoluteFillObject,
     zIndex: -10,
   },

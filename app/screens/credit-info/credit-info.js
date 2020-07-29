@@ -33,7 +33,7 @@ class CreditInfo extends Component {
         showsVerticalScrollIndicator={false}
       >
         <Header
-          title={'Pay'}
+          placeholder={'Pay'}
         />
         <View style={styles.headerContainer}>
           <Image

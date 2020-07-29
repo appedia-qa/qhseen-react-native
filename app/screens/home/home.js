@@ -26,11 +26,11 @@ class Home extends Component {
       <View style={styles.container}>
         <Header
           placeholder={'Home'}
-          onSearchPress={() =>      
-            this.props.navigation.navigate(screens.mainStack, {
-            screen: screens.recommendations,
-            })
-          }
+          // onSearchPress={() =>      
+          //   this.props.navigation.navigate(screens.mainStack, {
+          //   screen: screens.recommendations,
+          //   })
+          // }
           onSubmitEditing={()=>{    
             this.props.navigation.navigate(screens.mainStack, {
             screen: screens.searchresult,

@@ -10,6 +10,7 @@ import {screens} from '../../config';
 import {
   Text,
   Button,
+  Header,
 } from '../../components';
 import {images, COLOR, width} from '../../constants';
 import styles from './payment.styles';
@@ -26,19 +27,27 @@ class Payment extends Component {
   }
   render() {
     return (
-      <ScrollView style={styles.screen}>
-        <Image
-          style={styles.paymentHeader}
-          source={images.payment_header}
+      <ScrollView 
+        style={styles.screen}
+        bounces={false}
+        showsVerticalScrollIndicator={false}
+      >
+        <Header
+          placeholder ={'Payment Method'}
         />
-        <Text style={styles.sectionHeading}>Payment Method</Text>
-        <View style={styles.paymentInfo}>
-          <Text style={styles.order}>
-            {'Order 0015110'}
-          </Text>
-          <Text style={styles.price}>
-            {'QAR 2,520'}
-          </Text>
+        <View style={styles.headerContainer}>
+          <Image
+            style={styles.paymentHeader}
+            source={images.payment_header}
+          />
+          <View style={styles.paymentInfo}>
+            <Text style={styles.order}>
+              {'Order 0015110'}
+            </Text>
+            <Text style={styles.price}>
+              {'QAR 2,520'}
+            </Text>
+          </View>
         </View>
         <View>
           <Text style={styles.subText}>Pay with Card</Text>

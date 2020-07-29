@@ -1,9 +1,6 @@
-
-
 import React, { Component } from 'react';
 import {
   View,
-  Image,
   ScrollView
 } from 'react-native';
 import Checkbox from 'react-native-custom-checkbox';

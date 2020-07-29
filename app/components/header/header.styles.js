@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    alignSelf: 'center',
   },
   searchText: {
     fontSize: 20,
@@ -45,16 +46,17 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     alignSelf: 'center',
     textAlign: 'center',
+    flex: 1,
   },
   bottomContainer: {
+    width: width  *0.1830,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    flex: 0.5,
   },
   searchIcon: {
-    width: 29,
-    height: 29,
+    width: 28,
+    height: 28,
   },
   notify: {
     width: 21,

@@ -1,4 +1,4 @@
-import React, { Component,useState } from 'react';
+import React, { Component} from 'react';
 import {
   View,
   Image,
@@ -23,6 +23,7 @@ class Header extends Component {
       onfocus: true,
     };
   }
+
   render() {
     const shadowStyles = this.props.absolute? styles.absoluteStyles : styles.shadowStyles;
     return (
@@ -38,20 +39,28 @@ class Header extends Component {
               resizeMode= 'contain'  
             />
           </Touchable>
+          {this.props.onSearchPress?
+            <Text style={styles.searchText}>
+              {this.props.placeholder? this.props.placeholder:'Search items'}
+            </Text>
+          :
           <Input
             containerStyles={[styles.searchContainer, { borderWidth: 0,}]}
             style={styles.searchText}
             placeholder={this.props.placeholder? this.props.placeholder:'Search items'}
             placeholderTextColor={COLOR.BLACK}
             onChangeText={()=>{}}
+            addRef={(input) => {this.TextInput = input}}
             onSubmitEditing={this.props.onSubmitEditing}
             onFocus={()=>this.setState({onfocus : false})}
             onBlur={()=>this.setState({onfocus : true})} 
+            blurOnSubmit={false}
           />
+          }
           <View style={styles.bottomContainer}>
             
             <Touchable
-              onPress={this.props.onSearchPress}
+              onPress={this.props.onSearchPress? this.props.onSearchPress:() => {this.TextInput.focus() }}
             >
             {this.state.onfocus?
               <Image source={images.search} style={styles.searchIcon} />

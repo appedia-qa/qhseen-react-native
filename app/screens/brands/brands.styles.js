@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
     width: width,
     height: height * 0.49,
     position: 'absolute',
+    zIndex: -1,
   },
   sliderContentContainer: {
     width: width,
