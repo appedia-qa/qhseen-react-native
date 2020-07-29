@@ -17,6 +17,8 @@ class Signup extends Component {
     design: false,
     terms: false,
     showWarning: false,
+    showPassword: false,
+    showConfirmPassword: false,
     values: {
       email: '',
       username: '',
@@ -84,9 +86,10 @@ class Signup extends Component {
             placeholder={'Enter your Password'}
             placeholderTextColor={COLOR.TEXT_LIGHT}
             style={styles.input}
-            rightIcon={images.eyeOff}
-            onRightIconsPress={()=>{}}
+            rightIcon={this.state.showPassword? images.eye : images.eyeOff}
+            onRightIconsPress={()=> this.setState({ showPassword: !this.state.showPassword })}
             showWarning={this.state.showWarning}
+            secureTextEntry={!this.state.showPassword}
             value={values.password}
             onChangeText={(text) => this.setState({ values: { ...values, password: text } })}
           />
@@ -99,8 +102,9 @@ class Signup extends Component {
             placeholder={'Enter your Password'}
             placeholderTextColor={COLOR.TEXT_LIGHT}
             style={styles.input}
-            rightIcon={images.eyeOff}
-            onRightIconsPress={()=>{}}
+            rightIcon={this.state.showConfirmPassword? images.eye : images.eyeOff}
+            onRightIconsPress={()=> this.setState({ showConfirmPassword: !this.state.showConfirmPassword })}
+            secureTextEntry={!this.state.showConfirmPassword}
             showWarning={this.state.showWarning}
             value={values.confirmPassword}
             onChangeText={(text) => this.setState({ values: { ...values, confirmPassword: text } })}
