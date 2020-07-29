@@ -8,3 +8,11 @@ export function login(params) {
     data: params,
   }).then(response => response.data);
 }
+
+export function signUp(params) {
+  return API.fetch({
+    method: 'POST',
+    url: `${SERVER_URL}${END_POINTS.sign_up}`,
+    data: params,
+  }).then(response => response.data);
+}
