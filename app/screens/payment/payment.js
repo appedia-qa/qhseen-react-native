@@ -56,7 +56,6 @@ class Payment extends Component {
               <CircleCheckBox
                 checked={this.state.creditdebit}
                 onToggle={()=>{this.setState({ creditdebit: !this.state.creditdebit,  paypal: false, cash: false})}}
-                outerColor ={COLOR.PROFILE_BG} 
                 innerColor={COLOR.PROFILE_BG}
                 outerColor={COLOR.WHITE}
                 innerColor={COLOR.PROFILE_BG}

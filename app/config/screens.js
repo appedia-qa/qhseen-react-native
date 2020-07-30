@@ -29,4 +29,6 @@ export const screens = {
   sideMenu: 'sideMenu',
   recommendations: 'Recommendations',
   searchresult: 'SearchResult',
+  filterresult: 'FilterResult',
+  sortresult: 'SortResult',
 };

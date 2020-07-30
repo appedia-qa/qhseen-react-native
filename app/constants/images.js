@@ -65,6 +65,9 @@ const sorry = require ('../assets/image/searchResult/sorry.png');
 const notification = require ('../assets/image/header/Notification_Icon.png');
 const drawer = require ('../assets/image/header/drawer.png');
 const login_cover = require ('../assets/image/login/login_cover.png');
+const chevron_up = require ('../assets/image/icons/chevron-up.png');
+const chevron_down = require ('../assets/image/icons/chevron-down.png');
+
 const images = {
   logo,
   step1Image,
@@ -133,6 +136,8 @@ const images = {
   notification,
   drawer,
   login_cover,
+  chevron_up,
+  chevron_down,
 };
 
 export { images };

@@ -9,6 +9,9 @@ import Recommendations from '../screens/recommendations';
 import SearchResult from '../screens/search-result';
 import Category from '../screens/category/category';
 import CategoryDetail from '../screens/category-detail';
+import FilterResult from '../screens/filter_results';
+import SortResult from '../screens/sort_results';
+
 const MainStack = createStackNavigator();
 
 export default function mainStack() {
@@ -21,6 +24,8 @@ export default function mainStack() {
       <MainStack.Screen  name={screens.step3} component={Step3} />
       <MainStack.Screen  name={screens.searchresult} component={SearchResult} />
       <MainStack.Screen  name={screens.recommendations} component={Recommendations} />
+      <MainStack.Screen  name={screens.filterresult} component={FilterResult} />
+      <MainStack.Screen  name={screens.sortresult} component={SortResult} />
       <MainStack.Screen  name={screens.category} component={Category} />
       <MainStack.Screen  name={screens.categorydetail} component={CategoryDetail} />
     </MainStack.Navigator>
