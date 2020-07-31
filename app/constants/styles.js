@@ -4,9 +4,9 @@ export const height = Dimensions.get('screen').height;
 
 const DESIGN_DIMENSIONS= {width:375, height: 811}
 
-export const getPercentageHeight = (height)=>{
-  return height * (height/DESIGN_DIMENSIONS.height);
+export const getPercentageHeight = (heightParam)=>{
+  return height * (heightParam/DESIGN_DIMENSIONS.height);
 }
-export const getPercentageWidth = (width)=> {
-  return width * (width/DESIGN_DIMENSIONS.width);
+export const getPercentageWidth = (widthParam)=> {
+  return width * (widthParam/DESIGN_DIMENSIONS.width);
 }

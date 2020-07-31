@@ -72,4 +72,9 @@ export const COLOR = {
   TEXT_GRAY:                '#8E8E93',
   TEXT_LIGHT:               '#707070',
   BUTTON_BROWN:             '#82375C',
+  TEXT_COLOR:               '#2E3039',
+  REVIEW_TEXT:              '#191919',
+  REVIEW_TEXT_1:            '#BDC6CF',
+  PROD_COLOR_1:             '#3A333E80',
+  PROD_COLOR_2:             '#EFEFF4'
 };

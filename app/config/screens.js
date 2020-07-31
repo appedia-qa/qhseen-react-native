@@ -11,6 +11,7 @@ export const screens = {
   cart: 'Cart',
   designers: 'Designers',
   designerdetail: 'DesignerDetails',
+  productDetails:'ProductDetails',
 
   step1: 'step1',
   step2: 'step2',

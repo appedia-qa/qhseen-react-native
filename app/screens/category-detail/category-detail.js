@@ -4,6 +4,7 @@ import {
   View,
   Image,
   ScrollView,
+  Alert,
 } from 'react-native';
 
 import {
@@ -55,7 +56,8 @@ class CategoryDetail extends Component {
                 data={category.product}
                 renderItem={(item) => (
                   <View style={{ width: '50%', alignItems: 'center' }}>
-                    <CategoryTile item={item}/>
+                    <CategoryTile item={item} 
+                    onPress={()=>{this.props.navigation.navigate(screens.productDetails,{category})}}/>
                   </View>
                 )}
                 numColumns={2}
@@ -77,7 +79,7 @@ class CategoryDetail extends Component {
                 data={category.product}
                 renderItem={(item) => (
                   <View style={{ width: '50%', alignItems: 'center' }}>
-                    <CategoryTile item={item}/>
+                    <CategoryTile item={item} onPress={()=>{this.props.navigation.navigate(screens.productDetails,{category})}} />
                   </View>
                 )}
                 numColumns={2}

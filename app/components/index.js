@@ -10,3 +10,4 @@ export * from './snap-carousel';
 export * from './slider';
 export * from './spinner';
 export * from './dropDownHolder';
+export { default as Segment } from './segment';

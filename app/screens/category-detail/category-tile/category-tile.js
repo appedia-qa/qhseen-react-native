@@ -17,7 +17,7 @@ class CategoryTile extends Component {
     const product=this.props.item;
     return (
       <Card style={styles.card}>
-        <Touchable style={styles.container}>
+        <Touchable style={styles.container} onPress={this.props.onPress}>
           
           <Image
             source={product.item.images} 
