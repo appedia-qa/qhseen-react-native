@@ -7,6 +7,7 @@ import Carousel, {Pagination} from 'react-native-snap-carousel';
 
 import {
   Text,
+  Touchable
 } from '../../components';
 import {width, images, height} from '../../constants';
 import styles from './snap-carousel.styles';
@@ -25,6 +26,10 @@ class SnapCarousel extends Component {
           source={{uri: image}}
           style={styles.image}
         />
+        <Touchable style={styles.detailContainer}>
+          <Text style={styles.name}>{item.name}</Text>
+          <Text style={styles.description} numberOfLines={2}>{item.description? item.description : item.about_me}</Text>
+        </Touchable>
       </View>
     );
   }
@@ -44,11 +49,7 @@ class SnapCarousel extends Component {
     return (
       <View style={this.props.containerStyle}>
         <Carousel
-          data={this.props.data ? this.props.data : [
-            'https://i.imgur.com/2nCt3Sbl.jpg',
-            'https://images.unsplash.com/photo-1518550687729-819219298d98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-            'https://i.imgur.com/2nCt3Sbl.jpg',
-          ]}
+          data={this.props.data}
           renderItem={this._renderItem}
           sliderWidth={width}
           sliderHeight={height * 0.29}
