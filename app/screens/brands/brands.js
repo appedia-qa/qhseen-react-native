@@ -8,26 +8,30 @@ import {
 import {
   Header,
   Text,
-  Slider,
   Card,
   Touchable,
+  SnapCarousel,
+  IntroCard,
 } from '../../components';
 import {screens} from '../../config';
-import {images, data} from '../../constants';
 import { STORAGE_URL } from '../../config';
 import styles from './brands.styles';
 
 class Brands extends Component {
+  constructor(props) {
+    super(props);
 
+    this._onCardPress = this._onCardPress.bind(this);
+  }
   componentDidMount() {
     this.props.fetchBrandsRequest();
   }
 
   _sliderContent = () => {
     const {brandsData} = this.props;
-    return brandsData.data !== null ? brandsData.data.ads.map(item => {
+    return brandsData.data !== null ? brandsData.data.ads.map((item, index) => {
       return (
-        <View style={styles.sliderContentContainer} key={item.id}>
+        <View style={styles.sliderContentContainer} key={index}>
           <Image
             source={{uri: STORAGE_URL+'brands/'+item.cover_img}} 
             style={styles.sliderDesigner}
@@ -40,6 +44,7 @@ class Brands extends Component {
       );
     }) : [];
   }
+
   _renderItem = ({item}) => {
     return (
       <Card style={styles.designerCard}>
@@ -65,8 +70,14 @@ class Brands extends Component {
       </Card>
     );
   }
+
+  _onCardPress(item) {
+    this.props.navigation.navigate(screens.designerdetail,{item});
+  }
+
   render() {
-    const {brandsData} = this.props;
+    const {brandsData, homeData} = this.props;
+    const {data} = homeData;
     return (
       <View style={styles.screen}>
         <Header
@@ -82,25 +93,27 @@ class Brands extends Component {
           })
           }}
         />
-        <Slider
-          sliderContainerStyles={styles.sliderContainer}
-          renderedContent={this._sliderContent}
-          paginationStyle={styles.paginationStyle}
+        <SnapCarousel
+          containerStyle={styles.carousalContainer}
+          data={data ? data.ads : null}
         />
         <View style={styles.listContainer}>
           <FlatList
-            data={brandsData.data !== null ? brandsData.data.brands : []}
-            renderItem={(item) => {
+            data={brandsData.data !== null? brandsData.data.brands : []}
+            renderItem={({item, index}) => {
               return (
                 <View style={{ width: '50%', alignItems: 'center' }}>
-                  {this._renderItem(item)}
+                  <IntroCard
+                    item={item}
+                    onCardPress={this._onCardPress}
+                  />
                 </View>
               );
             }}
             numColumns={2}
             ItemSeparatorComponent={() => <View style={{ height: 15 }} />}
             keyExtractor={(item, index) => String(index)}
-            contentContainerStyle={styles.designerListContent}
+            contentContainerStyle={styles.brandsListContent}
             style={{ flex: 1 }}
             showsVerticalScrollIndicator={false}
             bounces={false}

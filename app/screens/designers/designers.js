@@ -25,9 +25,9 @@ class Designers extends Component {
 
   _sliderContent = () => {
     const {designersData} = this.props;
-    return designersData.data !== null ? designersData.data.ads.map(item => {
+    return designersData.data !== null ? designersData.data.ads.map((item, index) => {
       return (
-        <View style={styles.sliderContentContainer} key={item.id}>
+        <View style={styles.sliderContentContainer} key={index}>
           <Image
             source={{uri: STORAGE_URL+'designers/'+item.cover_img}} 
             style={styles.sliderDesigner}

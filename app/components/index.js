@@ -11,3 +11,4 @@ export * from './slider';
 export * from './spinner';
 export * from './dropDownHolder';
 export * from './circle_checkbox';
+export * from './intro-card';
