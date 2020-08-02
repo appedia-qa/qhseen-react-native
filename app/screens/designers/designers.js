@@ -2,70 +2,34 @@ import React, { Component } from 'react';
 import {
   FlatList,
   View,
-  Image
 } from 'react-native';
 
 import {
   Header,
-  Text,
-  Slider,
-  Card,
-  Touchable,
+  SnapCarousel,
+  IntroCard,
 } from '../../components';
 import {screens} from '../../config';
-import {images, data} from '../../constants';
-import { STORAGE_URL } from '../../config';
 import styles from './designers.styles';
 
 class Designers extends Component {
+  constructor(props) {
+    super(props);
 
+    this._onCoverImagePress = this._onCoverImagePress.bind(this);
+  }
+  
   componentDidMount() {
     this.props.fetchDesignersRequest();
   }
 
-  _sliderContent = () => {
-    const {designersData} = this.props;
-    return designersData.data !== null ? designersData.data.ads.map((item, index) => {
-      return (
-        <View style={styles.sliderContentContainer} key={index}>
-          <Image
-            source={{uri: STORAGE_URL+'designers/'+item.cover_img}} 
-            style={styles.sliderDesigner}
-          />
-          <View style={styles.sliderContent}>
-            <Text style={styles.sliderTitle}>{item.name}</Text>
-            <Text style={styles.sliderDetails}>{item.about_me}</Text>
-          </View>
-        </View>
-      );
-    }) : [];
+  _onCoverImagePress(item) {
+    this.props.navigation.navigate(screens.designerdetail, {item});
   }
-  _renderItem = ({item}) => {
-    return (
-      <Card style={styles.designerCard}>
-        <Touchable
-          style={{ width: '100%', alignItems: 'center' }}
-          onPress={()=>{this.props.navigation.navigate(screens.designerdetail,{item})}}
-        >
-          <Image
-            source={{uri: STORAGE_URL+'designers/'+item.cover_img}}
-            style={styles.designerCover}
-            resizeMode="cover"
-          />
-          <View style={styles.designerImageContainer}>
-            <Image
-              source={{uri: STORAGE_URL+'designers/'+item.profile_img}}
-              style={styles.designerImage}
-            />
-          </View>
-          <Text style={styles.designerName}>{item.name}</Text>
-          <Text style={styles.designerMessage}>{item.about_me}</Text>
-        </Touchable>
-      </Card>
-    );
-  }
+
   render() {
     const {designersData} = this.props;
+    const {data} = designersData;
     return (
       <View style={styles.screen}>
         <Header
@@ -81,18 +45,21 @@ class Designers extends Component {
           })
           }}
         />
-        <Slider
-          sliderContainerStyles={styles.sliderContainer}
-          renderedContent={this._sliderContent}
-          paginationStyle={styles.paginationStyle}
+        <SnapCarousel
+          containerStyle={styles.carousalContainer}
+          data={data ? data.ads : null}
         />
         <View style={styles.listContainer}>
           <FlatList
             data={designersData.data !== null ? designersData.data.designer : []}
-            renderItem={(item) => {
+            renderItem={({item}) => {
               return (
                 <View style={{ width: '50%', alignItems: 'center' }}>
-                  {this._renderItem(item)}
+                  <IntroCard
+                    item={item}
+                    type={'designers'}
+                    onCardPress={this._onCoverImagePress}
+                  />
                 </View>
               );
             }}

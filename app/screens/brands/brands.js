@@ -106,6 +106,7 @@ class Brands extends Component {
                   <IntroCard
                     item={item}
                     onCardPress={this._onCardPress}
+                    type={'brands'}
                   />
                 </View>
               );

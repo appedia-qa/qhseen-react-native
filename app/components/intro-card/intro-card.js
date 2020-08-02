@@ -13,6 +13,7 @@ class IntroCard extends Component {
     const {
       onCardPress,
       item,
+      type
     } = this.props;
     return (
       <Card style={styles.introCard}>
@@ -21,19 +22,19 @@ class IntroCard extends Component {
           onPress={()=> onCardPress(item)}
         >
           <Image
-            source={{uri: STORAGE_URL+'brands/'+'1595693483.Neverfull MM CC@3x.png'}}
+            source={{uri: STORAGE_URL+type+'/'+ item.cover_img}}
             style={styles.introCover}
             resizeMode="cover"
           />
           <View style={styles.introImageContainer}>
             <Image
-              source={{uri: STORAGE_URL+'brands/'+item.profile_img}}
+              source={{uri: STORAGE_URL+type+'/'+ item.profile_img}}
               style={styles.introImage}
               resizeMode='center'
             />
           </View>
           <Text style={styles.name}>{item.name}</Text>
-          <Text style={styles.message} numberOfLines={2}>{item.description}</Text>
+          <Text style={styles.message} numberOfLines={2}>{item.description? item.description : item.about_me}</Text>
         </Touchable>
       </Card>
     );
