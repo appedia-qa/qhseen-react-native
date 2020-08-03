@@ -25,47 +25,55 @@ class Header extends Component {
   }
 
   render() {
-    const shadowStyles = this.props.absolute? styles.absoluteStyles : styles.shadowStyles;
+    const {
+      leftIcon,
+    } = this.props;
     return (
-      <SafeAreaView style={[styles.safeArea, shadowStyles, this.props.headerContainer]}>
+      <SafeAreaView style={[styles.safeArea, this.props.headerContainer, this.props.absolute? styles.absoluteStyles : null]}>
         <View style={styles.headerContainer}>
           <Touchable
-            onPress={()=>{}}
-            style={{}}
+            onPress={this.props.leftIconPress}
+            style={styles.leftContainer}
           >
             <Image 
-              source={images.drawer} 
-              style={styles.drawer} 
-              resizeMode= 'contain'  
+              source={leftIcon? leftIcon : images.drawer}
+              resizeMode='center'
+              style={styles.leftIconsContainer}
             />
           </Touchable>
-          {this.props.onSearchPress?
-            <Text style={styles.searchText}>
-              {this.props.placeholder? this.props.placeholder:'Search items'}
+          {
+            this.props.title?
+            <Text style={styles.headerTitle}>
+              {this.props.title}
             </Text>
-          :
-          <Input
-            containerStyles={[styles.searchContainer, { borderWidth: 0,}]}
-            style={styles.searchText}
-            placeholder={this.props.placeholder? this.props.placeholder:'Search items'}
-            placeholderTextColor={COLOR.BLACK}
-            onChangeText={()=>{}}
-            addRef={(input) => {this.TextInput = input}}
-            onSubmitEditing={this.props.onSubmitEditing}
-            onFocus={()=>this.setState({onfocus : false})}
-            onBlur={()=>this.setState({onfocus : true})} 
-            blurOnSubmit={false}
-          />
+            :
+            this.props.search?
+            <Input
+              containerStyles={styles.searchContainer}
+              style={styles.searchText}
+              placeholder={'Search'}
+              placeholderTextColor={COLOR.BLACK}
+              onChangeText={()=>{}}
+              addRef={(input) => {this.TextInput = input}}
+              onSubmitEditing={this.props.onSubmitEditing}
+              onFocus={() => this.setState({onfocus : false})}
+              onBlur={() => this.setState({onfocus : true})} 
+              blurOnSubmit={false}
+            />
+            : null
           }
-          <View style={styles.bottomContainer}>
-            
-            <Touchable
-              onPress={this.props.onSearchPress? this.props.onSearchPress:() => {this.TextInput.focus() }}
-            >
-            {this.state.onfocus?
-              <Image source={images.search} style={styles.searchIcon} />
-              :null}
-            </Touchable>
+          <View style={styles.rightContainer}>
+            {
+              this.props.onSearchPress?
+              <Touchable
+                onPress={this.props.onSearchPress}
+              >
+                <Image
+                  source={images.search}
+                  style={styles.searchIcon}
+                />
+              </Touchable> : null
+            }
             <Touchable>
               <ImageBackground
                 source={images.notification} 
@@ -79,8 +87,8 @@ class Header extends Component {
                 </View>
                 :null}
               </ImageBackground>
-            </Touchable>           
-          </View>  
+            </Touchable>
+          </View>
         </View>
       </SafeAreaView>
     );

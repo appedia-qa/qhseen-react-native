@@ -25,7 +25,8 @@ class Home extends Component {
     return (
       <View style={styles.container}>
         <Header
-          placeholder={'Home'}
+          // search
+          title={'Home'}
           onSearchPress={() =>      
             this.props.navigation.navigate(screens.mainStack, {
             screen: screens.sortresult,

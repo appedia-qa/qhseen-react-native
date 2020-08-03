@@ -1,9 +1,16 @@
 import { StyleSheet } from 'react-native';
-import {width, height, COLOR} from '../../constants';
+import {width, COLOR} from '../../constants';
+import { FontHelper } from '../../helpers';
 
 const styles = StyleSheet.create({
   safeArea: {
     width,
+    backgroundColor: COLOR.WHITE,
+    shadowOffset: {width: 0, height: 0},
+    shadowRadius: 5,
+    shadowOpacity: 1,
+    shadowColor: COLOR.SHADOW_GRAY,
+    elevation: 5,
   },
   absoluteStyles: {
     backgroundColor: COLOR.WHITE,
@@ -13,55 +20,56 @@ const styles = StyleSheet.create({
     zIndex: 10,
   },
   headerContainer: {
+    width,
     paddingVertical: 10,
-    paddingHorizontal: 14.5,
+    paddingHorizontal: 10,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-  shadowStyles: {
-    backgroundColor: COLOR.WHITE,
-    shadowOffset: {width: 0, height: 0},
-    shadowRadius: 5,
-    shadowOpacity: 1,
-    shadowColor: COLOR.SHADOW_GRAY,
-    elevation: 5,
+  leftContainer: {
+    padding: 5,
   },
-  drawer: {
+  leftIconsContainer: {
     width: 43,
     height: 29.5,
   },
+  headerTitle: {
+    fontSize: 17,
+    color: COLOR.BLACK,
+    fontWeight: '500',
+  },
   searchContainer: {
-    height: 30,
-    backgroundColor: COLOR.White,
+    width: '100%',
+    height: 35,
+    backgroundColor: COLOR.GRAY,
     borderRadius: 30,
-    flexDirection: 'row',
+    borderColor: COLOR.transparent,
     justifyContent: 'center',
     alignItems: 'center',
-    alignSelf: 'center',
+    paddingHorizontal: 5,
   },
   searchText: {
-    fontSize: 20,
+    ...FontHelper({
+      fontSize: 17,
+    }),
     color: COLOR.BLACK,
     fontWeight: '500',
     alignSelf: 'center',
-    textAlign: 'center',
-    flex: 1,
   },
-  bottomContainer: {
-    width: width  *0.1830,
+  rightContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
   },
   searchIcon: {
     width: 28,
     height: 28,
+    alignSelf: 'center'
   },
   notify: {
     width: 21,
     height: 25,
-    marginLeft: 18,
+    marginLeft: 8,
     alignSelf: 'center',
   },
   notificationTextView: {
