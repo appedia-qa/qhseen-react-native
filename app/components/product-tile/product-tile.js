@@ -19,7 +19,7 @@ class ProductTile extends Component {
     const {item} = this.props;
     return ( item !== undefined && (
       <Card style={styles.card}>
-        <Touchable style={styles.container}>
+        <Touchable style={styles.container} onPress={this.props.onPress}>
           <Image
             source={{ uri: STORAGE_URL+'products/'+item.cover_img }} 
             style={styles.productImage} />

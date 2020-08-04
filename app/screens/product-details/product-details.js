@@ -13,7 +13,7 @@ import {
   Touchable,
   Segment,
   Button,
-  Card
+  ProductTile
 } from '../../components';
 import { screens } from '../../config';
 import { images, height, width, getPercentageWidth, getPercentageHeight, COLOR } from '../../constants';
@@ -161,7 +161,7 @@ class ProductDetails extends Component {
     );
   }
   render() {
-    const category = this.props.route.params.category;
+    const { productsData } = this.props.route.params;
     const burstItems = [
       { label: '20', value: 1 },
       { label: '30', value: 2 },
@@ -170,29 +170,13 @@ class ProductDetails extends Component {
       <View style={{ backgroundColor: 'white', flex: 1 }}>
         <Header
           onSearchPress={() => alert('asds')}
+          title='Product Description'
         />
-
-        <View style={styles.subHeaderContainer}>
-          <View style={styles.buttonAlign}>
-            <Touchable
-              style={styles.arrowBackground}
-              onPress={() => { this.props.navigation.navigate(screens.category) }}
-            >
-              <Image style={styles.arrow} source={images.back} />
-            </Touchable>
-          </View>
-          <Text style={styles.headingText}>Product Description</Text>
-        </View>
-        <Card style={styles.listContainer}>
           <ScrollView
             showsVerticalScrollIndicator={false}
             bounces={false}
             style={styles.productScrollView}>
-
-            {/* <View style={{ flex: 1, justifyContent: 'center' }}>
-              <Text style={styles.sectionHeading}></Text>
-            </View> */}
-            <View style={{ marginTop: getPercentageHeight(5), marginBottom: getPercentageHeight(5), marginLeft: getPercentageWidth(5), flexDirection: 'row' }}>
+            <View style={{ marginTop: getPercentageHeight(30), marginBottom: getPercentageHeight(5), marginLeft: getPercentageWidth(5), flexDirection: 'row' }}>
               <AirbnbRating
                 type='star'
                 selectedColor={COLOR.TEXT_PINK}
@@ -263,13 +247,13 @@ class ProductDetails extends Component {
               </View>
               <Touchable style={styles.takeMeasurementsContainer} onPress={() => this.toggleModal()}>
                 <View style={styles.flexOneCenter}>
-
+                  <Image source={images.measurements} style={styles.measurementsStyles} resizeMode='contain' />
                 </View>
                 <View style={styles.flexOneCenter}>
                   <Text>Take Measurements</Text>
                 </View>
                 <View style={styles.flexOneCenter}>
-                  <Image source={images.rightArrow} style={styles.rightArrow} />
+                  <Image source={images.rightArrow} style={styles.rightArrow} resizeMode='contain' />
                 </View>
               </Touchable>
               <View style={{ marginTop: getPercentageHeight(17) }}>
@@ -287,17 +271,24 @@ class ProductDetails extends Component {
                   buttonStyles={styles.button}
                   buttonTitle={'ADD TO CART'}
                   buttonTitleStyles={styles.buttonTitle}
-                  rightIcon={<Image source={images.cart} />}
+                  rightIcon={<Image source={images.cart} style={{width: getPercentageWidth(19), height:getPercentageHeight(24)}} resizeMode='contain' />}
                 />
               </View>
             </View>
             <View style={{ marginTop: getPercentageHeight(35) }}>
               <Text style={styles.similarItemText}>Similar Items</Text>
               <FlatList
-                data={category.product}
+                data={productsData.data}
                 renderItem={(item) => (
                   <View style={{ alignItems: 'center' }}>
-                    <CategoryTile item={item} onPress={() => { this.props.navigation.navigate(screens.productDetails) }} />
+                    <ProductTile item={item.item}
+                      onPress={() => this.props.navigation.navigate(screens.categoryStack, {
+                        screen: screens.productDetails,
+                        params: {
+                          productsData,
+                        }
+                      })}
+                    />
                   </View>
                 )}
                 //numColumns={2}
@@ -340,7 +331,6 @@ class ProductDetails extends Component {
               </Touchable>
             </View>
           </ScrollView>
-        </Card>
 
         <Modal isVisible={this.state.isModalVisible}>
           <View style={measurementsStyles.modalView}>

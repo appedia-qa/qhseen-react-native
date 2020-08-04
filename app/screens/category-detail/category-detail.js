@@ -77,7 +77,12 @@ class CategoryDetail extends Component {
                 renderItem={(item) => (
                   <View style={{ width: '50%', alignItems: 'center' }}>
                     <ProductTile item={item.item}
-                      onPress={()=>{this.props.navigation.navigate(screens.productDetails,{category})}}
+                      onPress={() => this.props.navigation.navigate(screens.categoryStack, {
+                        screen: screens.productDetails,
+                        params: {
+                          productsData,
+                        }
+                      })}
                     />
                   </View>
                 )}
@@ -101,7 +106,12 @@ class CategoryDetail extends Component {
                 renderItem={(item) => (
                   <View style={{ width: '50%', alignItems: 'center' }}>
                     <ProductTile item={item.item}
-                      onPress={()=>{this.props.navigation.navigate(screens.productDetails,{category})}}
+                      onPress={() => this.props.navigation.navigate(screens.categoryStack, {
+                        screen: screens.productDetails,
+                        params: {
+                          productsData,
+                        }
+                      })}
                     />
                   </View>
                 )}

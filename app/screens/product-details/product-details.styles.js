@@ -101,6 +101,12 @@ const styles = StyleSheet.create({
             height:getPercentageHeight(25),
             alignSelf:'flex-end',marginRight:getPercentageWidth(9)
         },
+        measurementsStyles:{
+          width:getPercentageWidth(37),
+            height:getPercentageHeight(23),
+            //alignSelf:'flex-start',
+            marginLeft:getPercentageWidth(11)
+        },
         button: {
             width: '100%',
             paddingVertical: getPercentageHeight(8),
@@ -277,7 +283,7 @@ const styles = StyleSheet.create({
           },
           flexOneCenter:{
             flex:1,
-            justifyContent:'center'
+            justifyContent:'center',
           }
 });
 const measurementsStyles=StyleSheet.create({

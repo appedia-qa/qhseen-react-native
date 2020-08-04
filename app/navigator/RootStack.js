@@ -7,6 +7,7 @@ import {width, COLOR} from '../constants';
 import BottomStack from './BottomTabStack';
 import MainStack from './MainStack';
 import Sidebar from '../screens/sidebar';
+import CategoryStack from './CategoryStack'
 
 const RootNavigator = createStackNavigator();
 const DrawerNavigator = createDrawerNavigator();
@@ -34,6 +35,7 @@ export default function rootStack() {
     > 
       <RootNavigator.Screen name={screens.mainStack} component={MainStack} />
       <RootNavigator.Screen name={screens.sideMenu} component={DrawerStack} />
+      <RootNavigator.Screen name={screens.categoryStack} component={CategoryStack} />
     </RootNavigator.Navigator>
   );
 }

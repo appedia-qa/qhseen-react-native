@@ -73,7 +73,7 @@ const drawer = require ('../assets/image/header/drawer.png');
 const login_cover = require ('../assets/image/login/login_cover.png');
 const chevron_up = require ('../assets/image/icons/chevron-up.png');
 const chevron_down = require ('../assets/image/icons/chevron-down.png');
-
+const measurements=require ('../assets/image/product/Measurements3x.png');
 const images = {
   logo,
   step1Image,
@@ -150,6 +150,7 @@ const images = {
   login_cover,
   chevron_up,
   chevron_down,
+  measurements
 };
 
 export { images };
