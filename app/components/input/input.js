@@ -33,9 +33,10 @@ class Input extends Component {
               }
             }}
             // ref={ref => this.input = ref}
-            underlineColorAndroi={'transparent'}
+            underlineColorAndroid='transparent'
             placeholderTextColor={COLOR.BLACK}
             selectionColor={COLOR.BLACK}
+            onSubmitEditing={this.props.onSubmitEditing}
             keyboardType = {this.props.keyboardType}
             onChangeText={this.props.onChangeText}
             {...this.props}

@@ -2,80 +2,64 @@ import React, { Component } from 'react';
 import {
   FlatList,
   View,
-  Image
 } from 'react-native';
 
 import {
   Header,
-  Text,
-  Slider,
-  Card,
-  Touchable,
+  SnapCarousel,
+  IntroCard,
 } from '../../components';
 import {screens} from '../../config';
-import {images, data} from '../../constants';
 import styles from './designers.styles';
 
 class Designers extends Component {
-  _sliderContent = () => {
-    return [1,2,2,2].map(item => {
-      return (
-        <View style={styles.sliderContentContainer}>
-          <Image
-            source={images.dana} 
-            style={styles.sliderDesigner}
-          />
-          <View style={styles.sliderContent}>
-            <Text style={styles.sliderTitle}>Dana</Text>
-            <Text style={styles.sliderDetails}>Ad Slogan or message Goes here</Text>
-          </View>
-        </View>
-      );
-    });
+  constructor(props) {
+    super(props);
+
+    this._onCoverImagePress = this._onCoverImagePress.bind(this);
   }
-  _renderItem = ({item}) => {
-    return (
-      <Card style={styles.designerCard}>
-        <Touchable
-          style={{ width: '100%', alignItems: 'center' }}
-          onPress={()=>{this.props.navigation.navigate(screens.designerdetail,{item})}}
-        >
-          <Image
-            source={images.dana}
-            style={styles.designerCover}
-            resizeMode="cover"
-          />
-          <View style={styles.designerImageContainer}>
-            <Image
-              source={item.image}
-              style={styles.designerImage}
-            />
-          </View>
-          <Text style={styles.designerName}>{item.name}</Text>
-          <Text style={styles.designerMessage}>Lorem ipsum dolor sit amet, consetetur sadips</Text>
-        </Touchable>
-      </Card>
-    );
+  
+  componentDidMount() {
+    this.props.fetchDesignersRequest();
   }
+
+  _onCoverImagePress(item) {
+    this.props.navigation.navigate(screens.designerdetail, {item});
+  }
+
   render() {
-    const {designers} = data;
+    const {designersData} = this.props;
+    const {data} = designersData;
     return (
       <View style={styles.screen}>
         <Header
-          transparent
+          placeholder={'Designers'}
+          onSearchPress={() =>      
+            this.props.navigation.navigate(screens.mainStack, {
+            screen: screens.recommendations,
+            })
+          }
+          onSubmitEditing={()=>{    
+            this.props.navigation.navigate(screens.mainStack, {
+            screen: screens.searchresult,
+          })
+          }}
         />
-        <Slider
-          sliderContainerStyles={styles.sliderContainer}
-          renderedContent={this._sliderContent}
-          paginationStyle={styles.paginationStyle}
+        <SnapCarousel
+          containerStyle={styles.carousalContainer}
+          data={data ? data.ads : null}
         />
         <View style={styles.listContainer}>
           <FlatList
-            data={designers.data}
-            renderItem={(item) => {
+            data={designersData.data !== null ? designersData.data.designer : []}
+            renderItem={({item}) => {
               return (
                 <View style={{ width: '50%', alignItems: 'center' }}>
-                  {this._renderItem(item)}
+                  <IntroCard
+                    item={item}
+                    type={'designers'}
+                    onCardPress={this._onCoverImagePress}
+                  />
                 </View>
               );
             }}

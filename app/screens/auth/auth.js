@@ -13,6 +13,7 @@ import {
   DropDownHolder,
 } from '../../components';
 import {COLOR, images, width, height} from '../../constants';
+import {screens} from '../../config';
 import {Login} from './login';
 import {Signup} from './signup';
 import styles from './auth.styles';
@@ -35,6 +36,7 @@ class Auth extends Component {
 
     this._onPressAuthType = this._onPressAuthType.bind(this);
     this._loginUser = this._loginUser.bind(this);
+    this._signUpUser = this._signUpUser.bind(this);
   }
 
   componentDidUpdate() {
@@ -51,6 +53,24 @@ class Auth extends Component {
     this.props.userLoginRequest(params);
   }
 
+  _signUpUser(params, agree_terms) {
+    console.log(params);
+    const user_params = {
+      "email": params.email,
+      "password": params.password,
+      "password_confirmation": params.confirmPassword,
+      "name": params.username,
+    };
+
+    if (user_params.password !== user_params.password_confirmation) {
+      DropDownHolder.alert('error', 'Error', 'Passwords do not match.');
+    } if (!agree_terms) {
+      DropDownHolder.alert('error', 'Error', 'Please Agree to our terms and conditions also.');
+    } else {
+      this.props.userSignupRequest(user_params);
+    }
+  }
+
   render() {
     const {selectedAuthType} = this.state;
     const {authData} = this.props;
@@ -60,8 +80,11 @@ class Auth extends Component {
         <ScrollView
           style={styles.screen}
           contentContainerStyle={{paddingBottom: 20}}>
-          <Header />
-
+          <Image
+            source={images.login_cover}
+            style={styles.coverImage}
+            resizeMode= 'stretch'
+          />
           <View style={styles.authTypeContainer}>
             <Touchable onPress={()=> this._onPressAuthType(authType.LOGIN)}>
               <View style={styles.itemContainer}>
@@ -95,13 +118,18 @@ class Auth extends Component {
             selectedAuthType === authType.LOGIN?
             <Login
               loginPress={this._loginUser}
+              navigation={this.props.navigation}
             />:
             selectedAuthType === authType.SIGNUP?
             <Signup
               selectDesignerSignup={() => this.setState({ selectedAuthType: authType.DESIGNER })}
+              navigation={this.props.navigation}
+              handleUserSignup={this._signUpUser}
             />:
             selectedAuthType === authType.DESIGNER?
-            <SignupDesigner />:
+            <SignupDesigner
+              navigation={this.props.navigation}
+             />:
             null
           }
           {

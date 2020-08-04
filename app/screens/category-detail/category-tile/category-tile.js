@@ -11,6 +11,7 @@ import {
 } from '../../../components';
 import styles from './category-tile.styles';
 import { images } from '../../../constants';
+import { STORAGE_URL } from '../../../config';
 
 class CategoryTile extends Component {
   render() {
@@ -18,19 +19,11 @@ class CategoryTile extends Component {
     return (
       <Card style={styles.card}>
         <Touchable style={styles.container} onPress={this.props.onPress}>
-          
           <Image
-            source={product.item.images} 
+            source={{uri: STORAGE_URL+'products/'+product.item.cover_img}} 
             style={styles.productImage} />
-          <Text
-            style={styles.productName}
-            numberOfLines={1}
-          >
-            {product.item.productName} 
-          </Text>
-          <Text style={styles.price}>
-            {product.item.price}
-          </Text>
+          <Text style={styles.productName} numberOfLines={1}> {product.item.name} </Text>
+          <Text style={styles.price}> QR {product.item.price} </Text>
           <Button
             buttonStyles={styles.button}
             buttonTitle={'ADD TO CART'}

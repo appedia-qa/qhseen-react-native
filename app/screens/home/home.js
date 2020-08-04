@@ -8,7 +8,8 @@ import {
   Alert
 } from 'react-native';
 
-import {ProductTile, Header, SnapCarousel, Touchable, Slider,Button} from '../../components';
+import {ProductTile, Header, SnapCarousel, Touchable, Slider} from '../../components';
+import {screens} from '../../config';
 import { images } from '../../constants';
 import {Brands} from './brands/index';
 import {Designers} from './designers/index';
@@ -16,16 +17,28 @@ import {styles} from './home.styles';
 
 class Home extends Component {
 
-  constructor(props){
-    super(props);
+  componentDidMount() {
+    this.props.fetchHomeRequest();
   }
- 
-
 
   render() {
+    const {homeData} = this.props;
+    const {data} = homeData;
     return (
       <View style={styles.container}>
         <Header
+          // search
+          title={'Home'}
+          onSearchPress={() =>      
+            this.props.navigation.navigate(screens.mainStack, {
+            screen: screens.sortresult,
+            })
+          }
+          onSubmitEditing={()=>{    
+            this.props.navigation.navigate(screens.mainStack, {
+            screen: screens.searchresult,
+            })
+          }}
         />
         <ScrollView
           showsVerticalScrollIndicator={false}
@@ -33,6 +46,7 @@ class Home extends Component {
           style={styles.catalogueScrollView}>
           <SnapCarousel
             containerStyle={styles.carousalContainer}
+            data={data ? data.ads : null}
           />
           <View style={styles.productsContainer}>
             <Text style={styles.sectionHeading}>{'DESIGNERS'}</Text>
@@ -42,7 +56,9 @@ class Home extends Component {
             >
               <Text style={styles.viewAll}>{'View All'}</Text>
             </Touchable>
-            <Designers/>
+            <Designers
+              data={data ? data.designers : []}
+            />
             <Text style={styles.sectionHeading}>{'OUR BRANDS'}</Text>
             <Touchable
               onPress={() => {}}
@@ -50,7 +66,9 @@ class Home extends Component {
             >
               <Text style={styles.viewAll}>{'View All'}</Text>
             </Touchable>
-            <Brands/>
+            <Brands
+              data={data ? data.brands : []}
+            />
             <Text style={styles.sectionHeading}>{'NEW COLLECTION'}</Text>
             <Touchable
               onPress={() => {}}
@@ -59,10 +77,10 @@ class Home extends Component {
               <Text style={styles.viewAll}>{'View All'}</Text>
             </Touchable>
             <FlatList
-              data={[1,2,2,2,2,2,2]}
-              renderItem={() => (
+              data={data ? data.products : []}
+              renderItem={(item) => (
                 <View style={{ width: '50%', alignItems: 'center' }}>
-                  <ProductTile/>
+                  <ProductTile item={item.item}/>
                 </View>
               )}
               numColumns={2}
@@ -84,10 +102,10 @@ class Home extends Component {
               <Text style={styles.viewAll}>{'View All'}</Text>
             </Touchable>
             <FlatList
-              data={[1,2,2,2,2,2,2]}
-              renderItem={() => (
+              data={data ? data.products : []}
+              renderItem={(item) => (
                 <View style={{ width: '50%', alignItems: 'center' }}>
-                  <ProductTile/>
+                  <ProductTile item={item.item}/>
                 </View>
               )}
               numColumns={2}
@@ -104,18 +122,3 @@ class Home extends Component {
 }
 
 export default Home;
-
-{/* <ProductTile/>
-<Input
-  containerStyles={{
-    width: '86%',
-    height: 40,
-    paddingHorizontal: 7,
-    alignItems: 'center',
-  }}
-  style={{
-    height: 14,
-  }}
-  placeholder={'myemail@gmail.com'}
-  placeholderTextColor={'#707070'}
-/> */}

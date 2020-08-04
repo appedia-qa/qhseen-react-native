@@ -55,6 +55,24 @@ const heartProd=require('../assets/image/product/heart-3x.png');
 const rightArrow=require('../assets/image/product/rightArrow.png');
 const check=require('../assets/image/product/check-2-3x.png');
 const leftArrow=require('../assets/image/product/leftArrow.png');
+const cash = require ('../assets/image/payment/cash.png');
+const credit_card = require ('../assets/image/payment/credit-card.png');
+const paypal = require ('../assets/image/payment/paypal.png');
+const payment_header = require ('../assets/image/payment/payment-header.png');
+const lock = require ('../assets/image/Cart/lock.png');
+const secure = require ('../assets/image/Cart/secure.png');
+const logoA = require ('../assets/image/Cart/LogoA.png');
+const logoB = require ('../assets/image/Cart/LogoB.png');
+const logoC = require ('../assets/image/Cart/logoC.png');
+const userAccount = require('../assets/image/icons/user-account.png');
+const search1 = require ('../assets/image/searchResult/search1.png');
+const search2 = require ('../assets/image/searchResult/search2.png');
+const sorry = require ('../assets/image/searchResult/sorry.png');
+const notification = require ('../assets/image/header/Notification_Icon.png');
+const drawer = require ('../assets/image/header/drawer.png');
+const login_cover = require ('../assets/image/login/login_cover.png');
+const chevron_up = require ('../assets/image/icons/chevron-up.png');
+const chevron_down = require ('../assets/image/icons/chevron-down.png');
 
 const images = {
   logo,
@@ -113,7 +131,25 @@ const images = {
   heartProd,
   rightArrow,
   check,
-  leftArrow
+  leftArrow,
+  cash,
+  paypal,
+  payment_header,
+  credit_card,
+  lock,
+  secure,
+  logoA,
+  logoB,
+  logoC,
+  userAccount,
+  sorry,
+  search1,
+  search2,
+  notification,
+  drawer,
+  login_cover,
+  chevron_up,
+  chevron_down,
 };
 
 export { images };

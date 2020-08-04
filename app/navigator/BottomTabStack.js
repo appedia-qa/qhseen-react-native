@@ -5,11 +5,11 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import {screens} from '../config';
 import {icons} from '../helpers';
-import Profile from '../screens/profile/index';
 import Home from '../screens/home';
-import Cart from '../screens/cart';
 import DesignerStack from '../navigator/DesignerStack';
-import CategoryStack from '../navigator/CategoryStack';
+import BrandStack from '../navigator/BrandStack';
+import AuthStack from '../navigator/AuthStack';
+import CartStack from '../navigator/CartStack';
 
 import styles from './bottomTabStyle';
 
@@ -42,36 +42,36 @@ function tabNavigator() {
         component={Home}
       />
       <BottomTabs.Screen
-        name={screens.categoryStack}
+        name={screens.brandStack}
         options={{
-          tabBarLabel: 'Category',
-          tabBarIcon: icons.category,
+          tabBarLabel: 'Brands',
+          tabBarIcon: icons.brand,
         }}
-        component={CategoryStack}
+        component={BrandStack}
       />
       <BottomTabs.Screen
         name={screens.designerStack}
         options={{
-          tabBarLabel: 'Designer',
+          tabBarLabel: 'Designers',
           tabBarIcon: icons.designer,
         }}
         component={DesignerStack}
       />
       <BottomTabs.Screen
-        name={screens.profile}
+        name={screens.authStack}
         options={{
-          tabBarLabel: screens.profile,
+          tabBarLabel: 'Profile',
           tabBarIcon: icons.profile,
           }}
-        component={Profile}
+        component={AuthStack}
       />
       <BottomTabs.Screen
-        name={screens.cart}
+        name={screens.cartStack}
         options={{
-          tabBarLabel: screens.cart,
+          tabBarLabel: 'Cart',
           tabBarIcon: icons.cart,
           }}
-        component={Cart}
+        component={CartStack}
       />
     </BottomTabs.Navigator>
   );
@@ -94,36 +94,36 @@ function materialTabNavigator() {
         component={Home}
       />
       <MaterialBottomTabs.Screen
-        name={screens.category}
+        name={screens.brands}
         options={{
-          tabBarLabel: screens.category,
-          tabBarIcon: icons.category,
+          tabBarLabel: screens.brands,
+          tabBarIcon: icons.brand,
         }}
-        component={CategoryStack}
+        component={BrandStack}
       />
       <MaterialBottomTabs.Screen
         name={screens.designerStack}
         options={{
-          tabBarLabel: 'Designer',
+          tabBarLabel: screens.designers,
           tabBarIcon: icons.designer,
         }}
         component={DesignerStack}
       />
       <MaterialBottomTabs.Screen
-        name={screens.profile}
+        name={screens.authStack}
         options={{
-          tabBarLabel: screens.profile,
+          tabBarLabel: 'Profile',
           tabBarIcon: icons.profile,
         }}
-        component={Profile}
+        component={AuthStack}
       />
       <MaterialBottomTabs.Screen
-        name={screens.cart}
+        name={screens.cartStack}
         options={{
-          tabBarLabel: screens.cart,
+          tabBarLabel: 'Cart',
           tabBarIcon: icons.cart,
         }}
-        component={Cart}
+        component={CartStack}
       />
     </MaterialBottomTabs.Navigator>
   );

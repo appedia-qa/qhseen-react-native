@@ -57,3 +57,9 @@ buck-out/
 
 # CocoaPods
 /ios/Pods/
+.vscode/settings.json
+ios/Podfile.lock
+package-lock.json
+ios/Podfile.lock
+ios/Podfile.lock
+ios/Podfile.lock

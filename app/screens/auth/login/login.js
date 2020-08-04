@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
   View,
 } from 'react-native';
@@ -7,7 +7,8 @@ import Checkbox from 'react-native-custom-checkbox';
 import {
   Text, Input, Touchable, Button,
 } from '../../../components';
-import { COLOR, images } from '../../../constants';
+import {screens} from '../../../config';
+import {COLOR, images} from '../../../constants';
 import styles from './login.styles';
 
 class Login extends Component {
@@ -77,7 +78,7 @@ class Login extends Component {
           />
         </View>
         <Touchable
-          onPress={() => {}}
+          onPress={() => {this.props.navigation.navigate(screens.resetemail)}}
           style={styles.forgotPWCont}
         >
           <Text style={styles.forgotPW}>Forgot Password?</Text>

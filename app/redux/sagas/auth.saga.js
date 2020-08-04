@@ -1,11 +1,12 @@
 import { take, put, call, fork, all } from 'redux-saga/effects';
 import {
   USER_LOGIN_REQUEST,
+  USER_SIGNUP_REQUEST,
 } from '../types';
 import {
   authActionsCreator,
 } from '../actions';
-import { login } from '../api';
+import { login, signUp } from '../api';
 
 function* loginSaga({ payload }) {
   try {
@@ -22,6 +23,21 @@ function* loginSaga({ payload }) {
   }
 }
 
+function* signupSaga({ payload }) {
+  try {
+    const response = yield call(signUp, payload);
+    if (response.success) {
+      const user = {
+        ...response.success.user,
+        token: response.success.token,
+      };
+      yield put(authActionsCreator.userSignupSuccess({ user }));
+    } 
+  } catch(error) {
+    yield put(authActionsCreator.userSignupRequest({ error: error? error : 'User Signup Failed' }));
+  }
+}
+
 function* watchLogin() {
   while(true) {
     const action = yield take(USER_LOGIN_REQUEST);
@@ -29,8 +45,16 @@ function* watchLogin() {
   }
 }
 
+function* watchSignup() {
+  while(true) {
+    const action = yield take(USER_SIGNUP_REQUEST);
+    yield *signupSaga(action);
+  }
+}
+
 export default function* () {
   yield all([
     fork(watchLogin),
+    fork(watchSignup),
   ]);
 }

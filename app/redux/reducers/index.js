@@ -2,8 +2,13 @@ import {combineReducers} from 'redux';
 
 import onboardingData from './onboarding.reducer';
 import authData from './auth.reducer';
+import designersData from './designers.reducer';
+import categoriesData from './categories.reducer';
+import brandsData from './brands.reducer';
+import homeData from './home.reducer';
+import productsData from './products.reducer';
 
 export default combineReducers({
-  onboardingData: onboardingData,
-  authData,
-})
+  onboardingData, authData, designersData, categoriesData, brandsData,
+  homeData, productsData
+});

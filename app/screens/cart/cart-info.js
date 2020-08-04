@@ -7,16 +7,27 @@ import {
 } from 'react-native';
 
 import {COLOR} from '../../constants';
+import {screens} from '../../config';
 import {Header, Input, Touchable, Button,} from '../../components';
 import {CartTile} from './cart-tile/cart-tile';
-import styles from './cart.style';
+import styles from './cart-info.style';
 
 class Cart extends Component {
   render() {
     return (
       <View style={styles.container}>
         <Header
-          onSearchPress={() => alert('asds')}
+          placeholder={'Shopping Cart'}
+          onSearchPress={() =>      
+            this.props.navigation.navigate(screens.mainStack, {
+            screen: screens.recommendations,
+            })
+          }
+          onSubmitEditing={()=>{    
+            this.props.navigation.navigate(screens.mainStack, {
+            screen: screens.searchresult,
+          })
+          }}
         />
         <ScrollView
           showsVerticalScrollIndicator={false}
@@ -72,6 +83,7 @@ class Cart extends Component {
               buttonTitle={'CHECKOUT'}
               buttonStyles={styles.CheckoutButton}
               buttonTitleStyles={styles.CheckoutButtonTitle}
+              onPress={() => {this.props.navigation.navigate(screens.shippingaddress)}}
             />
           </View>
         </ScrollView>

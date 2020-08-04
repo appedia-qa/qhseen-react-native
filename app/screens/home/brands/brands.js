@@ -8,6 +8,7 @@ import {
 import {Card} from '../../../components';
 import {data} from '../../../constants';
 import styles from './brands.style';
+import { STORAGE_URL } from '../../../config';
 
 class Brands extends Component {
   _renderItem = (item) => {
@@ -16,7 +17,7 @@ class Brands extends Component {
       <Card style={styles.card}>
         <View style={styles.imageContainer}>
           <Image
-            source={brands.val}
+            source={{uri: STORAGE_URL+'brands/'+brands.profile_img}}
             style={styles.brandImage}
             resizeMode='center'
           />
@@ -25,14 +26,14 @@ class Brands extends Component {
     );
   }
   render() {
-    const brands = data.brands;
+    const {data} = this.props;
     return (
       <View style={styles.container}>
         <FlatList
           horizontal
           showsHorizontalScrollIndicator={false}
-          data={brands.image}
-          keyExtractor={(image) => {return(image.key)}}
+          data={data}
+          keyExtractor={(data) => {return(data.id.toString())}}
           contentContainerStyle={{ marginLeft: 3, paddingRight: 16 }}
           renderItem={({item})=>{
             return(

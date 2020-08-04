@@ -12,24 +12,19 @@ import {
 } from '../';
 import styles from './product-tile.styles';
 import { images } from '../../constants';
+import { STORAGE_URL } from '../../config';
 
 class ProductTile extends Component {
   render() {
-    return (
+    const {item} = this.props;
+    return ( item !== undefined && (
       <Card style={styles.card}>
         <Touchable style={styles.container}>
           <Image
-            source={{ uri: 'https://images.unsplash.com/photo-1518550687729-819219298d98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80' }} 
+            source={{ uri: STORAGE_URL+'products/'+item.cover_img }} 
             style={styles.productImage} />
-          <Text
-            style={styles.productName}
-            numberOfLines={1}
-          >
-            Product Name 
-          </Text>
-          <Text style={styles.price}>
-            QR 1000
-          </Text>
+          <Text style={styles.productName} numberOfLines={1}>{item.name}</Text>
+          <Text style={styles.price}> QR {item.price}</Text>
           <Button
             buttonStyles={styles.button}
             buttonTitle={'ADD TO CART'}
@@ -38,6 +33,7 @@ class ProductTile extends Component {
           />
         </Touchable>
       </Card>
+    )
     );
   }
 }

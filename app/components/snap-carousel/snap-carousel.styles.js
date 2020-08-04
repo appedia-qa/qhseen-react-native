@@ -19,6 +19,23 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     ...StyleSheet.absoluteFillObject,
   },
+  detailContainer: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    paddingHorizontal: 17,
+    paddingBottom: 35,
+  },
+  name: {
+    fontSize: 24,
+    fontWeight: '700',
+    color: COLOR.WHITE,
+  },
+  description: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: COLOR.WHITE,
+    width: '80%',
+  },
   paginationContainer: {
     position: 'absolute',
     bottom: -10,

@@ -1,3 +1,3 @@
-import Profile from './profile';
+import ProfileSection from './profile-section';
 
-export default Profile;
+export default ProfileSection;

@@ -2,6 +2,10 @@ import {
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
   USER_LOGIN_FAILED,
+
+  USER_SIGNUP_REQUEST,
+  USER_SIGNUP_SUCCESS,
+  USER_SIGNUP_FAILED,
 } from '../types';
 
 const initialState = {
@@ -35,6 +39,27 @@ export default function (state = initialState, action) {
         error: payload.error,
       }
     }
+    case USER_SIGNUP_REQUEST: {
+      return {
+        ...state,
+        requesting: true,
+        error: null,
+        success: null,
+      };
+    }
+    case USER_SIGNUP_SUCCESS: {
+      return {
+        requesting: false,
+        data: payload.user,
+      };
+    }
+    case USER_SIGNUP_FAILED: {
+      return {
+        requesting: false,
+        error: payload.error,
+      }
+    }
+    
     default: return state;
   }
 }

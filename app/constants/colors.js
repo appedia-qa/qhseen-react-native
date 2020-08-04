@@ -36,8 +36,12 @@ export const COLOR = {
   LOCATION_TEXT:            '#2A3747',
   PRODUCT_TEXT:             '#434343',
   DESIGNER_LOC:             '#8E8E93',
+  SHIPPING_TEXT:            '#191919',
+  Gray_PAYMENT:             '#EBEBEB',
   COUPON_TEXT:              '#919191',
+  RECOMMENDATIONS:          '#F4F4F4EA',
   TOTAL:                    '#585B5E',
+  RESET_TEXT:               'rgba(189,198,207,0.1)',
   QR:                       '#82375C',
   BACK:                     '#FFF4E8',
   LOADMORE:                 '#3A333E',
@@ -76,5 +80,7 @@ export const COLOR = {
   REVIEW_TEXT:              '#191919',
   REVIEW_TEXT_1:            '#BDC6CF',
   PROD_COLOR_1:             '#3A333E80',
-  PROD_COLOR_2:             '#EFEFF4'
+  PROD_COLOR_2:             '#EFEFF4',
+  BACKGROUND_GRAY:          '#E5E2E2',
+  LINK:                     '#09AEFF',
 };
