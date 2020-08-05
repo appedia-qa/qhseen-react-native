@@ -5,8 +5,7 @@ import {
   Image,
   ScrollView,
 } from 'react-native';
-import { Rating, AirbnbRating } from 'react-native-ratings';
-import Modal from 'react-native-modal';
+import { AirbnbRating } from 'react-native-ratings';
 
 import {
   Header,
@@ -15,12 +14,12 @@ import {
   Segment,
   Button,
   ProductTile,
-  Dropdown,
 } from '../../components';
 import { screens } from '../../config';
 import { images, getPercentageWidth, getPercentageHeight, COLOR } from '../../constants';
 import Reviews from './reviews';
-import { styles, measurementsStyles } from './product-details.styles';
+import Measurements from './measurements';
+import styles from './product-details.styles';
 
 class ProductDetails extends Component {
 
@@ -240,7 +239,6 @@ class ProductDetails extends Component {
                 <View key={1} />
                 <View key={2} />
               </Segment>
-
             </View>
             <Touchable style={styles.takeMeasurementsContainer} onPress={() => this.toggleModal()}>
               <View style={styles.flexOneCenter}>
@@ -262,15 +260,12 @@ class ProductDetails extends Component {
               {this._renderGivenMaterials()}
             </View>
 
-            <View>
-
-              <Button
-                buttonStyles={styles.button}
-                buttonTitle={'ADD TO CART'}
-                buttonTitleStyles={styles.buttonTitle}
-                rightIcon={<Image source={images.cart} style={{width: getPercentageWidth(19), height:getPercentageHeight(24)}} resizeMode='contain' />}
-              />
-            </View>
+            <Button
+              buttonStyles={styles.button}
+              buttonTitle={'ADD TO CART'}
+              buttonTitleStyles={styles.buttonTitle}
+              rightIcon={<Image source={images.cart} style={{width: getPercentageWidth(19), height:getPercentageHeight(24)}} resizeMode='contain' />}
+            />
           </View>
           <View style={{ marginTop: getPercentageHeight(35) }}>
             <Text style={styles.similarItemText}>Similar Items</Text>
@@ -309,150 +304,12 @@ class ProductDetails extends Component {
           </View>
           <Reviews />
         </ScrollView>
-
-        <Modal isVisible={this.state.isModalVisible}>
-          <View style={measurementsStyles.modalView}>
-            <View style={measurementsStyles.imageContainer}>
-              <Image source={images.clothMeasurement}
-                style={measurementsStyles.imageStyles}
-                resizeMode='contain'
-              />
-            </View>
-            <View style={measurementsStyles.errorMessageContainer}>
-              <Text style={measurementsStyles.errorText}>{this.state.ErrorMessage}</Text>
-            </View>
-
-            <View style={measurementsStyles.fieldsContainer}>
-
-              <Dropdown
-                OuterContainerStyles={{ zIndex: 6000 }}
-                Label="Burst"
-                labelTextStyles={measurementsStyles.labelTextStyles}
-                items={burstItems}
-                value={this.state.Burst}
-                onChangeSelection={item => this.setState({
-                  Burst: item.value
-                })}
-                dropDownContainerStyles={measurementsStyles.dropdownContainerStyles}
-                pickerStyles={measurementsStyles.pickerStyles}
-                dropDownStyles={measurementsStyles.pickerStyles}
-                itemStyles={{
-                  justifyContent: 'flex-start',
-                }}
-                placeholderText="Burst"
-                placeholderStyle={measurementsStyles.placeholderStyles}
-                selectedLabelStyle={measurementsStyles.placeholderStyles}
-                arrowSize={20}
-              />
-              <Dropdown
-                OuterContainerStyles={{ zIndex: 6000 }}
-                Label="Base/Width"
-                labelTextStyles={measurementsStyles.labelTextStyles}
-                items={burstItems}
-                value={this.state.BaseWidth}
-                onChangeSelection={item => this.setState({
-                  BaseWidth: item.value
-                })}
-                dropDownContainerStyles={measurementsStyles.dropdownContainerStyles}
-                pickerStyles={measurementsStyles.pickerStyles}
-                dropDownStyles={measurementsStyles.pickerStyles}
-                itemStyles={{
-                  justifyContent: 'flex-start',
-                }}
-                placeholderText="Base/Width"
-                placeholderStyle={measurementsStyles.placeholderStyles}
-                selectedLabelStyle={measurementsStyles.placeholderStyles}
-                arrowSize={20}
-              />
-              <Dropdown
-                OuterContainerStyles={{ zIndex: 5900 }}
-                Label="Arm"
-                labelTextStyles={measurementsStyles.labelTextStyles}
-                items={burstItems}
-                value={this.state.Arm}
-                onChangeSelection={item => this.setState({
-                  Arm: item.value
-                })}
-                dropDownContainerStyles={measurementsStyles.dropdownContainerStyles}
-                pickerStyles={measurementsStyles.pickerStyles}
-                dropDownStyles={measurementsStyles.pickerStyles}
-                itemStyles={measurementsStyles.itemStyles}
-                placeholderText="Arm"
-                placeholderStyle={measurementsStyles.placeholderStyles}
-                selectedLabelStyle={measurementsStyles.placeholderStyles}
-                arrowSize={20}
-              />
-              <Dropdown
-                OuterContainerStyles={{ zIndex: 5900 }}
-                Label="Hips"
-                labelTextStyles={measurementsStyles.labelTextStyles}
-                items={burstItems}
-                value={this.state.Hips}
-                onChangeSelection={item => this.setState({
-                  Hips: item.value
-                })}
-                dropDownContainerStyles={measurementsStyles.dropdownContainerStyles}
-                pickerStyles={measurementsStyles.pickerStyles}
-                dropDownStyles={measurementsStyles.pickerStyles}
-                itemStyles={measurementsStyles.itemStyles}
-                placeholderText="Hips"
-                placeholderStyle={measurementsStyles.placeholderStyles}
-                selectedLabelStyle={measurementsStyles.placeholderStyles}
-                arrowSize={20}
-              />
-              <Dropdown
-                OuterContainerStyles={{ zIndex: 5800 }}
-                Label="Sleeve Length"
-                labelTextStyles={measurementsStyles.labelTextStyles}
-                items={burstItems}
-                value={this.state.SleeveLength}
-                onChangeSelection={item => this.setState({
-                  SleeveLength: item.value
-                })}
-                dropDownContainerStyles={measurementsStyles.dropdownContainerStyles}
-                pickerStyles={measurementsStyles.pickerStyles}
-                dropDownStyles={measurementsStyles.pickerStyles}
-                itemStyles={measurementsStyles.itemStyles}
-                placeholderText="Sleeve Length"
-                placeholderStyle={measurementsStyles.placeholderStyles}
-                selectedLabelStyle={measurementsStyles.placeholderStyles}
-                arrowSize={20}
-              />
-              <Dropdown
-                OuterContainerStyles={{ zIndex: 5800 }}
-                Label="Length"
-                labelTextStyles={measurementsStyles.labelTextStyles}
-                items={burstItems}
-                value={this.state.Length}
-                onChangeSelection={item => this.setState({
-                  Length: item.value
-                })}
-                dropDownContainerStyles={measurementsStyles.dropdownContainerStyles}
-                pickerStyles={measurementsStyles.pickerStyles}
-                dropDownStyles={measurementsStyles.pickerStyles}
-                itemStyles={measurementsStyles.itemStyles}
-                placeholderText="Length"
-                placeholderStyle={measurementsStyles.placeholderStyles}
-                selectedLabelStyle={measurementsStyles.placeholderStyles}
-                arrowSize={20}
-              />
-              <Button
-                onPress={() => this.validateMeasurements()}
-                buttonStyles={measurementsStyles.buttonStylesSave}
-                buttonTitle="Save Size"
-                buttonTitleStyles={measurementsStyles.buttonTextStyles}
-              />
-              <Button
-                onPress={() => this.toggleModal()}
-                buttonStyles={measurementsStyles.buttonStylesCancel}
-                buttonTitle="Cancel"
-                buttonTitleStyles={measurementsStyles.buttonTextStyles}
-              />
-            </View>
-          </View>
-        </Modal>
+        <Measurements
+          visible={this.state.isModalVisible}
+          toggleModal={() => this.toggleModal()}
+          validateMeasurements={() => this.validateMeasurements()}
+        />
       </View>
-
     );
   }
 }
