@@ -127,20 +127,22 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
   },
   deleteConfirmationDialogue:{
-    width:getPercentageWidth(350), 
+    width:getPercentageWidth(270), 
     backgroundColor:'white', 
     borderWidth:3, 
-    height:getPercentageHeight(400),
-    left:getPercentageWidth(100),
+    height:getPercentageHeight(176),
+    //left:getPercentageWidth(52),
+    //right:getPercentageWidth(52),
     borderColor:'#CE8678',
-    borderRadius:10
+    borderRadius:10,
+    alignSelf:'center'
   },
   deleteConfirmationTextBox:{
-    paddingTop:getPercentageHeight(150),
-    paddingLeft:getPercentageWidth(120),
-    paddingRight:getPercentageWidth(120),
+    paddingTop:getPercentageHeight(29),
+    paddingLeft:getPercentageWidth(14),
+    paddingRight:getPercentageWidth(13),
     borderBottomWidth:3,
-    height:getPercentageHeight(330),
+    height:getPercentageHeight(131),
     borderColor:'#CE8678'
   },
   deleteConfirmationText:{
