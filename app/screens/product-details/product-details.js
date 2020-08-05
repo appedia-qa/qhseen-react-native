@@ -4,8 +4,9 @@ import {
   View,
   Image,
   ScrollView,
-  Alert,
 } from 'react-native';
+import { Rating, AirbnbRating } from 'react-native-ratings';
+import Modal from 'react-native-modal';
 
 import {
   Header,
@@ -13,17 +14,13 @@ import {
   Touchable,
   Segment,
   Button,
-  ProductTile
+  ProductTile,
+  Dropdown,
 } from '../../components';
 import { screens } from '../../config';
-import { images, height, width, getPercentageWidth, getPercentageHeight, COLOR } from '../../constants';
-//import {CategoryTile} from './category-tile/category-tile';
-import { Rating, AirbnbRating } from 'react-native-ratings';
-import { CategoryTile } from '../category-detail/category-tile';
-import * as Progress from 'react-native-progress';
+import { images, getPercentageWidth, getPercentageHeight, COLOR } from '../../constants';
+import Reviews from './reviews';
 import { styles, measurementsStyles } from './product-details.styles';
-import Modal from 'react-native-modal';
-import { Dropdown } from './../../components/dropdown/index';
 
 class ProductDetails extends Component {
 
@@ -320,14 +317,11 @@ class ProductDetails extends Component {
                   <Text style={styles.noOfReviewsText}>No. of Reviews</Text>
                 </Touchable>
               </View>
-
-              <Reviews theme={this.props.theme} />
+              <Reviews />
             </View>
             <View style={styles.writeReviewContainer}>
               <Touchable>
-                <Text style={styles.writeReviewText}>
-                  Write a review
-                        </Text>
+                <Text style={styles.writeReviewText}>Write a review</Text>
               </Touchable>
             </View>
           </ScrollView>
@@ -478,82 +472,5 @@ class ProductDetails extends Component {
     );
   }
 }
-const Reviews = ({ theme }) => (
-  <View style={{ marginTop: getPercentageHeight(20), flexDirection: 'row' }}>
-    <View style={{ flex: 0.2, marginRight: getPercentageWidth(20), justifyContent: 'flex-start', alignItems: 'flex-start' }}>
-      <View style={{ justifyContent: 'center', alignItems: 'center', backgroundColor: 'black', height: getPercentageHeight(80), width: getPercentageWidth(82), paddingHorizontal: getPercentageWidth(16), paddingVertical: getPercentageHeight(16), borderRadius: 16 }}>
-        <Text style={styles.ratingCountText}>{'4.0'}</Text>
-        <Text style={styles.ratingCountTextSmall}>{'Out of 5'}</Text>
-      </View>
-
-    </View>
-    <View style={{ flex: 0.8, justifyContent: 'center', alignItems: 'center', marginLeft: getPercentageHeight(11) }}>
-      <View style={styles.propertiesContainer}>
-        <View style={{ flex: 0.3 }}>
-          <Text style={styles.progressLableText}>
-            {'Exellent'}
-          </Text>
-        </View>
-        <View style={{ flex: 0.7 }}>
-          <Progress.Bar
-            animated
-            borderWidth={0}
-            unfilledColor={COLOR.PROD_COLOR_2}
-            color={COLOR.TEXT_PINK}
-            progress={0.7} width={getPercentageWidth(164)} />
-        </View>
-      </View>
-
-      <View style={styles.propertiesContainer}>
-        <View style={{ flex: 0.3 }}>
-          <Text style={styles.progressLableText}>
-            {'Size'}
-          </Text>
-        </View>
-        <View style={{ flex: 0.7 }}>
-          <Progress.Bar
-            animated
-            borderWidth={0}
-            unfilledColor={COLOR.PROD_COLOR_2}
-            color={COLOR.TEXT_PINK}
-            progress={0.4} width={getPercentageWidth(164)} />
-        </View>
-      </View>
-
-      <View style={styles.propertiesContainer}>
-        <View style={{ flex: 0.3 }}>
-          <Text style={styles.progressLableText}>
-            {'Fabric'}
-          </Text>
-        </View>
-        <View style={{ flex: 0.7 }}>
-          <Progress.Bar
-            animated
-            borderWidth={0}
-            unfilledColor={COLOR.PROD_COLOR_2}
-            color={COLOR.TEXT_PINK}
-            progress={0.2} width={getPercentageWidth(164)} />
-        </View>
-      </View>
-
-      <View style={styles.propertiesContainer}>
-        <View style={{ flex: 0.3 }}>
-          <Text style={styles.progressLableText}>
-            {'Quality'}
-          </Text>
-        </View>
-        <View style={{ flex: 0.7 }}>
-          <Progress.Bar
-            animated
-            borderWidth={0}
-            unfilledColor={COLOR.PROD_COLOR_2}
-            color={COLOR.TEXT_PINK}
-            progress={0.1} width={getPercentageWidth(164)} />
-        </View>
-      </View>
-
-    </View>
-  </View>
-)
 
 export default ProductDetails;

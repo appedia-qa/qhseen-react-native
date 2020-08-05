@@ -167,20 +167,6 @@ const styles = StyleSheet.create({
             marginLeft:getPercentageWidth(2),
             marginRight:getPercentageHeight(2),
           },
-          ratingCountText: {
-            color: COLOR.WHITE,
-            fontSize: 26,
-            //fontFamily: 'Roboto',
-            fontWeight: '900', 
-            lineHeight: getPercentageHeight(30)
-          },
-          ratingCountTextSmall: {
-            color: COLOR.WHITE,
-            fontSize: 12,
-            //fontFamily: 'Roboto',
-            fontWeight: '400', 
-            lineHeight: getPercentageHeight(14)
-          },
           separator: {
             width: '100%',
             height: getPercentageHeight(1),
@@ -261,25 +247,6 @@ const styles = StyleSheet.create({
             color:COLOR.REVIEW_TEXT,
             fontSize:14,
             textDecorationLine:'underline'
-          },
-          progressLableText:{
-            fontSize: 14, marginRight:getPercentageWidth(12),textAlign: 'left'
-          },
-          reviewBar:{
-            width:getPercentageWidth(55),
-            backgroundColor:COLOR.TEXT_LIGHT,
-            height:getPercentageHeight(2),
-            borderRadius:5, 
-            marginTop:getPercentageHeight(3)
-          },
-          noOfReviews:{
-            flex:0.5,
-            alignItems:'flex-end',
-            marginRight:getPercentageWidth(20)
-          },
-          noOfReviewsText:{
-            fontSize:14, 
-            color:COLOR.REVIEW_TEXT_1
           },
           flexOneCenter:{
             flex:1,
