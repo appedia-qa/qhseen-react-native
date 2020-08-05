@@ -44,7 +44,16 @@ const styles = StyleSheet.create({
   flexOneCenter:{
     flex:1,
     justifyContent:'center',
-  }
+  },
+  writeReviewContainer:{
+    marginTop:getPercentageHeight(45),
+    marginBottom:getPercentageHeight(70)
+  },
+  writeReviewText:{
+    color:COLOR.REVIEW_TEXT,
+    fontSize:14,
+    textDecorationLine:'underline'
+  },
 });
 
 export default styles;

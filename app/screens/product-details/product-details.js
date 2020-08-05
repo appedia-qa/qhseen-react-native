@@ -169,162 +169,146 @@ class ProductDetails extends Component {
           onSearchPress={() => alert('asds')}
           title='Product Description'
         />
-          <ScrollView
-            showsVerticalScrollIndicator={false}
-            bounces={false}
-            style={styles.productScrollView}>
-            <View style={{ marginTop: getPercentageHeight(30), marginBottom: getPercentageHeight(5), marginLeft: getPercentageWidth(5), flexDirection: 'row' }}>
-              <AirbnbRating
-                type='star'
-                selectedColor={COLOR.TEXT_PINK}
-                count={5}
-                showRating={false}
-                defaultRating={5}
-                size={14}
-                starStyle={{ margin: 2 }}
-              />
-              <Text style={{ color: COLOR.REVIEW_TEXT_1 }}> (No reviews)</Text>
-            </View>
-            <View styles={{ justifyContent: 'center' }}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          bounces={false}
+          style={styles.productScrollView}>
+          <View style={{ marginTop: getPercentageHeight(30), marginBottom: getPercentageHeight(5), marginLeft: getPercentageWidth(5), flexDirection: 'row' }}>
+            <AirbnbRating
+              type='star'
+              selectedColor={COLOR.TEXT_PINK}
+              count={5}
+              showRating={false}
+              defaultRating={5}
+              size={14}
+              starStyle={{ margin: 2 }}
+            />
+            <Text style={{ color: COLOR.REVIEW_TEXT_1 }}> (No reviews)</Text>
+          </View>
+          <View styles={{ justifyContent: 'center' }}>
 
-              <View>
+            <View>
+              <Image
+                style={styles.mainImage}
+                source={images.productMain}
+                resizeMode='contain'
+              />
+            </View>
+
+            <View style={styles.codeContainer}>
+              <View style={{ flex: 1, alignItems: 'flex-start' }}>
+                <Text style={styles.Code}>{this.state.price}</Text>
+              </View>
+              <View style={{ flex: 1, alignItems: 'flex-end' }}>
                 <Image
-                  style={styles.mainImage}
-                  source={images.productMain}
+                  style={styles.heart}
+                  source={images.heartProd}
                   resizeMode='contain'
                 />
               </View>
 
-              <View style={styles.codeContainer}>
-                <View style={{ flex: 1, alignItems: 'flex-start' }}>
-                  <Text style={styles.Code}>{this.state.price}</Text>
+            </View>
+            <View style={styles.ProductNameContainer}>
+              <View style={{ flex: 1, alignItems: 'flex-start' }}>
+                <Text style={styles.ProdNameText}>{this.state.productName}</Text>
+              </View>
+            </View>
+            <View style={styles.descriptionContainer}>
+              <Segment
+                // style={styles.segmentContainer}
+                segmentStyles={styles.segmentContainer}
+                segmentItemStyle={styles.segmentItemStyle}
+                activeBorderColor={'black'}
+                perIndexStyle={{
+                  1: { flex: 2 },
+                }}
+                segmentText={{
+                  fontSize: 14,
+                }}
+                segmentElements={this.state.segment.segmentTitles}
+                selectedSegment={this.state.segment.selectedSegment}
+                onPress={() => this._handleSegmentPress}
+              >
+                <View
+                  style={styles.segmentContentContainer}
+                  key={0}
+                >
+                  <Text style={styles.descriptionText}>
+                    {this.state.description}
+                  </Text>
                 </View>
-                <View style={{ flex: 1, alignItems: 'flex-end' }}>
-                  <Image
-                    style={styles.heart}
-                    source={images.heartProd}
-                    resizeMode='contain'
+                <View key={1} />
+                <View key={2} />
+              </Segment>
+
+            </View>
+            <Touchable style={styles.takeMeasurementsContainer} onPress={() => this.toggleModal()}>
+              <View style={styles.flexOneCenter}>
+                <Image source={images.measurements} style={styles.measurementsStyles} resizeMode='contain' />
+              </View>
+              <View style={styles.flexOneCenter}>
+                <Text>Take Measurements</Text>
+              </View>
+              <View style={styles.flexOneCenter}>
+                <Image source={images.rightArrow} style={styles.rightArrow} resizeMode='contain' />
+              </View>
+            </Touchable>
+            <View style={{ marginTop: getPercentageHeight(17) }}>
+              <Text style={styles.colorHeading}>Select Color</Text>
+              {this._renderGivenColors()}
+            </View>
+            <View style={{ marginTop: getPercentageHeight(17) }}>
+              <Text style={styles.colorHeading}>Select Material</Text>
+              {this._renderGivenMaterials()}
+            </View>
+
+            <View>
+
+              <Button
+                buttonStyles={styles.button}
+                buttonTitle={'ADD TO CART'}
+                buttonTitleStyles={styles.buttonTitle}
+                rightIcon={<Image source={images.cart} style={{width: getPercentageWidth(19), height:getPercentageHeight(24)}} resizeMode='contain' />}
+              />
+            </View>
+          </View>
+          <View style={{ marginTop: getPercentageHeight(35) }}>
+            <Text style={styles.similarItemText}>Similar Items</Text>
+            <FlatList
+              data={productsData.data}
+              renderItem={(item) => (
+                <View style={{ alignItems: 'center' }}>
+                  <ProductTile item={item.item}
+                    onPress={() => this.props.navigation.navigate(screens.categoryStack, {
+                      screen: screens.productDetails,
+                      params: {
+                        productsData,
+                      }
+                    })}
                   />
                 </View>
-
-              </View>
-              <View style={styles.ProductNameContainer}>
-                <View style={{ flex: 1, alignItems: 'flex-start' }}>
-                  <Text style={styles.ProdNameText}>{this.state.productName}</Text>
-                </View>
-              </View>
-              <View style={styles.descriptionContainer}>
-                <Segment
-                  // style={styles.segmentContainer}
-                  segmentStyles={styles.segmentContainer}
-                  segmentItemStyle={styles.segmentItemStyle}
-                  activeBorderColor={'black'}
-                  perIndexStyle={{
-                    1: { flex: 2 },
-                  }}
-                  segmentText={{
-                    fontSize: 14,
-                  }}
-                  segmentElements={this.state.segment.segmentTitles}
-                  selectedSegment={this.state.segment.selectedSegment}
-                  onPress={() => this._handleSegmentPress}
-                >
-                  <View
-                    style={styles.segmentContentContainer}
-                    key={0}
-                  >
-                    <Text style={styles.descriptionText}>
-                      {this.state.description}
-                    </Text>
-                  </View>
-                  <View key={1} />
-                  <View key={2} />
-                </Segment>
-
-              </View>
-              <Touchable style={styles.takeMeasurementsContainer} onPress={() => this.toggleModal()}>
-                <View style={styles.flexOneCenter}>
-                  <Image source={images.measurements} style={styles.measurementsStyles} resizeMode='contain' />
-                </View>
-                <View style={styles.flexOneCenter}>
-                  <Text>Take Measurements</Text>
-                </View>
-                <View style={styles.flexOneCenter}>
-                  <Image source={images.rightArrow} style={styles.rightArrow} resizeMode='contain' />
-                </View>
-              </Touchable>
-              <View style={{ marginTop: getPercentageHeight(17) }}>
-                <Text style={styles.colorHeading}>Select Color</Text>
-                {this._renderGivenColors()}
-              </View>
-              <View style={{ marginTop: getPercentageHeight(17) }}>
-                <Text style={styles.colorHeading}>Select Material</Text>
-                {this._renderGivenMaterials()}
-              </View>
-
-              <View>
-
-                <Button
-                  buttonStyles={styles.button}
-                  buttonTitle={'ADD TO CART'}
-                  buttonTitleStyles={styles.buttonTitle}
-                  rightIcon={<Image source={images.cart} style={{width: getPercentageWidth(19), height:getPercentageHeight(24)}} resizeMode='contain' />}
-                />
-              </View>
-            </View>
-            <View style={{ marginTop: getPercentageHeight(35) }}>
-              <Text style={styles.similarItemText}>Similar Items</Text>
-              <FlatList
-                data={productsData.data}
-                renderItem={(item) => (
-                  <View style={{ alignItems: 'center' }}>
-                    <ProductTile item={item.item}
-                      onPress={() => this.props.navigation.navigate(screens.categoryStack, {
-                        screen: screens.productDetails,
-                        params: {
-                          productsData,
-                        }
-                      })}
-                    />
-                  </View>
-                )}
-                //numColumns={2}
-                horizontal={true}
-                ItemSeparatorComponent={() => <View style={{ height: getPercentageHeight(13.5), width: getPercentageWidth(20) }} />}
-                keyExtractor={(item, index) => String(index)}
-                contentContainerStyle={{ marginTop: getPercentageHeight(14.5), paddingBottom: getPercentageHeight(25) }}
-                showsVerticalScrollIndicator={false}
-                bounces={false}
-              />
-              <View style={{ flexDirection: 'row', justifyContent: 'flex-end' }}>
-                <Touchable>
-                  <Image style={styles.arrowButtonImages} source={images.leftArrow} />
-                </Touchable>
-                <Touchable>
-                  <Image style={styles.arrowButtonImages} source={images.rightArrow} />
-                </Touchable>
-              </View>
-
-
-            </View>
-            <View style={{ marginTop: getPercentageHeight(40) }}>
-              <View style={{ flexDirection: 'row' }}>
-                <Touchable style={{ flex: 0.5 }}>
-                  <Text style={{ fontSize: 16 }}>Reviews</Text>
-                  <View style={styles.reviewBar}></View>
-                </Touchable>
-                <Touchable style={styles.noOfReviews}>
-                  <Text style={styles.noOfReviewsText}>No. of Reviews</Text>
-                </Touchable>
-              </View>
-              <Reviews />
-            </View>
-            <View style={styles.writeReviewContainer}>
+              )}
+              //numColumns={2}
+              horizontal={true}
+              ItemSeparatorComponent={() => <View style={{ height: getPercentageHeight(13.5), width: getPercentageWidth(20) }} />}
+              keyExtractor={(item, index) => String(index)}
+              contentContainerStyle={{ marginTop: getPercentageHeight(14.5), paddingBottom: getPercentageHeight(25) }}
+              showsVerticalScrollIndicator={false}
+              bounces={false}
+            />
+            <View style={{ flexDirection: 'row', justifyContent: 'flex-end' }}>
               <Touchable>
-                <Text style={styles.writeReviewText}>Write a review</Text>
+                <Image style={styles.arrowButtonImages} source={images.leftArrow} />
+              </Touchable>
+              <Touchable>
+                <Image style={styles.arrowButtonImages} source={images.rightArrow} />
               </Touchable>
             </View>
-          </ScrollView>
+
+
+          </View>
+          <Reviews />
+        </ScrollView>
 
         <Modal isVisible={this.state.isModalVisible}>
           <View style={measurementsStyles.modalView}>
