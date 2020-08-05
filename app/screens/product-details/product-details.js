@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {
-  FlatList,
   View,
   Image,
   ScrollView,
@@ -13,12 +12,12 @@ import {
   Touchable,
   Segment,
   Button,
-  ProductTile,
 } from '../../components';
 import { screens } from '../../config';
 import { images, getPercentageWidth, getPercentageHeight, COLOR } from '../../constants';
 import Reviews from './reviews';
 import Measurements from './measurements';
+import RelatedProducts from './related-products';
 import styles from './product-details.styles';
 
 class ProductDetails extends Component {
@@ -267,41 +266,9 @@ class ProductDetails extends Component {
               rightIcon={<Image source={images.cart} style={{width: getPercentageWidth(19), height:getPercentageHeight(24)}} resizeMode='contain' />}
             />
           </View>
-          <View style={{ marginTop: getPercentageHeight(35) }}>
-            <Text style={styles.similarItemText}>Similar Items</Text>
-            <FlatList
-              data={productsData.data}
-              renderItem={(item) => (
-                <View style={{ alignItems: 'center' }}>
-                  <ProductTile item={item.item}
-                    onPress={() => this.props.navigation.navigate(screens.categoryStack, {
-                      screen: screens.productDetails,
-                      params: {
-                        productsData,
-                      }
-                    })}
-                  />
-                </View>
-              )}
-              //numColumns={2}
-              horizontal={true}
-              ItemSeparatorComponent={() => <View style={{ height: getPercentageHeight(13.5), width: getPercentageWidth(20) }} />}
-              keyExtractor={(item, index) => String(index)}
-              contentContainerStyle={{ marginTop: getPercentageHeight(14.5), paddingBottom: getPercentageHeight(25) }}
-              showsVerticalScrollIndicator={false}
-              bounces={false}
-            />
-            <View style={{ flexDirection: 'row', justifyContent: 'flex-end' }}>
-              <Touchable>
-                <Image style={styles.arrowButtonImages} source={images.leftArrow} />
-              </Touchable>
-              <Touchable>
-                <Image style={styles.arrowButtonImages} source={images.rightArrow} />
-              </Touchable>
-            </View>
-
-
-          </View>
+          <RelatedProducts
+            productsData={productsData}
+          />
           <Reviews />
         </ScrollView>
         <Measurements

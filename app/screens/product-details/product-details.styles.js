@@ -157,16 +157,6 @@ const styles = StyleSheet.create({
     height:getPercentageHeight(50),
     paddingLeft:getPercentageWidth(10)
   },
-  similarItemText:{
-      fontSize:20,
-      color:COLOR.TEXT_COLOR
-  },
-  arrowButtonImages:{
-    width: getPercentageWidth(25),
-    height:getPercentageHeight(25),
-    marginLeft:getPercentageWidth(2),
-    marginRight:getPercentageHeight(2),
-  },
   separator: {
     width: '100%',
     height: getPercentageHeight(1),
