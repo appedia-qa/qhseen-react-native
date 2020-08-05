@@ -11,8 +11,20 @@ import {screens} from '../../config';
 import {Header, Input, Touchable, Button,} from '../../components';
 import {CartTile} from './cart-tile/cart-tile';
 import styles from './cart-info.style';
+import { DeleteCartItemPopup } from './delete-cart-item/delete-cart-item';
 
 class Cart extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isModalVisible:false,
+    };
+  }
+  toggleModal=()=> {
+    this.setState({
+      isModalVisible: !this.state.isModalVisible
+    })
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -40,7 +52,7 @@ class Cart extends Component {
               showsVerticalScrollIndicator={false}
               renderItem={() => (
                 <View style={styles.cardTileContainer}>
-                  <CartTile/>
+                  <CartTile onPressDelete={()=>this.toggleModal()}/>
                 </View>
               )}
               numColumns={1}
@@ -87,6 +99,7 @@ class Cart extends Component {
             />
           </View>
         </ScrollView>
+        <DeleteCartItemPopup isModalVisible={this.state.isModalVisible} onPressOk={()=>this.toggleModal()} onPressCancel={()=>this.toggleModal()} />
       </View>
     );
   }

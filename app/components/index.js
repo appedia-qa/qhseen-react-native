@@ -13,3 +13,4 @@ export * from './dropDownHolder';
 export { default as Segment } from './segment';
 export * from './circle-checkbox';
 export * from './intro-card';
+export * from './dropdown';

@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { width, height, COLOR } from '../../constants';
+import { width, height, COLOR,getPercentageHeight, getPercentageWidth } from '../../constants';
 
 const styles = StyleSheet.create({
   container: {
@@ -120,6 +120,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: COLOR.WHITE,
   },
+  
 });
 
 export default styles;

@@ -4,7 +4,6 @@ import {
   View,
   Image,
   ScrollView,
-  Alert,
 } from 'react-native';
 
 import {
@@ -16,8 +15,7 @@ import {
   ProductTile
 } from '../../components';
 import {screens, STORAGE_URL} from '../../config';
-import {images ,height} from '../../constants';
-import {CategoryTile} from './category-tile/category-tile';
+import {images} from '../../constants';
 import styles from './category-detail.style';
 
 class CategoryDetail extends Component {
@@ -25,6 +23,8 @@ class CategoryDetail extends Component {
   constructor(props) {
     super(props);
     const { params } = this.props.route;
+
+    this._handleBackPress = this._handleBackPress.bind(this);
   }
 
 
@@ -38,12 +38,16 @@ class CategoryDetail extends Component {
     }
   }
 
+  _handleBackPress() {
+    this.props.navigation.goBack();
+  }
+
   _sliderContent = () => {
     const {productsData} = this.props;
-    return productsData.data ? productsData.data.map(item => {
+    return productsData.data ? productsData.data.map((item, index) => {
       return (
         <Image
-          key={item.id}
+          key={index}
           source={{uri: STORAGE_URL+'products/'+item.cover_img}} 
           style={styles.sliderCategory}
           resizeMode= 'cover'
@@ -57,21 +61,15 @@ class CategoryDetail extends Component {
     const {productsData} = this.props;
     return (
       <View style={styles.screen}>
-        <Header/>
-        <View style={styles.subHeaderContainer}>
-          <View style={styles.buttonAlign}>
-            <Touchable 
-              style={styles.arrowBackground}
-              onPress={()=>{this.props.navigation.goBack()}}
-            >
-              <Image style={styles.arrow} source={images.back} />
-            </Touchable>   
-          </View>       
-          <Text style={styles.headingText}>{category.name}</Text>
-        </View>
-        <Card style={styles.listContainer}>
-          <ScrollView>
-            <View>
+        <Header
+          leftIcon={images.back}
+          leftIconPress={this._handleBackPress}
+          title={category.name}
+        />
+        <View style={styles.listContainer}>
+          <ScrollView
+            showsVerticalScrollIndicator={false}
+          >
             <FlatList
                 data={productsData.data}
                 renderItem={(item) => (
@@ -93,7 +91,6 @@ class CategoryDetail extends Component {
                 showsVerticalScrollIndicator={false}
                 bounces={false}
             />
-            </View>
             <Slider
               sliderContainerStyles={styles.sliderContainer}
               renderedContent={this._sliderContent}
@@ -105,7 +102,8 @@ class CategoryDetail extends Component {
                 data={productsData.data}
                 renderItem={(item) => (
                   <View style={{ width: '50%', alignItems: 'center' }}>
-                    <ProductTile item={item.item}
+                    <ProductTile 
+                      item={item.item}
                       onPress={() => this.props.navigation.navigate(screens.categoryStack, {
                         screen: screens.productDetails,
                         params: {
@@ -131,7 +129,7 @@ class CategoryDetail extends Component {
               </Card>
             </Touchable>
           </ScrollView>
-        </Card>
+        </View>
       </View>
     );
   }

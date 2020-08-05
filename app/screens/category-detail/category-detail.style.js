@@ -4,47 +4,11 @@ import { COLOR, width, height } from '../../constants';
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: COLOR.PRIMARY_COLOR,
-  },
-  subHeaderContainer: {
-    width: '90%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    alignSelf: 'center',
-    flexDirection: 'row',
-    marginTop: 17,
-  },
-  buttonAlign: {
-    justifyContent: 'center',
-    alignItems: 'flex-start',
-    ...StyleSheet.absoluteFillObject,
-  },
-  arrowBackground: {
-    width: width * 0.0668,
-    height: width * 0.0668,
     backgroundColor: COLOR.BACK,
-    borderRadius: 7,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  arrow: {
-    width: width * 0.0374,
-    height: width * 0.0370,
-  },
-  headingText: {
-    fontSize: 24,
-    fontWeight: '700',
-    color: COLOR.WHITE,
-    alignSelf:'center',
-    //marginLeft:width*0.248,
   },
   listContainer: {
     flex: 1,
-    backgroundColor: COLOR.BACK,
-    borderTopLeftRadius: 28,
-    borderTopRightRadius: 28,
     paddingTop: 16,
-    marginTop: 14,
   },
   sliderContainer: {
     borderRadius: 7,
