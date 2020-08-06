@@ -1,13 +1,14 @@
 import { take, put, call, fork, all } from 'redux-saga/effects';
 import {
-    FETCH_PRODUCTS_BY_CATEGORIES_REQUEST,
+  FETCH_PRODUCTS_BY_CATEGORIES_REQUEST,
+  FETCH_PRODUCT_DETAILS_REQUEST,
 } from '../types';
 
 import {
-    fetchProductsActionsCreator,
-  } from '../actions/products.actions';
+  fetchProductsActionsCreator,
+} from '../actions/products.actions';
 
-import { fetchProductsByCategories } from '../api';
+import { fetchProductsByCategories, fetchProductDetails } from '../api';
 
 function* fetchProductsByCategoriesSaga({ payload }) {
   try {
@@ -19,6 +20,16 @@ function* fetchProductsByCategoriesSaga({ payload }) {
   }
 }
 
+function* fetchProductDetailsSaga({ payload }) {
+  try {
+    const response = yield call(fetchProductDetails, payload);
+    yield put(fetchProductsActionsCreator.fetchProductDetailsSuccess({ productDetails: { details: response.product, similarProducts: response.similar_products } }))
+  } catch (err) {
+    const error = err || 'PRODUCT CANNOT FOUND';
+    yield put(fetchProductsActionsCreator.fetchProductDetailsFailed({error}));
+  }
+}
+
 function* watchFetchfetchProductsByCategories() {
   while(true) {
     const action = yield take(FETCH_PRODUCTS_BY_CATEGORIES_REQUEST);
@@ -26,8 +37,16 @@ function* watchFetchfetchProductsByCategories() {
   }
 }
 
+function* watchFetchProductDetails() {
+  while(true) {
+    const action = yield take(FETCH_PRODUCT_DETAILS_REQUEST);
+    yield *fetchProductDetailsSaga(action); 
+  }
+}
+
 export default function* () {
   yield all([
     fork(watchFetchfetchProductsByCategories),
+    fork(watchFetchProductDetails),
   ]);
 }

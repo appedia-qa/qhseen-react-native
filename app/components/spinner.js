@@ -1,9 +1,11 @@
 import React from 'react';
 import { View, ActivityIndicator } from 'react-native';
 
+import {COLOR} from '../constants';
+
 export const Spinner = ({ size, style, color, fullScreen, fullScreenOverlay, fullScreenTransparentOverlay }) => (
   <View style={[styles.spinnerStyle, style, fullScreenOverlay && fullScreenOverlayContainerStyles, fullScreenTransparentOverlay && fullScreenTransparentOverlayContainerStyles ,fullScreen && { flex: 1 }]}>
-    <ActivityIndicator color={color || '#F6B74A'} size={size || 'large'} />
+    <ActivityIndicator color={color || COLOR.PRIMARY_COLOR} size={size || 'large'} />
   </View>
 );
 

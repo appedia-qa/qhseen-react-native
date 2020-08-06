@@ -9,4 +9,5 @@ export const END_POINTS = {
   brands: `brands`,
   products_by_categories: `product-by-category`,
   sign_up: 'register',
+  product_details: 'product',
 };

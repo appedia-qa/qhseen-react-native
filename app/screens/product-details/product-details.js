@@ -12,6 +12,7 @@ import {
   Touchable,
   Segment,
   Button,
+  Spinner,
 } from '../../components';
 import { screens } from '../../config';
 import { images, getPercentageWidth, getPercentageHeight, COLOR } from '../../constants';
@@ -67,6 +68,10 @@ class ProductDetails extends Component {
       ErrorMessage: ""
     };
 
+  }
+  componentDidMount() {
+    const {params} = this.props.route;
+    this.props.fetchProductDetailsRequest({ product_id: params.product.id });
   }
   toggleModal = () => {
     this.setState({
@@ -156,16 +161,26 @@ class ProductDetails extends Component {
     );
   }
   render() {
-    const { productsData } = this.props.route.params;
+    const {productsData} = this.props;
+    const {params} = this.props.route;
     const burstItems = [
       { label: '20', value: 1 },
       { label: '30', value: 2 },
-    ]
+    ];
+
+    if (productsData.requesting) {
+      return this._renderLoadingScreen();
+    }
+    var productDetails = {}, similarProducts = [];
+    if (productsData.productDetails) {
+      productDetails = productsData.productDetails.details;
+      similarProducts = productsData.productDetails.similarProducts;
+    }
     return (
       <View style={{ backgroundColor: 'white', flex: 1 }}>
         <Header
           onSearchPress={() => alert('asds')}
-          title='Product Description'
+          title={params.product.name}
         />
         <ScrollView
           showsVerticalScrollIndicator={false}
@@ -267,7 +282,7 @@ class ProductDetails extends Component {
             />
           </View>
           <RelatedProducts
-            productsData={productsData}
+            productsData={{data: similarProducts}}
           />
           <Reviews />
         </ScrollView>
@@ -276,6 +291,19 @@ class ProductDetails extends Component {
           toggleModal={() => this.toggleModal()}
           validateMeasurements={() => this.validateMeasurements()}
         />
+      </View>
+    );
+  }
+
+  _renderLoadingScreen = () => {
+    const {params} = this.props.route;
+    return (
+      <View style={{ backgroundColor: 'white', flex: 1 }}>
+        <Header
+          onSearchPress={() => alert('asds')}
+          title={params.product.name}
+        />
+        <Spinner fullScreenTransparentOverlay />
       </View>
     );
   }

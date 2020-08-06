@@ -78,9 +78,17 @@ class Home extends Component {
             </Touchable>
             <FlatList
               data={data ? data.products : []}
-              renderItem={(item) => (
+              renderItem={({item}) => (
                 <View style={{ width: '50%', alignItems: 'center' }}>
-                  <ProductTile item={item.item}/>
+                  <ProductTile
+                    item={item}
+                    onPress={() => this.props.navigation.navigate(screens.categoryStack, {
+                      screen: screens.productDetails,
+                      params: {
+                        product: item,
+                      }
+                    })}
+                  />
                 </View>
               )}
               numColumns={2}
@@ -103,9 +111,17 @@ class Home extends Component {
             </Touchable>
             <FlatList
               data={data ? data.products : []}
-              renderItem={(item) => (
+              renderItem={({item}) => (
                 <View style={{ width: '50%', alignItems: 'center' }}>
-                  <ProductTile item={item.item}/>
+                  <ProductTile
+                    item={item}
+                    onPress={() => this.props.navigation.navigate(screens.categoryStack, {
+                      screen: screens.productDetails,
+                      params: {
+                        product: item
+                      }
+                    })}
+                  />
                 </View>
               )}
               numColumns={2}
