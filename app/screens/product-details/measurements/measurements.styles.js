@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     backgroundColor:COLOR.WHITE
   },
   scrollView: {
-    paddingBottom: getPercentageWidth(35)
+    paddingBottom: getPercentageHeight(95)
   },
   imageContainer:{
     height:getPercentageHeight(332),

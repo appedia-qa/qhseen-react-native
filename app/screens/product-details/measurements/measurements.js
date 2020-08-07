@@ -5,6 +5,7 @@ import {
   ScrollView,
 } from 'react-native';
 import Modal from 'react-native-modal';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 import {
   Text,
@@ -16,21 +17,21 @@ import measurementsStyles from './measurements.styles';
 
 class Measurements extends Component {
   state = {
-    Burst: 0,
     ErrorMessage: '',
-    BaseWidth: 0,
-    Arm: 0,
-    Hips: 0,
-    SleeveLength: 0,
-    Length: 0,
-    ErrorMessage: "",
+    burst: '',
+    bottomSize: '',
+    arm: '',
+    waist: '',
+    sleeveLength: '',
+    shoulderLength: '',
+    hips: '',
+    lengthSize: '',
   };
   validateMeasurements = () => {
-    const { Burst, BaseWidth, Arm, Hips, SleeveLength, Length } = this.state;
-    console.log(this.state);
-    if (Burst <= 0 || BaseWidth <= 0 || Arm <= 0 || Hips <= 0 || SleeveLength <= 0 || Length <= 0) {
+    const { burst, bottomSize, arm, waist, sleeveLength, shoulderLength, hips, lengthSize } = this.state;
+    if (burst == '' || bottomSize == '' || arm == '' || waist <= 0 || sleeveLength == '' || shoulderLength == '' || hips == '' || lengthSize == '') {
       this.setState({
-        ErrorMessage: "Please select all values."
+        ErrorMessage: "Please fill all the values"
       });
     } else {
       this.setState({
@@ -42,7 +43,7 @@ class Measurements extends Component {
     return (
       <Modal isVisible={true}>
         <View style={measurementsStyles.modalView}>
-          <ScrollView
+          <KeyboardAwareScrollView
             contentContainerStyle={measurementsStyles.scrollView}
           >
             <View style={measurementsStyles.imageContainer}>
@@ -60,10 +61,11 @@ class Measurements extends Component {
               <View style={measurementsStyles.row}>
                 <Input
                   containerStyles={measurementsStyles.fieldValueContainer}
-                  placeholder={'Bust Size'}
+                  placeholder={'Burst Size'}
                   placeholderTextColor={COLOR.TEXT_GRAY}
                   style={measurementsStyles.fieldValue}
-                  heading={'Bust'}
+                  heading={'Burst'}
+                  keyboardType={'numeric'}
                 />
                 <Input
                   containerStyles={measurementsStyles.fieldValueContainer}
@@ -71,6 +73,7 @@ class Measurements extends Component {
                   placeholderTextColor={COLOR.TEXT_GRAY}
                   style={measurementsStyles.fieldValue}
                   heading={'Bottom Size'}
+                  keyboardType={'numeric'}
                 />
               </View>
 
@@ -81,30 +84,34 @@ class Measurements extends Component {
                   placeholderTextColor={COLOR.TEXT_GRAY}
                   style={measurementsStyles.fieldValue}
                   heading={'Arm Hole Size'}
+                  keyboardType={'numeric'}
                 />
                 <Input
                   containerStyles={measurementsStyles.fieldValueContainer}
-                  placeholder={'Waist Size'}
+                  placeholder={'Waist'}
                   placeholderTextColor={COLOR.TEXT_GRAY}
                   style={measurementsStyles.fieldValue}
-                  heading={'Waist'}
+                  heading={'Waist Size'}
+                  keyboardType={'numeric'}
                 />
               </View>
 
               <View style={measurementsStyles.row}>
                 <Input
                   containerStyles={measurementsStyles.fieldValueContainer}
-                  placeholder={'Sleeve Size'}
+                  placeholder={'Sleeve Length'}
                   placeholderTextColor={COLOR.TEXT_GRAY}
                   style={measurementsStyles.fieldValue}
-                  heading={'Sleeve Length'}
+                  heading={'Sleeve Size'}
+                  keyboardType={'numeric'}
                 />
                 <Input
                   containerStyles={measurementsStyles.fieldValueContainer}
-                  placeholder={'Shoulder Size'}
+                  placeholder={'Length'}
                   placeholderTextColor={COLOR.TEXT_GRAY}
                   style={measurementsStyles.fieldValue}
-                  heading={'Length'}
+                  heading={'Shoulder Size'}
+                  keyboardType={'numeric'}
                 />
               </View>
 
@@ -115,13 +122,15 @@ class Measurements extends Component {
                   placeholderTextColor={COLOR.TEXT_GRAY}
                   style={measurementsStyles.fieldValue}
                   heading={'Hips'}
+                  keyboardType={'numeric'}
                 />
                 <Input
                   containerStyles={measurementsStyles.fieldValueContainer}
-                  placeholder={'Length Size'}
+                  placeholder={'Length'}
                   placeholderTextColor={COLOR.TEXT_GRAY}
                   style={measurementsStyles.fieldValue}
-                  heading={'Length'}
+                  heading={'Length Size'}
+                  keyboardType={'numeric'}
                 />
               </View>
               <Button
@@ -137,7 +146,7 @@ class Measurements extends Component {
                 buttonTitleStyles={measurementsStyles.buttonTextStyles}
               />
             </View>
-          </ScrollView>
+          </KeyboardAwareScrollView>
         </View>
       </Modal>
     );
