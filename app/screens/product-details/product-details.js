@@ -166,10 +166,6 @@ class ProductDetails extends Component {
   render() {
     const {productsData} = this.props;
     const {params} = this.props.route;
-    const burstItems = [
-      { label: '20', value: 1 },
-      { label: '30', value: 2 },
-    ];
 
     if (productsData.requesting) {
       return this._renderLoadingScreen();
@@ -184,6 +180,8 @@ class ProductDetails extends Component {
         <Header
           onSearchPress={() => alert('asds')}
           title={params.product.name}
+          leftIcon={images.back}
+          leftIconPress={() => this.props.navigation.goBack()}
         />
         <ScrollView
           showsVerticalScrollIndicator={false}
@@ -297,6 +295,8 @@ class ProductDetails extends Component {
         <Header
           onSearchPress={() => alert('asds')}
           title={params.product.name}
+          leftIcon={images.back}
+          leftIconPress={() => this.props.navigation.goBack()}
         />
         <Spinner fullScreenTransparentOverlay />
       </View>

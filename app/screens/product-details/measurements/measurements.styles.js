@@ -1,5 +1,6 @@
-import { StyleSheet } from 'react-native';
-import {width, height, getPercentageHeight, getPercentageWidth, COLOR} from '../../../constants';
+import {StyleSheet} from 'react-native';
+import {getPercentageHeight, getPercentageWidth, COLOR} from '../../../constants';
+import {FontHelper} from '../../../helpers';
 
 const styles = StyleSheet.create({
   modalView:{
@@ -8,8 +9,10 @@ const styles = StyleSheet.create({
     width:getPercentageWidth(357),
     marginLeft:getPercentageWidth(9),
     marginRight:getPercentageWidth(9),
-
     backgroundColor:COLOR.WHITE
+  },
+  scrollView: {
+    paddingBottom: getPercentageWidth(35)
   },
   imageContainer:{
     height:getPercentageHeight(332),
@@ -29,26 +32,29 @@ const styles = StyleSheet.create({
     color:COLOR.RED
   },
   fieldsContainer:{
+    width: '100%',
     top:getPercentageHeight(17), 
     flexDirection:'row',
     flexWrap:'wrap'
   },
-  labelTextStyles:{
-    fontSize:14,
-    color:COLOR.LOADMORE
+  row: {
+    width: getPercentageWidth(335),
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop:getPercentageHeight(15),
+    marginLeft:getPercentageWidth(11),
   },
-  dropdownContainerStyles:{
+  fieldValueContainer: {
     height: getPercentageHeight(43), 
-    width:getPercentageWidth(163),
-    top:getPercentageHeight(4)
+    width: getPercentageWidth(163),
+    borderWidth: 1,
+    paddingHorizontal: 8,
   },
-  pickerStyles:{
-    backgroundColor: COLOR.WHITE,
-    borderColor:COLOR.BLACK
-  },
-  placeholderStyles:{
-    color:COLOR.PROD_COLOR_1, 
-    fontSize:16
+  fieldValue: {
+    ...FontHelper({
+      fontSize: 16,
+      fontWeight: '300',
+    }),
   },
   buttonStylesSave:{
     height:getPercentageHeight(55), 
@@ -60,7 +66,7 @@ const styles = StyleSheet.create({
   buttonStylesCancel:{
     height:getPercentageHeight(55),  
     width:getPercentageWidth(163),
-    marginLeft:getPercentageWidth(20), 
+    marginLeft:getPercentageWidth(20),
     marginTop:getPercentageHeight(15),
     backgroundColor:COLOR.BLACK
   },

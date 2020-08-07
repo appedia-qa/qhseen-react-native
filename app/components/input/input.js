@@ -14,6 +14,10 @@ class Input extends Component {
     const showWarning = !this.props.value && this.props.showWarning;
     return (
       <View>
+        {
+          this.props.heading?
+          <Text style={{ fontSize: 12, fontWeight: '300', color: '#3A333E' }}>{this.props.heading}</Text> : null
+        }
         <View style={[
           styles.container,
           this.props.containerStyles,

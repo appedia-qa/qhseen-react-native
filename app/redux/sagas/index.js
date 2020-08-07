@@ -9,7 +9,11 @@ import productsSaga from './products.saga';
 
 export default function* rootSaga() {
   yield all([
-    fork(loginSaga),fork(designersSaga),fork(categoriesSaga),
-    fork(brandsSaga), fork(homeSaga), fork(productsSaga)
+    fork(loginSaga),
+    fork(designersSaga),
+    fork(categoriesSaga),
+    fork(brandsSaga),
+    fork(homeSaga),
+    fork(productsSaga),
   ]);
 }
