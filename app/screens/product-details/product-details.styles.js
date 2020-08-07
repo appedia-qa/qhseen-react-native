@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { COLOR, width, height,getPercentageHeight,getPercentageWidth } from '../../constants';
+import { COLOR, width, height, getPercentageHeight, getPercentageWidth } from '../../constants';
 
 const styles = StyleSheet.create({
   subHeaderContainer: {
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: '700',
     color: COLOR.BLACK,
-    alignSelf:'center',
+    alignSelf: 'center',
     //marginLeft:width*0.248,
   },
   listContainer: {
@@ -40,11 +40,11 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 28,
     borderTopRightRadius: 28,
     paddingTop: getPercentageHeight(16),
-    marginTop:getPercentageHeight(14),
+    marginTop: getPercentageHeight(14),
   },
-  productScrollView:{
-      alignSelf:'center',
-      width:'94%'
+  productScrollView: {
+    alignSelf: 'center',
+    width: '94%'
   },
   sectionHeading: {
     fontSize: 20,
@@ -54,58 +54,64 @@ const styles = StyleSheet.create({
     marginBottom: getPercentageHeight(11),
     alignSelf: 'center',
   },
-  mainImage:{
-      width:getPercentageWidth(351),
-      height:getPercentageHeight(269),
-      alignSelf:'center'
+  sliderImage: {
+    width: '100%',
+    height: '100%',
+    borderRadius: 25,
   },
-  codeContainer:{
-    flexDirection:'row',
-    marginTop:getPercentageHeight(16)
+  sliderImageContainer: {
+    width: getPercentageWidth(351),
+    height: getPercentageHeight(269),
+    alignSelf: 'center'
   },
-  heart:{
-      width:getPercentageWidth(22),
-      height:getPercentageHeight(25),
-      alignItems:'flex-end'
+  codeContainer: {
+    flexDirection: 'row',
+    marginTop: getPercentageHeight(16)
   },
-  Code:{
-      fontSize:getPercentageHeight(24),
-      fontWeight:'bold',
-      //fontFamily:'SF Pro Display'
+  heart: {
+    width: getPercentageWidth(22),
+    height: getPercentageHeight(25),
+    alignItems: 'flex-end'
   },
-  ProductNameContainer:{
-      marginTop:getPercentageHeight(9),
-  },
-  ProdNameText:{
-    fontSize:getPercentageHeight(26),
-    fontWeight:'bold',
+  Code: {
+    fontSize: getPercentageHeight(24),
+    fontWeight: '700',
     //fontFamily:'SF Pro Display'
   },
-  descriptionContainer:{
-      flexDirection:'row',
-      marginTop:getPercentageHeight(14),
-      marginBottom:getPercentageHeight(20.1)
+  ProductNameContainer: {
+    marginTop: getPercentageHeight(9),
   },
-  descriptionText:{
-      color:COLOR.LIGHT_TEXT_EMPORER
+  ProdNameText: {
+    fontSize: getPercentageHeight(26),
+    fontWeight: '700',
+    //fontFamily:'SF Pro Display'
   },
-  takeMeasurementsContainer:{
-    flex:1, 
-    flexDirection:'row', 
-    borderColor:COLOR.MERCURY, 
-    borderWidth:1,
-    height:getPercentageHeight(50),
+  descriptionContainer: {
+    width: '100%',
+    flexDirection: 'row',
+    marginTop: getPercentageHeight(14),
+    marginBottom: getPercentageHeight(20.1)
   },
-  rightArrow:{
-    width:getPercentageWidth(18),
-    height:getPercentageHeight(25),
-    alignSelf:'flex-end',marginRight:getPercentageWidth(9)
+  descriptionText: {
+    color: COLOR.LIGHT_TEXT_EMPORER
   },
-  measurementsStyles:{
-    width:getPercentageWidth(37),
-    height:getPercentageHeight(23),
+  takeMeasurementsContainer: {
+    width: '100%',
+    flexDirection: 'row',
+    borderColor: COLOR.MERCURY,
+    borderWidth: 1,
+    height: getPercentageHeight(50),
+  },
+  rightArrow: {
+    width: getPercentageWidth(18),
+    height: getPercentageHeight(25),
+    alignSelf: 'flex-end', marginRight: getPercentageWidth(9)
+  },
+  measurementsStyles: {
+    width: getPercentageWidth(37),
+    height: getPercentageHeight(23),
     //alignSelf:'flex-start',
-    marginLeft:getPercentageWidth(11)
+    marginLeft: getPercentageWidth(11)
   },
   button: {
     width: '100%',
@@ -124,7 +130,7 @@ const styles = StyleSheet.create({
   },
   colorHeading: {
     fontSize: 14,
-    marginBottom:getPercentageHeight(9),
+    marginBottom: getPercentageHeight(9),
   },
   colorContainer: {
     //marginTop: getPercentageHeight(3),
@@ -145,17 +151,17 @@ const styles = StyleSheet.create({
     fontSize: 6,
     fontWeight: '300',
   },
-  checkStyles:{
-      width:getPercentageWidth(16),
-      height:getPercentageHeight(11)
+  checkStyles: {
+    width: getPercentageWidth(16),
+    height: getPercentageHeight(11)
   },
-  selectColorsContainer:{
-    flex:1, 
-    flexDirection:'row', 
-    borderColor:COLOR.MERCURY, 
-    borderWidth:1,
-    height:getPercentageHeight(50),
-    paddingLeft:getPercentageWidth(10)
+  selectColorsContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    borderColor: COLOR.MERCURY,
+    borderWidth: 1,
+    height: getPercentageHeight(50),
+    paddingLeft: getPercentageWidth(10)
   },
   separator: {
     width: '100%',
@@ -192,22 +198,25 @@ const styles = StyleSheet.create({
     color: COLOR.GRAY,
   },
   segmentContainer: {
+    flex: 1,
     width: '100%',
     marginTop: getPercentageHeight(18),
-    alignSelf: 'center' 
+    alignSelf: 'center',
+    marginTop: getPercentageHeight(14),
   },
   segmentItemStyle: {
     alignItems: 'flex-start',
   },
   segmentContentContainer: {
     width: '100%',
-    alignSelf: 'center'
+    alignSelf: 'center',
+    marginBottom: getPercentageHeight(20.1)
   },
   descriptionText: {
     fontSize: 10,
     marginTop: getPercentageHeight(18),
     lineHeight: getPercentageHeight(14),
-    color:COLOR.LIGHT_TEXT_EMPORER
+    color: COLOR.LIGHT_TEXT_EMPORER
   },
   sizeContainer: {
     width: '100%',
@@ -229,9 +238,9 @@ const styles = StyleSheet.create({
     marginLeft: getPercentageWidth(15),
     color: COLOR.GRAY
   },
-  flexOneCenter:{
-    flex:1,
-    justifyContent:'center',
+  flexOneCenter: {
+    flex: 1,
+    justifyContent: 'center',
   }
 });
 export default styles;

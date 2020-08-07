@@ -5,6 +5,7 @@ import {
   ScrollView,
 } from 'react-native';
 import { AirbnbRating } from 'react-native-ratings';
+import _ from 'lodash';
 
 import {
   Header,
@@ -13,8 +14,9 @@ import {
   Segment,
   Button,
   Spinner,
+  Slider,
 } from '../../components';
-import { screens } from '../../config';
+import { screens, STORAGE_URL } from '../../config';
 import { images, getPercentageWidth, getPercentageHeight, COLOR } from '../../constants';
 import Reviews from './reviews';
 import Measurements from './measurements';
@@ -22,7 +24,6 @@ import RelatedProducts from './related-products';
 import styles from './product-details.styles';
 
 class ProductDetails extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -67,17 +68,20 @@ class ProductDetails extends Component {
       Length: 0,
       ErrorMessage: ""
     };
-
+    this._handleSegmentPress = this._handleSegmentPress.bind(this);
   }
+
   componentDidMount() {
     const {params} = this.props.route;
     this.props.fetchProductDetailsRequest({ product_id: params.product.id });
   }
+
   toggleModal = () => {
     this.setState({
       isModalVisible: !this.state.isModalVisible
     })
   }
+
   validateMeasurements = () => {
     const { Burst, BaseWidth, Arm, Hips, SleeveLength, Length } = this.state;
     console.log(this.state);
@@ -93,13 +97,10 @@ class ProductDetails extends Component {
   }
 
   _handleSegmentPress(index) {
-    this.setState({
-      segment: {
-        ...this.state.segment,
-        selectedSegment: index
-      }
-    });
+    if (index == 1) {
+    }
   }
+
   _renderGivenColors = () => {
     return (
       <View style={styles.selectColorsContainer}>
@@ -130,6 +131,7 @@ class ProductDetails extends Component {
       </View>
     );
   }
+
   _renderGivenMaterials = () => {
     return (
       <View style={styles.selectColorsContainer}>
@@ -160,6 +162,7 @@ class ProductDetails extends Component {
       </View>
     );
   }
+
   render() {
     const {productsData} = this.props;
     const {params} = this.props.route;
@@ -199,18 +202,14 @@ class ProductDetails extends Component {
             <Text style={{ color: COLOR.REVIEW_TEXT_1 }}> (No reviews)</Text>
           </View>
           <View styles={{ justifyContent: 'center' }}>
-
-            <View>
-              <Image
-                style={styles.mainImage}
-                source={images.productMain}
-                resizeMode='contain'
-              />
-            </View>
-
+            <Slider
+              content={_.map(productDetails.image, image => STORAGE_URL+'products/'+image.image)}
+              sliderContainerStyles={styles.sliderImageContainer}
+              sliderImageStyles={styles.sliderImage}
+            />
             <View style={styles.codeContainer}>
               <View style={{ flex: 1, alignItems: 'flex-start' }}>
-                <Text style={styles.Code}>{this.state.price}</Text>
+                <Text style={styles.Code}>QR {productDetails.price}</Text>
               </View>
               <View style={{ flex: 1, alignItems: 'flex-end' }}>
                 <Image
@@ -223,37 +222,33 @@ class ProductDetails extends Component {
             </View>
             <View style={styles.ProductNameContainer}>
               <View style={{ flex: 1, alignItems: 'flex-start' }}>
-                <Text style={styles.ProdNameText}>{this.state.productName}</Text>
+                <Text style={styles.ProdNameText}>{productDetails.name}</Text>
               </View>
             </View>
-            <View style={styles.descriptionContainer}>
-              <Segment
-                // style={styles.segmentContainer}
-                segmentStyles={styles.segmentContainer}
-                segmentItemStyle={styles.segmentItemStyle}
-                activeBorderColor={'black'}
-                perIndexStyle={{
-                  1: { flex: 2 },
-                }}
-                segmentText={{
-                  fontSize: 14,
-                }}
-                segmentElements={this.state.segment.segmentTitles}
-                selectedSegment={this.state.segment.selectedSegment}
-                onPress={() => this._handleSegmentPress}
+            <Segment
+              segmentStyles={styles.segmentContainer}
+              segmentItemStyle={styles.segmentItemStyle}
+              activeBorderColor={'black'}
+              perIndexStyle={{
+                1: { flex: 2, alignItems: 'flex-end' },
+              }}
+              segmentText={{
+                fontSize: 14,
+              }}
+              segmentElements={this.state.segment.segmentTitles}
+              selectedSegment={this.state.segment.selectedSegment}
+              onPress={this._handleSegmentPress}
+            >
+              <View
+                style={styles.segmentContentContainer}
+                key={0}
               >
-                <View
-                  style={styles.segmentContentContainer}
-                  key={0}
-                >
-                  <Text style={styles.descriptionText}>
-                    {this.state.description}
-                  </Text>
-                </View>
-                <View key={1} />
-                <View key={2} />
-              </Segment>
-            </View>
+                <Text style={styles.descriptionText}>
+                  {productDetails.description}
+                </Text>
+              </View>
+              <View key={1} />
+            </Segment>
             <Touchable style={styles.takeMeasurementsContainer} onPress={() => this.toggleModal()}>
               <View style={styles.flexOneCenter}>
                 <Image source={images.measurements} style={styles.measurementsStyles} resizeMode='contain' />
