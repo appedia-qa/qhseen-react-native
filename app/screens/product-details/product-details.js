@@ -101,6 +101,17 @@ class ProductDetails extends Component {
     }
   }
 
+  _saveMeasurements = (measurements) => {
+    this.toggleModal();
+
+    const {authData} = this.props;
+    if (authData.data) {
+
+    } else {
+      
+    }
+  }
+
   _renderGivenColors = () => {
     return (
       <View style={styles.selectColorsContainer}>
@@ -283,6 +294,7 @@ class ProductDetails extends Component {
           visible={this.state.isModalVisible}
           toggleModal={() => this.toggleModal()}
           validateMeasurements={() => this.validateMeasurements()}
+          saveMeasurements={this._saveMeasurements}
         />
       </View>
     );

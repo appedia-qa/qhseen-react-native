@@ -9,7 +9,8 @@ const styles = StyleSheet.create({
     width:getPercentageWidth(357),
     marginLeft:getPercentageWidth(9),
     marginRight:getPercentageWidth(9),
-    backgroundColor:COLOR.WHITE
+    backgroundColor:COLOR.WHITE,
+    borderRadius: 6,
   },
   scrollView: {
     paddingBottom: getPercentageHeight(95)

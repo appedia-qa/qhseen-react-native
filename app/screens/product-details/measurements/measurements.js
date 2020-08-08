@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {
   View,
   Image,
-  ScrollView,
 } from 'react-native';
 import Modal from 'react-native-modal';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
@@ -17,31 +16,33 @@ import measurementsStyles from './measurements.styles';
 
 class Measurements extends Component {
   state = {
+    showWarning: false,
     ErrorMessage: '',
-    burst: '',
-    bottomSize: '',
-    arm: '',
-    waist: '',
-    sleeveLength: '',
-    shoulderLength: '',
-    hips: '',
-    lengthSize: '',
+    burst: '11',
+    bottomSize: '11',
+    arm: '11',
+    waist: '11',
+    sleeveLength: '11',
+    shoulderLength: '11',
+    hips: '11',
+    lengthSize: '11',
   };
   validateMeasurements = () => {
     const { burst, bottomSize, arm, waist, sleeveLength, shoulderLength, hips, lengthSize } = this.state;
     if (burst == '' || bottomSize == '' || arm == '' || waist <= 0 || sleeveLength == '' || shoulderLength == '' || hips == '' || lengthSize == '') {
       this.setState({
-        ErrorMessage: "Please fill all the values"
+        ErrorMessage: "Please fill all the values",
+        showWarning: true,
       });
     } else {
-      this.setState({
-        ErrorMessage: ""
+      this.props.saveMeasurements({
+        burst, bottomSize, arm, waist, sleeveLength, shoulderLength, hips, lengthSize
       });
     }
   }
   render() {
     return (
-      <Modal isVisible={true}>
+      <Modal isVisible={this.props.visible}>
         <View style={measurementsStyles.modalView}>
           <KeyboardAwareScrollView
             contentContainerStyle={measurementsStyles.scrollView}
@@ -66,6 +67,9 @@ class Measurements extends Component {
                   style={measurementsStyles.fieldValue}
                   heading={'Burst'}
                   keyboardType={'numeric'}
+                  value={this.state.burst}
+                  onChangeText={(text) => this.setState({ burst: text })}
+                  showWarning={this.state.showWarning}
                 />
                 <Input
                   containerStyles={measurementsStyles.fieldValueContainer}
@@ -74,6 +78,9 @@ class Measurements extends Component {
                   style={measurementsStyles.fieldValue}
                   heading={'Bottom Size'}
                   keyboardType={'numeric'}
+                  value={this.state.bottomSize}
+                  onChangeText={(text) => this.setState({ bottomSize: text })}
+                  showWarning={this.state.showWarning}
                 />
               </View>
 
@@ -85,6 +92,9 @@ class Measurements extends Component {
                   style={measurementsStyles.fieldValue}
                   heading={'Arm Hole Size'}
                   keyboardType={'numeric'}
+                  value={this.state.arm}
+                  onChangeText={(text) => this.setState({ arm: text })}
+                  showWarning={this.state.showWarning}
                 />
                 <Input
                   containerStyles={measurementsStyles.fieldValueContainer}
@@ -93,6 +103,9 @@ class Measurements extends Component {
                   style={measurementsStyles.fieldValue}
                   heading={'Waist Size'}
                   keyboardType={'numeric'}
+                  value={this.state.waist}
+                  onChangeText={(text) => this.setState({ waist: text })}
+                  showWarning={this.state.showWarning}
                 />
               </View>
 
@@ -104,6 +117,9 @@ class Measurements extends Component {
                   style={measurementsStyles.fieldValue}
                   heading={'Sleeve Size'}
                   keyboardType={'numeric'}
+                  value={this.state.sleeveLength}
+                  onChangeText={(text) => this.setState({ sleeveLength: text })}
+                  showWarning={this.state.showWarning}
                 />
                 <Input
                   containerStyles={measurementsStyles.fieldValueContainer}
@@ -112,6 +128,9 @@ class Measurements extends Component {
                   style={measurementsStyles.fieldValue}
                   heading={'Shoulder Size'}
                   keyboardType={'numeric'}
+                  value={this.state.shoulderLength}
+                  onChangeText={(text) => this.setState({ shoulderLength: text })}
+                  showWarning={this.state.showWarning}
                 />
               </View>
 
@@ -123,6 +142,9 @@ class Measurements extends Component {
                   style={measurementsStyles.fieldValue}
                   heading={'Hips'}
                   keyboardType={'numeric'}
+                  value={this.state.hips}
+                  onChangeText={(text) => this.setState({ hips: text })}
+                  showWarning={this.state.showWarning}
                 />
                 <Input
                   containerStyles={measurementsStyles.fieldValueContainer}
@@ -131,6 +153,9 @@ class Measurements extends Component {
                   style={measurementsStyles.fieldValue}
                   heading={'Length Size'}
                   keyboardType={'numeric'}
+                  value={this.state.lengthSize}
+                  onChangeText={(text) => this.setState({ lengthSize: text })}
+                  showWarning={this.state.showWarning}
                 />
               </View>
               <Button
