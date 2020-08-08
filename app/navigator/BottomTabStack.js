@@ -94,7 +94,7 @@ function materialTabNavigator() {
         component={Home}
       />
       <MaterialBottomTabs.Screen
-        name={screens.brands}
+        name={screens.brandStack}
         options={{
           tabBarLabel: screens.brands,
           tabBarIcon: icons.brand,

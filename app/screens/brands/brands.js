@@ -72,7 +72,10 @@ class Brands extends Component {
   }
 
   _onCardPress(item) {
-    this.props.navigation.navigate(screens.designerdetail,{item});
+    this.props.navigation.navigate(screens.designerStack, {
+      screen: screens.designerdetail,
+      params: {item}
+    });
   }
 
   render() {

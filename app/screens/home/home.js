@@ -82,7 +82,7 @@ class Home extends Component {
                 <View style={{ width: '50%', alignItems: 'center' }}>
                   <ProductTile
                     item={item}
-                    onPress={() => this.props.navigation.navigate(screens.categoryStack, {
+                    onPress={() => this.props.navigation.navigate(screens.mainStack, {
                       screen: screens.productDetails,
                       params: {
                         product: item,
@@ -115,7 +115,7 @@ class Home extends Component {
                 <View style={{ width: '50%', alignItems: 'center' }}>
                   <ProductTile
                     item={item}
-                    onPress={() => this.props.navigation.navigate(screens.categoryStack, {
+                    onPress={() => this.props.navigation.navigate(screens.mainStack, {
                       screen: screens.productDetails,
                       params: {
                         product: item

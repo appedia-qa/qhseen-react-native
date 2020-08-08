@@ -24,11 +24,8 @@ class RelatedProducts extends Component {
           renderItem={(item) => (
             <View style={{ alignItems: 'center' }}>
               <ProductTile item={item.item}
-                onPress={() => this.props.navigation.navigate(screens.categoryStack, {
-                  screen: screens.productDetails,
-                  params: {
-                    productsData,
-                  }
+                onPress={() => this.props.navigation.navigate(screens.productDetails, {
+                  product: item,
                 })}
               />
             </View>
