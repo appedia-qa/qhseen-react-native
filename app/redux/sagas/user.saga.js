@@ -12,7 +12,6 @@ import { addMeasurements } from '../api';
 function* addMeasurementsSaga({ payload }) {
   try {
     const response = yield call(addMeasurements, payload);
-    console.log()
     yield put(userActionsCreator.addMeasermentsSuccess({ measurements: response.user_measurment, success: response.messages }));
   } catch(err) {
     const error = err || 'Measurements cannot be saved';

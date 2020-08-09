@@ -34,6 +34,7 @@ class Designers extends Component {
       <View style={styles.screen}>
         <Header
           placeholder={'Designers'}
+          leftIconPress={() => this.props.navigation.openDrawer()}
           onSearchPress={() =>      
             this.props.navigation.navigate(screens.mainStack, {
             screen: screens.recommendations,

@@ -85,6 +85,7 @@ class Brands extends Component {
       <View style={styles.screen}>
         <Header
           placeholder={'Brands'}
+          leftIconPress={() => this.props.navigation.openDrawer()}
           onSearchPress={() =>      
             this.props.navigation.navigate(screens.mainStack, {
             screen: screens.recommendations,

@@ -74,6 +74,11 @@ const login_cover = require ('../assets/image/login/login_cover.png');
 const chevron_up = require ('../assets/image/icons/chevron-up.png');
 const chevron_down = require ('../assets/image/icons/chevron-down.png');
 const measurements=require ('../assets/image/product/Measurements3x.png');
+const home = require('../assets/image/bottomTabIcons/home.png');
+const designers = require('../assets/image/bottomTabIcons/designers.png');
+const cart_bottom = require('../assets/image/bottomTabIcons/cart.png');
+const brands = require('../assets/image/bottomTabIcons/brands.png');
+const profile = require('../assets/image/bottomTabIcons/profile.png');
 const images = {
   logo,
   step1Image,
@@ -150,7 +155,12 @@ const images = {
   login_cover,
   chevron_up,
   chevron_down,
-  measurements
+  measurements,
+  home,
+  designers,
+  cart_bottom,
+  brands,
+  profile,
 };
 
 export { images };

@@ -58,20 +58,20 @@ function tabNavigator() {
         component={DesignerStack}
       />
       <BottomTabs.Screen
-        name={screens.authStack}
-        options={{
-          tabBarLabel: 'Profile',
-          tabBarIcon: icons.profile,
-          }}
-        component={AuthStack}
-      />
-      <BottomTabs.Screen
         name={screens.cartStack}
         options={{
           tabBarLabel: 'Cart',
           tabBarIcon: icons.cart,
           }}
         component={CartStack}
+      />
+      <BottomTabs.Screen
+        name={screens.authStack}
+        options={{
+          tabBarLabel: 'Profile',
+          tabBarIcon: icons.profile,
+          }}
+        component={AuthStack}
       />
     </BottomTabs.Navigator>
   );
@@ -110,20 +110,20 @@ function materialTabNavigator() {
         component={DesignerStack}
       />
       <MaterialBottomTabs.Screen
-        name={screens.authStack}
-        options={{
-          tabBarLabel: 'Profile',
-          tabBarIcon: icons.profile,
-        }}
-        component={AuthStack}
-      />
-      <MaterialBottomTabs.Screen
         name={screens.cartStack}
         options={{
           tabBarLabel: 'Cart',
           tabBarIcon: icons.cart,
         }}
         component={CartStack}
+      />
+      <MaterialBottomTabs.Screen
+        name={screens.authStack}
+        options={{
+          tabBarLabel: 'Profile',
+          tabBarIcon: icons.profile,
+        }}
+        component={AuthStack}
       />
     </MaterialBottomTabs.Navigator>
   );

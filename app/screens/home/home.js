@@ -29,6 +29,7 @@ class Home extends Component {
         <Header
           // search
           title={'Home'}
+          leftIconPress={() => this.props.navigation.openDrawer()}
           onSearchPress={() =>      
             this.props.navigation.navigate(screens.mainStack, {
             screen: screens.sortresult,

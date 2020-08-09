@@ -30,6 +30,7 @@ class Cart extends Component {
       <View style={styles.container}>
         <Header
           placeholder={'Shopping Cart'}
+          leftIconPress={() => this.props.navigation.openDrawer()}
           onSearchPress={() =>      
             this.props.navigation.navigate(screens.mainStack, {
             screen: screens.recommendations,
