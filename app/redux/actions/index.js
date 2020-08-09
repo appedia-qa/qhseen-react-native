@@ -6,3 +6,4 @@ export * from './brands.actions';
 export * from './home.actions';
 export * from './products.actions';
 export * from './app.actions';
+export * from './user.actions';

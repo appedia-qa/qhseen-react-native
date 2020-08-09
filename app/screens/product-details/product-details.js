@@ -104,11 +104,23 @@ class ProductDetails extends Component {
   _saveMeasurements = (measurements) => {
     this.toggleModal();
 
+    const callback = () => {
+      const { authData } = this.props;
+
+      measurements.user_id = authData.data.id;
+    }
+
     const {authData} = this.props;
     if (authData.data) {
-
+      callback();
     } else {
-      
+      this.props.navigation.navigate(screens.mainStack, {
+        screen: screens.auth,
+        params: {
+          callback,
+          resetTo: screens.productDetails,
+        },
+      });
     }
   }
 

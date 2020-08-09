@@ -43,6 +43,16 @@ class Auth extends Component {
     if (this.props.authData.error) {
       DropDownHolder.alert('error', 'Error', this.props.authData.error);
     }
+
+    const {authData, route} = this.props;
+    if (authData.data && authData.sign_up_success) {
+
+    } else if (authData.data) {
+      if (route) {
+        route.params.callback && route.params.callback();
+        route.params.resetTo && this.props.navigation.navigate(route.params.resetTo);
+      }
+    }
   }
 
   _onPressAuthType(type) {

@@ -8,6 +8,7 @@ export const screens = {
   cartStack: 'cartStack',
 
   profile: 'Profile',
+  auth: 'Auth',
   home: 'Home',
   category: 'Category',
   brands: 'Brands',

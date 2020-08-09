@@ -13,6 +13,7 @@ import {
   Input,
   Button,
 } from '../../components';
+import {screens} from '../../config';
 import {COLOR} from '../../constants';
 import styles from './otp.styles';
 
@@ -61,6 +62,21 @@ class OTP extends Component {
     }catch(err){
       console.log("LoginPage / addInput / " + err.message);
     }
+  }
+
+  _handleSubmit = () => {
+    // this.props.navigation.navigate(screens.productDetails);
+    this.props.navigation.dispatch(
+      CommonActions.reset({
+        index: 0,
+        routes: [
+          { name: 'Home' },
+          // {
+          //   name: 'Home',
+          //   params: { user: 'jane' },
+          // },
+        ],
+      }));
   }
 
   render() {
@@ -143,18 +159,7 @@ class OTP extends Component {
             buttonTitle={'Submit'}
             buttonStyles={styles.button}
             buttonTitleStyles={styles.buttonText}
-            onPress={() => this.props.navigation.dispatch(
-              CommonActions.reset({
-                index: 0,
-                routes: [
-                  { name: 'Home' },
-                  // {
-                  //   name: 'Home',
-                  //   params: { user: 'jane' },
-                  // },
-                ],
-              })
-            )}
+            onPress={() => this._handleSubmit()}
           />
           <Text style={styles.didNotreceive}>{'Didn\'t Recieve Reset Code?'}</Text>
           <Touchable>

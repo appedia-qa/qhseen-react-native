@@ -7,8 +7,9 @@ import categoriesData from './categories.reducer';
 import brandsData from './brands.reducer';
 import homeData from './home.reducer';
 import productsData from './products.reducer';
+import userData from './user.reducer';
 
 export default combineReducers({
   onboardingData, authData, designersData, categoriesData, brandsData,
-  homeData, productsData
+  homeData, productsData, userData,
 });

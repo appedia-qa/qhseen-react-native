@@ -36,7 +36,14 @@ class Measurements extends Component {
       });
     } else {
       this.props.saveMeasurements({
-        burst, bottomSize, arm, waist, sleeveLength, shoulderLength, hips, lengthSize
+        "breast_size": Number.parseFloat(burst),
+        "bottom_size": Number.parseFloat(bottomSize),
+        "arm_hole_size": Number.parseFloat(arm),
+        "waist_size": Number.parseFloat(waist),
+        "sleeve_size": Number.parseFloat(sleeveLength),
+        "shoulder_size": Number.parseFloat(shoulderLength),
+        "hips": Number.parseFloat(hips),
+        "length_size": Number.parseFloat(lengthSize),
       });
     }
   }
