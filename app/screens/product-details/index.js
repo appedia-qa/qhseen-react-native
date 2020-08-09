@@ -1,10 +1,14 @@
 import {connect} from 'react-redux';
 import ProductDetails from './product-details';
-import {fetchProductsActionsCreator} from '../../redux/actions';
+import {fetchProductsActionsCreator, userActionsCreator} from '../../redux/actions';
 
-const mapStateToProps = ({productsData, authData}) => ({
+const mapStateToProps = ({productsData, authData, userData}) => ({
   productsData,
   authData,
+  userData,
 });
 
-export default connect(mapStateToProps, {...fetchProductsActionsCreator})(ProductDetails);
+export default connect(mapStateToProps, {
+  ...fetchProductsActionsCreator,
+  ...userActionsCreator,
+})(ProductDetails);

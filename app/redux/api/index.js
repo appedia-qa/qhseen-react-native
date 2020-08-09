@@ -4,3 +4,4 @@ export * from './categories.api';
 export * from './brands.api';
 export * from './home.api';
 export * from './products.api';
+export * from './user.api';

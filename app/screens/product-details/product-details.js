@@ -15,6 +15,7 @@ import {
   Button,
   Spinner,
   Slider,
+  DropDownHolder,
 } from '../../components';
 import { screens, STORAGE_URL } from '../../config';
 import { images, getPercentageWidth, getPercentageHeight, COLOR } from '../../constants';
@@ -76,6 +77,12 @@ class ProductDetails extends Component {
     this.props.fetchProductDetailsRequest({ product_id: params.product.id });
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (!_.isEqual(prevProps.userData.measurements, this.props.userData.measurements)) {
+      DropDownHolder.alert('success', 'Success', this.props.userData.success);
+    }
+  }
+
   toggleModal = () => {
     this.setState({
       isModalVisible: !this.state.isModalVisible
@@ -108,6 +115,8 @@ class ProductDetails extends Component {
       const { authData } = this.props;
 
       measurements.user_id = authData.data.id;
+
+      this.props.addMeasermentsRequest(measurements);
     }
 
     const {authData} = this.props;
@@ -187,7 +196,7 @@ class ProductDetails extends Component {
   }
 
   render() {
-    const {productsData} = this.props;
+    const {productsData, userData} = this.props;
     const {params} = this.props.route;
 
     if (productsData.requesting) {
@@ -275,7 +284,12 @@ class ProductDetails extends Component {
                 <Image source={images.measurements} style={styles.measurementsStyles} resizeMode='contain' />
               </View>
               <View style={styles.flexOneCenter}>
-                <Text>Take Measurements</Text>
+                {
+                  userData.measurements?
+                  <Text>Edit Measurements</Text>
+                  :
+                  <Text>Take Measurements</Text>
+                }
               </View>
               <View style={styles.flexOneCenter}>
                 <Image source={images.rightArrow} style={styles.rightArrow} resizeMode='contain' />

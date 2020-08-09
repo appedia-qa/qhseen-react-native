@@ -28,7 +28,7 @@ export default function (state = initial_state, action) {
         ...state,
         measurements: payload.measurements,
         requesting: false,
-        success: 'Measurements Saved'
+        success: payload.success,
       };
     }
     case ADD_MEASUREMENTS_FAILED: {

@@ -10,4 +10,6 @@ export const END_POINTS = {
   products_by_categories: `product-by-category`,
   sign_up: 'register',
   product_details: 'product',
+  save_measurements: 'measurment/add',
+  update_measurements: 'measurment/update',
 };
