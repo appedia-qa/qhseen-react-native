@@ -4,15 +4,15 @@ import {
   Image,
 } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import Modal from 'react-native-modal';
 
 import {
   Text,
   Touchable,
   Card,
 } from '../../../components';
-import styles from './cart-tile.style';
+import { STORAGE_URL } from '../../../config';
 import { images } from '../../../constants';
+import styles from './cart-tile.style';
 
 class CartTile extends Component {
   constructor(props) {
@@ -37,21 +37,22 @@ class CartTile extends Component {
   }
 
   render() {
+    const {data: {products}} = this.props;
     return (
       <Card style={styles.card}>
         <View style={styles.firstContainer}>
-          <Image source={images.cartImage} style={styles.image}/>
+          <Image source={{uri: `${STORAGE_URL}products/${products.cover_img}`}} style={styles.image}/>
           <Touchable style={styles.noteTextContainer}>
-            <Text style={styles.noteText}>Add Note </Text>
+            <Text style={styles.noteText}>Add Note</Text>
             <FontAwesome5 name="comment" color={"#CE8678"} size={25} />
           </Touchable>
         </View>
         <View style={styles.secondContainer}>
           <View style={styles.secondInnerContainer}>
             <View style={styles.productContainer}>
-              <Text style={styles.productNameText}>Product Name</Text>
+              <Text style={styles.productNameText}>{products.name}</Text>
               <Text style={styles.designerNameText}>Designer Name</Text>
-              <Text style={styles.price}>QR 250</Text>
+              <Text style={styles.price}>QR {products.price}</Text>
             </View>
             <Touchable onPress={this.props.onPressDelete} style={styles.trashContainer}>
               <Image source={images.trash} style={styles.trashIcon}/>
@@ -62,14 +63,13 @@ class CartTile extends Component {
               <Image source={images.minus} style={styles.decrementImage}/>
             </Touchable> 
             <View style={styles.counterNumberStyle}>
-              <Text style={styles.counterNumber}>{this.state.counter}</Text>
+              <Text style={styles.counterNumber}>{products.quantity}</Text>
             </View>
             <Touchable style={styles.increment} onPress={({type='increment'})=>this._onPresscounter(type)}>
               <Image source={images.plus} style={styles.incrementImage}/>
             </Touchable> 
           </View>
         </View>
-        
       </Card>
     );
   }

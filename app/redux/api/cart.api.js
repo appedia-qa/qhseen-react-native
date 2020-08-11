@@ -8,3 +8,11 @@ export function addToCart(params) {
     method: 'POST',
   }).then(response => response.data);
 }
+
+export function fetchCart(params) {
+  return API.fetch({
+    url: `${SERVER_URL}${END_POINTS.get_cart}`,
+    data: params,
+    method: 'POST',
+  }).then(response => response.data);
+}

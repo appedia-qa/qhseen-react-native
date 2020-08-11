@@ -20,6 +20,12 @@ class Cart extends Component {
       isModalVisible:false,
     };
   }
+  componentDidMount() {
+    const {authData} = this.props;
+    if (authData.data) {
+      this.props.fetchCartRequest({user_id: authData.data.id});
+    }
+  }
   toggleModal=()=> {
     this.setState({
       isModalVisible: !this.state.isModalVisible
@@ -28,11 +34,15 @@ class Cart extends Component {
   _renderCartItem = ({item}) => {
     return (
       <View style={styles.cardTileContainer}>
-        <CartTile onPressDelete={()=>this.toggleModal()}/>
+        <CartTile
+          onPressDelete={()=>this.toggleModal()}
+          data={item}
+        />
       </View>
     );
   }
   render() {
+    const {cartData} = this.props;
     return (
       <View style={styles.container}>
         <Header
@@ -56,7 +66,7 @@ class Cart extends Component {
           <View style={styles.cartView}>
             <Text style={styles.sectionHeading}>CART</Text>
             <FlatList
-              data={[1,2,2,2,2]}
+              data={cartData.data}
               showsVerticalScrollIndicator={false}
               renderItem={this._renderCartItem}
               numColumns={1}
