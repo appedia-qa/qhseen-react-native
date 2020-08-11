@@ -5,3 +5,4 @@ export * from './brands.api';
 export * from './home.api';
 export * from './products.api';
 export * from './user.api';
+export * from './cart.api';

@@ -25,6 +25,13 @@ class Cart extends Component {
       isModalVisible: !this.state.isModalVisible
     })
   }
+  _renderCartItem = ({item}) => {
+    return (
+      <View style={styles.cardTileContainer}>
+        <CartTile onPressDelete={()=>this.toggleModal()}/>
+      </View>
+    );
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -51,11 +58,7 @@ class Cart extends Component {
             <FlatList
               data={[1,2,2,2,2]}
               showsVerticalScrollIndicator={false}
-              renderItem={() => (
-                <View style={styles.cardTileContainer}>
-                  <CartTile onPressDelete={()=>this.toggleModal()}/>
-                </View>
-              )}
+              renderItem={this._renderCartItem}
               numColumns={1}
               ItemSeparatorComponent={() => <View style={{ height: 15 }} />}
               keyExtractor={(item, index) => String(index)}

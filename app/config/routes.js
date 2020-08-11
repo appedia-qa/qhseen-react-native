@@ -12,4 +12,5 @@ export const END_POINTS = {
   product_details: 'product',
   save_measurements: 'measurment/add',
   update_measurements: 'measurment/update',
+  add_to_cart: 'cart/store',
 };

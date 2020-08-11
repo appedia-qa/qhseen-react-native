@@ -7,3 +7,4 @@ export * from './home.types';
 export * from './products.types';
 export * from './app.types';
 export * from './user.types';
+export * from './cart.types';

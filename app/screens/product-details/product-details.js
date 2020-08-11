@@ -133,6 +133,30 @@ class ProductDetails extends Component {
     }
   }
 
+  _addToCart = () => {
+    const {productsData: {productDetails}, authData} = this.props;
+    const callback = () => {
+      const {authData} = this.props;
+      const params = {
+        product_id: productDetails.details.id,
+        user_id: authData.data.id,
+        quantity: 1,
+      };
+      this.props.addToCartRequest(params);
+    }
+    if (authData.data) {
+      callback();
+    } else {
+      this.props.navigation.navigate(screens.mainStack, {
+        screen: screens.auth,
+        params: {
+          callback,
+          resetTo: screens.productDetails,
+        },
+      });
+    }
+  }
+
   _renderGivenColors = () => {
     return (
       <View style={styles.selectColorsContainer}>
@@ -309,6 +333,7 @@ class ProductDetails extends Component {
               buttonTitle={'ADD TO CART'}
               buttonTitleStyles={styles.buttonTitle}
               rightIcon={<Image source={images.cart} style={{width: getPercentageWidth(19), height:getPercentageHeight(24)}} resizeMode='contain' />}
+              onPress={this._addToCart}
             />
           </View>
           <RelatedProducts
