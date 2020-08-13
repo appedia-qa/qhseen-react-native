@@ -7,6 +7,12 @@ import {
   FETCH_CART_REQUEST,
   FETCH_CART_SUCCESS,
   FETCH_CART_FAILED,
+  UPDATE_CART_ITEM_REQUEST,
+  UPDATE_CART_ITEM_SUCCESS,
+  UPDATE_CART_ITEM_FAILED,
+  DELETE_CART_ITEM_REQUEST,
+  DELETE_CART_ITEM_SUCCESS,
+  DELETE_CART_ITEM_FAILED,
 } from '../types';
 
 export const cartActionsCreator = {
@@ -16,4 +22,7 @@ export const cartActionsCreator = {
   fetchCartRequest: createAction(FETCH_CART_REQUEST),
   fetchCartSuccess: createAction(FETCH_CART_SUCCESS),
   fetchCartFaied: createAction(FETCH_CART_FAILED),
+  updateCartItemRequest: createAction(UPDATE_CART_ITEM_REQUEST),
+  updateCartItemSuccess: createAction(UPDATE_CART_ITEM_SUCCESS),
+  updateCartItemFailed: createAction(UPDATE_CART_ITEM_FAILED),
 };

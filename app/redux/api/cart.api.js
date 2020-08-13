@@ -16,3 +16,11 @@ export function fetchCart(params) {
     method: 'POST',
   }).then(response => response.data);
 }
+
+export function updateCartItem(params) {
+  return API.fetch({
+    url: `${SERVER_URL}${END_POINTS.update_cart_item}`,
+    data: params,
+    method: 'POST',
+  }).then(response => response.data);
+}

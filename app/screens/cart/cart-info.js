@@ -10,37 +10,81 @@ import {COLOR} from '../../constants';
 import {screens} from '../../config';
 import {Header, Input, Touchable, Button,} from '../../components';
 import {CartTile} from './cart-tile/cart-tile';
+import {DeleteCartItemPopup} from './delete-cart-item/delete-cart-item';
 import styles from './cart-info.style';
-import { DeleteCartItemPopup } from './delete-cart-item/delete-cart-item';
 
 class Cart extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isModalVisible:false,
+      modalData: null,
     };
   }
+  
   componentDidMount() {
     const {authData} = this.props;
     if (authData.data) {
       this.props.fetchCartRequest({user_id: authData.data.id});
     }
   }
-  toggleModal=()=> {
-    this.setState({
-      isModalVisible: !this.state.isModalVisible
-    })
+
+  deleteItem = () => {
+    console.log(this.state.modalData);
+    this.setState({isModalVisible: false});
   }
+  
+  showConfirmationModal = (cartItem) => {
+    this.setState({
+      isModalVisible: true,
+      modalData: cartItem,
+    });
+  }
+
+  _handleCounterPress = (cart_item, quantity) => {
+    const {authData} = this.props;
+    if (quantity == 0) {
+      this.showConfirmationModal(cart_item);
+    } else {
+      const callback = () => {
+        const {authData} = this.props;
+        if (authData.data) {
+          const params = {
+            "user_id": authData.data.id,
+            "product_id": cart_item.product_id,
+            "quantity": quantity,
+            "cart_id": cart_item.cart_id,
+          };
+
+          this.props.updateCartItemRequest(params);
+        }
+      }
+      if (authData.data) {
+        callback();
+      } else {
+        this.props.navigation.navigate(screens.mainStack, {
+          screen: screens.auth,
+          params: {
+            callback,
+            resetTo: screens.cart,
+          },
+        });
+      }
+    }
+  }
+
   _renderCartItem = ({item}) => {
     return (
       <View style={styles.cardTileContainer}>
         <CartTile
-          onPressDelete={()=>this.toggleModal()}
+          onPressDelete={this.showConfirmationModal}
           data={item}
+          onCounterPress={this._handleCounterPress}
         />
       </View>
     );
   }
+
   render() {
     const {cartData} = this.props;
     return (
@@ -76,11 +120,11 @@ class Cart extends Component {
             />
             <View style={styles.couponContainer}>
               <Input
-                  containerStyles={styles.inputContainer}
-                  placeholder={'Enter Coupon Code'}
-                  placeholderTextColor={COLOR.DESIGNER_LOC}
-                  textAlign={'center'}
-                  style={styles.input}
+                containerStyles={styles.inputContainer}
+                placeholder={'Enter Coupon Code'}
+                placeholderTextColor={COLOR.DESIGNER_LOC}
+                textAlign={'center'}
+                style={styles.input}
               />
               <Touchable style={styles.couponContainerButton}>
                 <Text style={styles.couponButtonText}>{'ADD COUPON'}</Text>
@@ -113,7 +157,12 @@ class Cart extends Component {
             />
           </View>
         </ScrollView>
-        <DeleteCartItemPopup isModalVisible={this.state.isModalVisible} onPressOk={()=>this.toggleModal()} onPressCancel={()=>this.toggleModal()} />
+        <DeleteCartItemPopup
+          cartItem={this.state.modalData}
+          isModalVisible={this.state.isModalVisible}
+          onPressOk={()=>this.deleteItem()}
+          onPressCancel={()=>this.setState({isModalVisible: false, modalData: null})}
+        />
       </View>
     );
   }
