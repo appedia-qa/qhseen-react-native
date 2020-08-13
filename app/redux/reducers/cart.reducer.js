@@ -9,6 +9,9 @@ import {
   UPDATE_CART_ITEM_REQUEST,
   UPDATE_CART_ITEM_SUCCESS,
   UPDATE_CART_ITEM_FAILED,
+  DELETE_CART_ITEM_REQUEST,
+  DELETE_CART_ITEM_SUCCESS,
+  DELETE_CART_ITEM_FAILED,
 } from '../types';
 
 const initial_state = {
@@ -71,6 +74,8 @@ export default function (state = initial_state, action) {
       return {
         ...state,
         requesting: true,
+        error: null,
+        success: null,
       };
     }
     case UPDATE_CART_ITEM_SUCCESS: {
@@ -95,6 +100,29 @@ export default function (state = initial_state, action) {
         ...state,
         requesting: false,
         error: payload.error,
+      };
+    }
+    case DELETE_CART_ITEM_REQUEST: {
+      return {
+        ...state,
+        requesting: false,
+        error: null,
+        success: null,
+      };
+    }
+    case DELETE_CART_ITEM_SUCCESS: {
+      const cartItems = _.filter(state.data, cartItem => cartItem.product_id != payload.cart_item.product_id);
+      return {
+        ...state,
+        requesting: false,
+        data: cartItems,
+        success: payload.success,
+      };
+    }
+    case DELETE_CART_ITEM_FAILED: {
+      return {
+        ...state,
+        requesting: false,
       };
     }
     default: return state;

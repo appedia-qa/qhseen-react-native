@@ -24,3 +24,11 @@ export function updateCartItem(params) {
     method: 'POST',
   }).then(response => response.data);
 }
+
+export function deleteCartItem(params) {
+  return API.fetch({
+    url: `${SERVER_URL}${END_POINTS.delete_cart_item}`,
+    data: params,
+    method: 'POST',
+  }).then(response => response.data);
+}

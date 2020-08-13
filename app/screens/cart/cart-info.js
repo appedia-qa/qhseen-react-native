@@ -8,7 +8,7 @@ import {
 
 import {COLOR} from '../../constants';
 import {screens} from '../../config';
-import {Header, Input, Touchable, Button,} from '../../components';
+import {Header, Input, Touchable, Button, DropDownHolder} from '../../components';
 import {CartTile} from './cart-tile/cart-tile';
 import {DeleteCartItemPopup} from './delete-cart-item/delete-cart-item';
 import styles from './cart-info.style';
@@ -29,9 +29,22 @@ class Cart extends Component {
     }
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    const {cartData} = this.props;
+    if (prevProps.cartData.success == null && cartData.success) {
+      DropDownHolder.alert('success', 'Success', cartData.success);
+    } else if (prevProps.cartData.error == null && cartData.error) {
+      DropDownHolder.alert('error', 'Error', cartData.error);
+    }
+  }
+
   deleteItem = () => {
-    console.log(this.state.modalData);
-    this.setState({isModalVisible: false});
+    const params = {
+      cart_id: this.state.modalData.cart_id,
+      product_id: this.state.modalData.product_id,
+    };
+    this.setState({isModalVisible: false, modalData: null});
+    this.props.deleteCartItemRequest(params);
   }
   
   showConfirmationModal = (cartItem) => {

@@ -15,4 +15,5 @@ export const END_POINTS = {
   add_to_cart: 'cart/store',
   get_cart: 'cart',
   update_cart_item: 'cart/update',
+  delete_cart_item: 'cart/delete',
 };

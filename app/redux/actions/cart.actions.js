@@ -25,4 +25,7 @@ export const cartActionsCreator = {
   updateCartItemRequest: createAction(UPDATE_CART_ITEM_REQUEST),
   updateCartItemSuccess: createAction(UPDATE_CART_ITEM_SUCCESS),
   updateCartItemFailed: createAction(UPDATE_CART_ITEM_FAILED),
+  deleteCartItemRequest: createAction(DELETE_CART_ITEM_REQUEST),
+  deleteCartItemSuccess: createAction(DELETE_CART_ITEM_SUCCESS),
+  deleteCartItemFailed: createAction(DELETE_CART_ITEM_FAILED),
 };

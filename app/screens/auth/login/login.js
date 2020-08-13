@@ -20,8 +20,8 @@ class Login extends Component {
       showWarning: false,
       showPassword: false,
       form: {
-        email: '',
-        password: '',
+        email: 'Waneed+05@test.com',
+        password: '123456',
       },
     };
 

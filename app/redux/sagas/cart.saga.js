@@ -3,11 +3,12 @@ import {
   ADD_TO_CART_REQUEST,
   FETCH_CART_REQUEST,
   UPDATE_CART_ITEM_REQUEST,
+  DELETE_CART_ITEM_REQUEST,
 } from '../types';
 import {
   cartActionsCreator,
 } from '../actions';
-import { addToCart, fetchCart, updateCartItem } from '../api';
+import { addToCart, fetchCart, updateCartItem, deleteCartItem } from '../api';
 
 function* addToCartSaga({payload}) {
   try {
@@ -43,7 +44,20 @@ function* updateCartItemSaga({payload}) {
     yield put(cartActionsCreator.updateCartItemSuccess({cart_item, success: response.message}));
   } catch (error) {
     console.log(error);
-    yield put(cartActionsCreator.updateCartItemFailed({error}));
+    yield put(cartActionsCreator.updateCartItemFailed({error: 'Product cannot be updated.'}));
+  }
+}
+
+function* deleteCartItemSaga({payload}) {
+  try {
+    const response = yield call(deleteCartItem, payload);
+    const cart_item = {
+      product_id: payload.product_id
+    };
+    yield put(cartActionsCreator.deleteCartItemSuccess({cart_item, success: response.message}));
+  } catch (error) {
+    console.log(error);
+    yield put(cartActionsCreator.updateCartItemFailed({error: 'Product Cannot be deleted.'}));
   }
 }
 
@@ -68,10 +82,18 @@ function* watchUpdateCartItem() {
   }
 }
 
+function* watchDeleteCartItem() {
+  while(true) {
+    const action = yield take(DELETE_CART_ITEM_REQUEST);
+    yield *deleteCartItemSaga(action);
+  }
+}
+
 export default function* () {
   yield all([
     fork(watchAddToCart),
     fork(watchFetchCart),
     fork(watchUpdateCartItem),
+    fork(watchDeleteCartItem),
   ]);
 }
