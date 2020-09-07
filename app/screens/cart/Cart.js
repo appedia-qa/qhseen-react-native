@@ -6,6 +6,7 @@ import {
   Text
 } from 'react-native';
 
+import {screens} from '../../config';
 import {COLOR} from '../../constants';
 import {Header, Input, Touchable, Button,} from '../../components';
 import {CartTile} from './cart-tile/cart-tile';
@@ -72,6 +73,7 @@ class Cart extends Component {
               buttonTitle={'CHECKOUT'}
               buttonStyles={styles.CheckoutButton}
               buttonTitleStyles={styles.CheckoutButtonTitle}
+              onPress={() => {this.props.navigation.navigate(screens.payment)}}
             />
           </View>
         </ScrollView>

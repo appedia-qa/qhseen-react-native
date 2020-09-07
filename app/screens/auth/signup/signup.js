@@ -7,6 +7,7 @@ import Checkbox from 'react-native-custom-checkbox';
 import {
   Text, Input, Touchable, Button,
 } from '../../../components';
+import {screens} from '../../../config';
 import { COLOR, images } from '../../../constants';
 import {SignupDesigner} from '../signupDesigner'
 import styles from './signup.style';
@@ -67,6 +68,7 @@ class Signup extends Component {
           buttonTitle={'SIGN UP'}
           buttonStyles={styles.SignButton}
           buttonTitleStyles={styles.SignButtonTitle}
+          onPress={()=>{this.props.navigation.navigate(screens.profilesection)}}
         />
         <View style={styles.termsContainer}>
           <Checkbox
