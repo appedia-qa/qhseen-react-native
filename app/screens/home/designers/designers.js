@@ -17,7 +17,7 @@ class Designers extends Component {
       <> 
         <View style={styles.subContainer}>
           <Image
-            source={{uri: STORAGE_URL+'designers/'+designers.profile_img}}
+            source={{uri: item.avatar}}
             style={styles.designImage}
           />
           <Text style={styles.designName}>{designers.name}</Text>

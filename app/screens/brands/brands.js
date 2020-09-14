@@ -99,7 +99,7 @@ class Brands extends Component {
         />
         <SnapCarousel
           containerStyle={styles.carousalContainer}
-          data={data ? data.ads : null}
+          data={data ? data.banners : null}
         />
         <View style={styles.listContainer}>
           <FlatList

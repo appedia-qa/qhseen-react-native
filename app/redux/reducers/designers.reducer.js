@@ -26,7 +26,7 @@ import {
       case FETCH_DESIGNERS_SUCCESS: {
         return {
           requesting: false,
-          data: payload.data,
+          data: payload.designers,
         };
       }
       case FETCH_DESIGNERS_FAILED: {

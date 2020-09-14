@@ -26,7 +26,7 @@ export default function (state = initialState, action) {
         case FETCH_HOME_SUCCESS: {
             return {
                 requesting: false,
-                data: payload.data,
+                data: payload.home,
             };
         }
         case FETCH_HOME_FAILED: {

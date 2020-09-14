@@ -48,11 +48,11 @@ class Designers extends Component {
         />
         <SnapCarousel
           containerStyle={styles.carousalContainer}
-          data={data ? data.ads : null}
+          data={data ? data.banners : null}
         />
         <View style={styles.listContainer}>
           <FlatList
-            data={designersData.data !== null ? designersData.data.designer : []}
+            data={designersData.data !== null ? designersData.data.designers : []}
             renderItem={({item}) => {
               return (
                 <View style={{ width: '50%', alignItems: 'center' }}>

@@ -35,7 +35,7 @@ class DesignerDetails extends Component {
           }}
         />
         <Image
-          source={{uri: STORAGE_URL+'designers/'+designer.cover_img}}
+          source={{uri: designer.avatar}}
           style={styles.designerCover}
           resizeMode= 'cover'
         />
@@ -43,7 +43,7 @@ class DesignerDetails extends Component {
           <View style={styles.contentContainer}>
             <View style={styles.profileImage}>
               <Image
-                source={{uri: STORAGE_URL+'designers/'+designer.profile_img}}
+                source={{uri: designer.avatar}}
                 style={styles.image}
                 resizeMode= 'contain'
               />
@@ -59,7 +59,7 @@ class DesignerDetails extends Component {
                 </View>
                 <View style={styles.aboutContainer}>
                   <Text style={styles.about}>{'About Me'}</Text>
-                  <Text style={styles.message}>{designer.about_me}</Text>
+                  <Text style={styles.message}>{designer.description}</Text>
                   <View style={styles.divider}/>
                   <Text style={styles.tagsHeading}>{'Tags'}</Text>
                 </View>

@@ -17,7 +17,7 @@ class Brands extends Component {
       <Card style={styles.card}>
         <View style={styles.imageContainer}>
           <Image
-            source={{uri: STORAGE_URL+'brands/'+brands.profile_img}}
+            source={{uri: item.avatar}}
             style={styles.brandImage}
             resizeMode='center'
           />

@@ -26,7 +26,7 @@ export default function (state = initialState, action) {
       case FETCH_BRANDS_SUCCESS: {
         return {
           requesting: false,
-          data: payload.data,
+          data: payload.brands,
         };
       }
       case FETCH_BRANDS_FAILED: {
