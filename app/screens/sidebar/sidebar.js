@@ -20,6 +20,7 @@ class Sidebar extends Component {
   }
   render() {
     const {categoriesData} = this.props;
+    console.log('categoriesData: ', categoriesData);
     return (
       <SafeAreaView style={styles.screen}>
         <View style={styles.header}>
@@ -33,10 +34,10 @@ class Sidebar extends Component {
         <View style={styles.headerSeperator} />
 
         <Touchable style={styles.rowItem} onPress={() => this.props.navigation.navigate(screens.designerStack)}>
-          <Text style={styles.rowTitle}>Designers</Text>
+          <Text style={styles.rowTitle}>DESIGNERS</Text>
         </Touchable>
         <Touchable style={[styles.rowItem, {paddingBottom: 20}]} onPress={() => this.props.navigation.navigate(screens.brandStack)}>
-          <Text style={styles.rowTitle}>Brands</Text>
+          <Text style={styles.rowTitle}>BRANDS</Text>
         </Touchable>
         <View style={styles.rowSeparator} />
         <FlatList
@@ -63,13 +64,13 @@ class Sidebar extends Component {
             }
           }}
         >
-          <Text style={styles.rowTitle}>{item.name}</Text>
+          <Text style={styles.rowTitle}>{item.title}</Text>
           <Text style={styles.plusSign}>{selectedCategory == index? '-' : '+'}</Text>
         </Touchable>
         {
           selectedCategory == index?
           <FlatList
-            data={item.sub_categories}
+            data={item.subcategories}
             renderItem={({item, index}) => (
               <Touchable 
                 style={styles.subCategoryContainer} 
@@ -80,7 +81,7 @@ class Sidebar extends Component {
                   }
                 })} 
               >
-                <Text style={styles.subCategory}>{item.name}</Text>
+                <Text style={styles.subCategory}>{item.title}</Text>
               </Touchable>
             )}
             ItemSeparatorComponent={() => <View style={{ height: 5 }} />}

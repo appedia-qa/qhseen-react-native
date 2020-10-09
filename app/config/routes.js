@@ -1,13 +1,13 @@
-export const SERVER_URL = 'http://staging.qsheen.com/wp-json/wp/v3/';
+export const SERVER_URL = 'http://qsheen.com/wp-json/wp/v3/';
 export const STORAGE_URL = 'https://qsheen.com/';
 
 export const END_POINTS = {
   login: `login`,
   home: `banner/ads/1?size=10`,
   designers: `designers/1?page=1`,
-  categories: `categories`,
+  categories: `categories/subcat`,
   brands: `brands/1?page=1`,
-  products_by_categories: `product-by-category`,
+  products_by_categories: `productbycategory`,
   sign_up: 'register',
   product_details: 'product',
   save_measurements: 'measurment/add',

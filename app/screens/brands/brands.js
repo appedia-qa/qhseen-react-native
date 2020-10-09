@@ -33,7 +33,7 @@ class Brands extends Component {
       return (
         <View style={styles.sliderContentContainer} key={index}>
           <Image
-            source={{uri: STORAGE_URL+'brands/'+item.cover_img}} 
+            source={{uri:item.cover_img}} 
             style={styles.sliderDesigner}
           />
           <View style={styles.sliderContent}>
@@ -79,8 +79,8 @@ class Brands extends Component {
   }
 
   render() {
-    const {brandsData, homeData} = this.props;
-    const {data} = homeData;
+    const {brandsData} = this.props;
+    const {data} = brandsData;
     return (
       <View style={styles.screen}>
         <Header

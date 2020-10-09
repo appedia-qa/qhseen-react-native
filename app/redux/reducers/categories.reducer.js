@@ -26,7 +26,7 @@ import {
       case FETCH_CATEGORIES_SUCCESS: {
         return {
           requesting: false,
-          data: payload.data,
+          data: payload.categories,
         };
       }
       case FETCH_CATEGORIES_FAILED: {

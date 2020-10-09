@@ -19,10 +19,11 @@ class SnapCarousel extends Component {
     activeSlide: 0,
   };
   _renderItem = ({item}, parallaxProps) => {
+    console.log('item: ', item);
     return (
       <View style={styles.item}>
         <Image
-          source={{uri: item.banner_avatar }}
+          source={{uri: item.cover_image}}
           style={styles.image}
         />
         <Touchable style={styles.detailContainer}>
@@ -45,6 +46,7 @@ class SnapCarousel extends Component {
     );
   }
   render() {
+    console.log('data: ', this.props.data);
     return (
       <View style={this.props.containerStyle}>
         <Carousel

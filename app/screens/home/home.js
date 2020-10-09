@@ -61,7 +61,7 @@ class Home extends Component {
             <Designers
               data={data ? data.designers : []}
             />
-            <Text style={styles.sectionHeading}>{'OUR BRANDS'}</Text>
+            <Text style={styles.sectionHeading}>{'OUTLETS'}</Text>
             <Touchable
               onPress={() => {}}
               style={{alignSelf: 'flex-end', marginRight: 16, marginBottom: 11}}

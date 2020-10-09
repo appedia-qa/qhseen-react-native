@@ -21,9 +21,9 @@ class ProductTile extends Component {
       <Card style={styles.card}>
         <Touchable style={styles.container} onPress={this.props.onPress}>
           <Image
-            source={{ uri: STORAGE_URL+'products/'+item.cover_img }} 
+            source={{ uri: item.image }} 
             style={styles.productImage} />
-          <Text style={styles.productName} numberOfLines={1}>{item.name}</Text>
+          <Text style={styles.productName} numberOfLines={1}>{item.title}</Text>
           <Text style={styles.price}> QR {item.price}</Text>
           <Button
             buttonStyles={styles.button}

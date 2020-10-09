@@ -22,19 +22,19 @@ class IntroCard extends Component {
           onPress={()=> onCardPress(item)}
         >
           <Image
-            source={{uri: item.avatar}}
+            source={{uri: item.cover_image}}
             style={styles.introCover}
             resizeMode="cover"
           />
           <View style={styles.introImageContainer}>
             <Image
-              source={{uri: item.avatar}}
+              source={{uri: item.profile_image}}
               style={styles.introImage}
               resizeMode='center'
             />
           </View>
           <Text style={styles.name}>{item.name}</Text>
-          <Text style={styles.message} numberOfLines={2}>{item.description? item.description : item.about_me}</Text>
+          <Text style={styles.message} numberOfLines={2}>{item.description !== undefined ? item.description : item.about_me }</Text>
         </Touchable>
       </Card>
     );

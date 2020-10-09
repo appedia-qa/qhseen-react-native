@@ -32,7 +32,7 @@ export default function (state = initialState, action) {
     case FETCH_PRODUCTS_BY_CATEGORIES_SUCCESS: {
       return {
         requesting: false,
-        data: payload.product,
+        data: payload.responsedata,
       };
     }
     case FETCH_PRODUCTS_BY_CATEGORIES_FAILED: {

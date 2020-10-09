@@ -35,7 +35,7 @@ class DesignerDetails extends Component {
           }}
         />
         <Image
-          source={{uri: designer.avatar}}
+          source={{uri: designer.cover_image}}
           style={styles.designerCover}
           resizeMode= 'cover'
         />
@@ -43,7 +43,7 @@ class DesignerDetails extends Component {
           <View style={styles.contentContainer}>
             <View style={styles.profileImage}>
               <Image
-                source={{uri: designer.avatar}}
+                source={{uri: designer.profile_image}}
                 style={styles.image}
                 resizeMode= 'contain'
               />
@@ -51,24 +51,26 @@ class DesignerDetails extends Component {
             <View style={styles.align}>
               <ScrollView>
                 <View style={styles.nameContainer}>
-                  <Text style={styles.name}>{designer.name}</Text>
+                  <Text style={styles.name}>{designer.name !== "" ? designer.name : designer.vendor_name}</Text>
                   <View style={styles.locationContainer}>
                     <Ionicons name="location-sharp" style={{marginRight:8}} color={COLOR.PRIMARY_COLOR} size={12}/>
-                    <Text style={styles.location}>{designer.location}</Text>
+                    <Text style={styles.location}>{designer.store_location}</Text>
                   </View>
                 </View>
                 <View style={styles.aboutContainer}>
                   <Text style={styles.about}>{'About Me'}</Text>
-                  <Text style={styles.message}>{designer.description}</Text>
+                  <Text style={styles.message}>{designer.about_me}</Text>
                   <View style={styles.divider}/>
-                  <Text style={styles.tagsHeading}>{'Tags'}</Text>
+                  {designer.vendor_tags.length !== 0 && 
+                    <Text style={styles.tagsHeading}>{'Tags'}</Text>
+                  }
                 </View>
                 <FlatList
-                  data={designer.tags}
+                  data={designer.vendor_tags}
                   renderItem={({item}) => {
                     return (
                       <View style={styles.tagsContainer}>
-                        <Text style={styles.tags}>{item}</Text>
+                        <Text style={styles.tags}>{item.name}</Text>
                       </View>
                     );
                   }}

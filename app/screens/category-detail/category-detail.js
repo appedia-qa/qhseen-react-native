@@ -30,10 +30,10 @@ class CategoryDetail extends Component {
 
   async componentDidMount() {
     const category = this.props.route.params.item;
-    if(category && category.category_id){
+    console.log('category: ', category);
+    if(category && category.title){
       this.props.fetchProductsByCategoriesRequest({ 
-        category_id: category.category_id, 
-        sub_category_id: category.id 
+        title: 'testing',
       });
     }
   }
@@ -59,6 +59,7 @@ class CategoryDetail extends Component {
   render() {
     const category = this.props.route.params.item;
     const {productsData} = this.props;
+    console.log('productsData: ', productsData);
     return (
       <View style={styles.screen}>
         <Header
