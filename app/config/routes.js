@@ -1,4 +1,4 @@
-export const SERVER_URL = 'http://qsheen.com/wp-json/wp/v3/';
+export const SERVER_URL = 'https://qsheen.com/wp-json/wp/v3/';
 export const STORAGE_URL = 'https://qsheen.com/';
 
 export const END_POINTS = {
