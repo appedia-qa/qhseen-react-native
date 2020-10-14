@@ -60,13 +60,16 @@ class Auth extends Component {
   }
 
   _loginUser(params) {
-    this.props.userLoginRequest(params);
+    const user_params = {
+      "username": params.email,
+      "password": params.password,
+    };
+    this.props.userLoginRequest(user_params);
   }
 
   _signUpUser(params, agree_terms) {
-    console.log(params);
     const user_params = {
-      "email": params.email,
+      "username": params.email,
       "password": params.password,
       "password_confirmation": params.confirmPassword,
       "name": params.username,

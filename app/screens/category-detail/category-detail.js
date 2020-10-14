@@ -32,9 +32,7 @@ class CategoryDetail extends Component {
     const category = this.props.route.params.item;
     console.log('category: ', category);
     if(category && category.title){
-      this.props.fetchProductsByCategoriesRequest({ 
-        title: 'testing',
-      });
+      this.props.fetchProductsByCategoriesRequest(category);
     }
   }
 
@@ -65,7 +63,7 @@ class CategoryDetail extends Component {
         <Header
           leftIcon={images.back}
           leftIconPress={this._handleBackPress}
-          title={category.name}
+          title={productsData.name}
         />
         <View style={styles.listContainer}>
           <ScrollView
@@ -77,7 +75,7 @@ class CategoryDetail extends Component {
                   <View style={{ width: '50%', alignItems: 'center' }}>
                     <ProductTile item={item.item}
                       onPress={() => this.props.navigation.navigate(screens.productDetails, {
-                        product: item,
+                        product: item.item,
                       })}
                     />
                   </View>

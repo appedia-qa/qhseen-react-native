@@ -11,6 +11,7 @@ import { login, signUp } from '../api';
 function* loginSaga({ payload }) {
   try {
     const response = yield call(login, payload);
+    console.log("response for login: ", response);
     if (response.success) {
       const user = {
         ...response.user,
@@ -27,6 +28,7 @@ function* signupSaga({ payload }) {
   try {
     const response = yield call(signUp, payload);
     if (response.success) {
+      console.log("response for signup: ", response);
       const user = {
         ...response.success.user,
         token: response.success.token,

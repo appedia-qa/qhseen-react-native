@@ -22,13 +22,13 @@ class IntroCard extends Component {
           onPress={()=> onCardPress(item)}
         >
           <Image
-            source={{uri: item.cover_image}}
+            source={{uri: item.cover_image !== "" ? item.cover_image : item.profile_image }}
             style={styles.introCover}
             resizeMode="cover"
           />
           <View style={styles.introImageContainer}>
             <Image
-              source={{uri: item.profile_image}}
+              source={{uri: item.profile_image !== "" ? item.profile_image : item.cover_image }}
               style={styles.introImage}
               resizeMode='center'
             />

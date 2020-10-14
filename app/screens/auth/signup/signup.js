@@ -111,7 +111,7 @@ class Signup extends Component {
           />
         </View>
         <View style={{ height: 19 }} />
-        <View style={styles.signDesignerContainer}>
+        {/*<View style={styles.signDesignerContainer}>
           <Checkbox
             name='design'
             checked={this.state.design}
@@ -120,7 +120,7 @@ class Signup extends Component {
             onChange={(name, checked) => {this.props.selectDesignerSignup()}}
           />
           <Text style={styles.designerText}>{'Sign Up as A Designer'}</Text>
-        </View>
+        </View>*/}
         <Button
           buttonTitle={'SIGN UP'}
           buttonStyles={styles.SignButton}

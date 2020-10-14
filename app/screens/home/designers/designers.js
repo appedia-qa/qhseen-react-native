@@ -17,11 +17,11 @@ class Designers extends Component {
       <> 
         <View style={styles.subContainer}>
           <Image
-            source={{uri: item.avatar}}
+            source={{uri: designers.cover_image !== undefined ? designers.cover_image : designers.profile_image}}
             style={styles.designImage}
           />
           <Text style={styles.designName}>{designers.name}</Text>
-          <Text style={styles.designLocation}>{designers.location}</Text>
+          <Text style={styles.designLocation}>{designers.store_location}</Text>
         </View>
       </>
     );

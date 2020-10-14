@@ -24,7 +24,6 @@ class Home extends Component {
   render() {
     const {homeData} = this.props;
     const {data} = homeData;
-    console.log('homeData: ', homeData);
     return (
       <View style={styles.container}>
         <Header
@@ -59,7 +58,7 @@ class Home extends Component {
               <Text style={styles.viewAll}>{'View All'}</Text>
             </Touchable>
             <Designers
-              data={data ? data.designers : []}
+              data={data ? data.designers.items : []}
             />
             <Text style={styles.sectionHeading}>{'OUTLETS'}</Text>
             <Touchable
@@ -69,7 +68,7 @@ class Home extends Component {
               <Text style={styles.viewAll}>{'View All'}</Text>
             </Touchable>
             <Brands
-              data={data ? data.brands : []}
+              data={data ? data.brands.items : []}
             />
             <Text style={styles.sectionHeading}>{'NEW COLLECTION'}</Text>
             <Touchable
@@ -79,7 +78,7 @@ class Home extends Component {
               <Text style={styles.viewAll}>{'View All'}</Text>
             </Touchable>
             <FlatList
-              data={data ? data.featured_products : []}
+              data={data ? data.new_collection.items : []}
               renderItem={({item}) => (
                 <View style={{ width: '50%', alignItems: 'center' }}>
                   <ProductTile
@@ -102,6 +101,7 @@ class Home extends Component {
             <Slider
               sliderContainerStyles={styles.sliderContainer}
               sliderImageStyles={styles.sliderImage}
+              content={data ? data.banners_2 : null}
             />
 
             <Text style={styles.sectionHeading}>{'MOST SELLING'}</Text>
@@ -112,13 +112,13 @@ class Home extends Component {
               <Text style={styles.viewAll}>{'View All'}</Text>
             </Touchable>
             <FlatList
-              data={data ? data.bestseller : []}
+              data={data ? data.best_sellers.items : []}
               renderItem={({item}) => (
                 <View style={{ width: '50%', alignItems: 'center' }}>
                   <ProductTile
                     item={item}
                     onPress={() => this.props.navigation.navigate(screens.mainStack, {
-                      screen: screens.productDetails,
+                      screen: screens.FproductDetails,
                       params: {
                         product: item
                       }

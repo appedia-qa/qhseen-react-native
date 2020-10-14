@@ -20,10 +20,7 @@ class Slider extends Component {
         <Swiper
           dot={ <View style={[styles.sliderDot, this.props.dotStyle]} />}
           activeDot={ <View style={[styles.sliderActiveDot, this.props.activeDotStyle]} />}
-          paginationStyle={[
-            { bottom: 15 },
-            this.props.paginationStyle? this.props.paginationStyle : null
-          ]}
+          paginationStyle={[{ bottom: 15 }, this.props.paginationStyle? this.props.paginationStyle : null ]}
           autoplay
           autoplayTimeout={1.5}
         >
@@ -32,9 +29,10 @@ class Slider extends Component {
             this.props.renderedContent()
             :
             content.map((item, index) => {
+              console.log('item: ', item);
               return (
                 <Image
-                  source={{uri: item}}
+                  source={{uri: item.cover_image}}
                   style={[styles.sliderImage, this.props.sliderImageStyles]}
                   key={index}
                 />

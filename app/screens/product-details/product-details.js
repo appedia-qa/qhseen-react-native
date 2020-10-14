@@ -35,10 +35,9 @@ class ProductDetails extends Component {
       segment: {
         segmentTitles: [
           'Description',
-          'Designed By Larissa S'
+          'Designed by'
         ],
         selectedSegment: 0,
-
       },
       colors: {
         availableColors: [
@@ -48,7 +47,7 @@ class ProductDetails extends Component {
           { value: 'purple', name: 'PURPLE' }
         ],
       },
-      userColorsSelections: {},
+      userColorsSelections: [],
 
       materials: {
         availableMaterials: [
@@ -162,8 +161,28 @@ class ProductDetails extends Component {
       <View style={styles.selectColorsContainer}>
         <View style={styles.colorContainer}>
           {
-            this.state.colors.availableColors.map((color, index) => (
-              <View>
+            this.state.userColorsSelections !== undefined && this.state.userColorsSelections.map((color, index) => (
+              <View key={index}>
+                <Touchable
+                  onPress={() => {
+                    this.setState({
+                      userColorsSelections: {
+                        ...this.state.userColorsSelections,
+                        selectedColor: index
+                      }
+                    })
+                  }}
+                  style={[styles.color, { backgroundColor: color.color }]}
+                >
+
+                  {this.state.userColorsSelections.selectedColor == index ? <Image source={images.check} style={styles.checkStyles} resizeMode='contain' /> : null}
+                </Touchable>
+              </View>
+            ))
+          }
+          {
+            this.state.userColorsSelections.length === 0 && this.state.colors.availableColors.map((color, index) => (
+              <View key={index}>
                 <Touchable
                   onPress={() => {
                     this.setState({
@@ -188,23 +207,26 @@ class ProductDetails extends Component {
     );
   }
 
-  _renderGivenMaterials = () => {
+  _renderGivenMaterials = (brands) => {
+    console.log('brands: ', brands);
     return (
       <View style={styles.selectColorsContainer}>
         <View style={styles.colorContainer}>
           {
-            this.state.materials.availableMaterials.map((material, index) => (
-              <View>
+            brands.map((material, index) => (
+              <View key={index}>
                 <Touchable
                   onPress={() => {
                     this.setState({
                       userMaterialsSelections: {
-                        ...this.state.userMaterialsSelections,
-                        selectedMaterial: index
-                      }
+                        material: material,
+                        selectedMaterial: index,
+                        selectedColors: material.child
+                      }, 
+                      userColorsSelections: material.child
                     })
                   }}
-                  style={[styles.color, { backgroundColor: material.value }]}
+                  style={[styles.color, { backgroundColor: material.color !== "" ? material.color : '#000000' }]}
                 >
 
                   {
@@ -222,20 +244,25 @@ class ProductDetails extends Component {
   render() {
     const {productsData, userData} = this.props;
     const {params} = this.props.route;
+    
 
     if (productsData.requesting) {
       return this._renderLoadingScreen();
     }
-    var productDetails = {}, similarProducts = [];
+    var productDetails = {}, similarProducts = [], imageSlider = [], material = [], designer= '';
     if (productsData.productDetails) {
+      
+      imageSlider = productsData.productDetails.imageSlider;
       productDetails = productsData.productDetails.details;
       similarProducts = productsData.productDetails.similarProducts;
+      material = productsData.productDetails.variations;
+      designer = productsData.productDetails.designer;
     }
     return (
       <View style={{ backgroundColor: 'white', flex: 1 }}>
         <Header
           onSearchPress={() => alert('asds')}
-          title={params.product.name}
+          title={productDetails.name}
           leftIcon={images.back}
           leftIconPress={() => this.props.navigation.goBack()}
         />
@@ -257,7 +284,7 @@ class ProductDetails extends Component {
           </View>
           <View styles={{ justifyContent: 'center' }}>
             <Slider
-              content={_.map(productDetails.image, image => STORAGE_URL+'products/'+image.image)}
+              content={_.map(imageSlider, image => image)}
               sliderContainerStyles={styles.sliderImageContainer}
               sliderImageStyles={styles.sliderImage}
             />
@@ -290,15 +317,13 @@ class ProductDetails extends Component {
                 fontSize: 14,
               }}
               segmentElements={this.state.segment.segmentTitles}
+              designerName={designer}
               selectedSegment={this.state.segment.selectedSegment}
               onPress={this._handleSegmentPress}
             >
-              <View
-                style={styles.segmentContentContainer}
-                key={0}
-              >
+              <View style={styles.segmentContentContainer} key={0}>
                 <Text style={styles.descriptionText}>
-                  {productDetails.description}
+                  {productDetails.description !== undefined ? productDetails.description : productDetails.short_description}
                 </Text>
               </View>
               <View key={1} />
@@ -320,12 +345,12 @@ class ProductDetails extends Component {
               </View>
             </Touchable>
             <View style={{ marginTop: getPercentageHeight(17) }}>
-              <Text style={styles.colorHeading}>Select Color</Text>
-              {this._renderGivenColors()}
+              <Text style={styles.colorHeading}>Select Material</Text>
+              {this._renderGivenMaterials(material)}
             </View>
             <View style={{ marginTop: getPercentageHeight(17) }}>
-              <Text style={styles.colorHeading}>Select Material</Text>
-              {this._renderGivenMaterials()}
+              <Text style={styles.colorHeading}>Select Color</Text>
+              {this._renderGivenColors()}
             </View>
 
             <Button

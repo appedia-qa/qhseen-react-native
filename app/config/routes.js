@@ -2,14 +2,14 @@ export const SERVER_URL = 'https://qsheen.com/wp-json/wp/v3/';
 export const STORAGE_URL = 'https://qsheen.com/';
 
 export const END_POINTS = {
-  login: `login`,
-  home: `banner/ads/1?size=10`,
+  login: `user/login`,
+  sign_up: 'users/register',
+  home: `home`,
   designers: `designers/1?page=1`,
   categories: `categories/subcat`,
   brands: `brands/1?page=1`,
   products_by_categories: `productbycategory`,
-  sign_up: 'register',
-  product_details: 'product',
+  product_details: 'productbyid',
   save_measurements: 'measurment/add',
   update_measurements: 'measurment/update',
   add_to_cart: 'cart/store',

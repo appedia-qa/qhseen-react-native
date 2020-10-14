@@ -23,7 +23,15 @@ function* fetchProductsByCategoriesSaga({ payload }) {
 function* fetchProductDetailsSaga({ payload }) {
   try {
     const response = yield call(fetchProductDetails, payload);
-    yield put(fetchProductsActionsCreator.fetchProductDetailsSuccess({ productDetails: { details: response.product, similarProducts: response.similar_products } }))
+    console.log("fetchProductDetails: ", response);
+    yield put(fetchProductsActionsCreator.fetchProductDetailsSuccess({ productDetails: { 
+      details: response.responsedata.data, 
+      similarProducts: response.responsedata.product_samilar,
+      imageSlider: response.responsedata.image_slider,
+      productReviews: response.responsedata.product_reviews,
+      variations: response.responsedata.avail_variations2,
+      designer: response.responsedata.design_by
+    } }))
   } catch (err) {
     const error = err || 'PRODUCT CANNOT FOUND';
     yield put(fetchProductsActionsCreator.fetchProductDetailsFailed({error}));

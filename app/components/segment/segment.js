@@ -12,11 +12,13 @@ import styles from './segment.style';
 
 class Segment extends Component {
   render() {
-    const { segmentElements, selectedSegment, children } = this.props;
+    const { segmentElements, selectedSegment, children, designerName } = this.props;
     return (
       <View style={this.props.style}>
         <View style={[styles.segmentContainer, this.props.segmentStyles]}>
           {segmentElements.map((element, index) => {
+            console.log('element: ', index);
+            element = index === 0 ? element : designerName !== '' ? element+' '+designerName : '';
             return (
               <Touchable
                 onPress={() => this.props.onPress(index)}

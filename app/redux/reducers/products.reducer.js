@@ -13,7 +13,7 @@ const initialState = {
   requesting: false,
   error: null,
   success: null,
-
+  name: null,
   data: null,
   productDetails: null,
 };
@@ -33,6 +33,7 @@ export default function (state = initialState, action) {
       return {
         requesting: false,
         data: payload.responsedata,
+        name: payload.name,
       };
     }
     case FETCH_PRODUCTS_BY_CATEGORIES_FAILED: {
@@ -40,6 +41,7 @@ export default function (state = initialState, action) {
         requesting: false,
         error: payload.error,
         data: null,
+        name: null,
       }
     }
     case FETCH_PRODUCT_DETAILS_REQUEST: {

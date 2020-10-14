@@ -19,7 +19,6 @@ class SnapCarousel extends Component {
     activeSlide: 0,
   };
   _renderItem = ({item}, parallaxProps) => {
-    console.log('item: ', item);
     return (
       <View style={styles.item}>
         <Image
@@ -46,11 +45,10 @@ class SnapCarousel extends Component {
     );
   }
   render() {
-    console.log('data: ', this.props.data);
     return (
       <View style={this.props.containerStyle}>
         <Carousel
-          data={this.props.data}
+          data={this.props.data !== null ? this.props.data : []}
           renderItem={this._renderItem}
           sliderWidth={width}
           sliderHeight={height * 0.29}
