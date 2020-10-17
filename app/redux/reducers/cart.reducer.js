@@ -60,7 +60,7 @@ export default function (state = initial_state, action) {
       return {
         ...state,
         requesting: false,
-        data: payload.cart,
+        data: payload,
       };
     }
     case FETCH_CART_FAILED: {

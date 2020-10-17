@@ -25,7 +25,7 @@ class Cart extends Component {
   componentDidMount() {
     const {authData} = this.props;
     if (authData.data) {
-      this.props.fetchCartRequest({user_id: authData.data.id});
+      this.props.fetchCartRequest({user_id: authData.data.ID});
     }
   }
 
@@ -100,6 +100,7 @@ class Cart extends Component {
 
   render() {
     const {cartData} = this.props;
+    console.log("cartData: ", cartData);
     return (
       <View style={styles.container}>
         <Header
@@ -123,7 +124,7 @@ class Cart extends Component {
           <View style={styles.cartView}>
             <Text style={styles.sectionHeading}>CART</Text>
             <FlatList
-              data={cartData.data}
+              data={cartData.data !== undefined ? cartData.data.cart : []}
               showsVerticalScrollIndicator={false}
               renderItem={this._renderCartItem}
               numColumns={1}
@@ -146,20 +147,20 @@ class Cart extends Component {
             <View style={styles.detailContainer}>
               <View style={styles.textContainer}>
                 <Text style={styles.leftText}>{'Subtotal'}</Text>
-                <Text style={styles.rightText}>{"QR 000.00"}</Text>
+                <Text style={styles.rightText}>{cartData.data !== undefined ? cartData.data.sub_total : 0}</Text>
               </View>
               <View style={styles.textContainer}>
                 <Text style={styles.leftText}>{'Discount'}</Text>
-                <Text style={styles.rightText}>{'5%'}</Text>
+                <Text style={styles.rightText}>{cartData.data !== undefined ? cartData.data.discount : 0}</Text>
               </View>
               <View style={styles.textContainer}>
                 <Text style={styles.leftText}>{'Shipping'}</Text>
-                <Text style={styles.rightText}>{'QR 000.00'}</Text>
+                <Text style={styles.rightText}>{cartData.data !== undefined ? cartData.data.shipping : 0}</Text>
               </View>
               <View style={styles.divider}/>
               <View style={styles.totalTextContainer}>
                 <Text style={styles.total}>{'Total'}</Text>
-                <Text style={styles.totalValue}>{'QR 000.00'}</Text>
+                <Text style={styles.totalValue}>{cartData.data !== undefined ? cartData.data.total : 0}</Text>
               </View>
             </View>
             <Button

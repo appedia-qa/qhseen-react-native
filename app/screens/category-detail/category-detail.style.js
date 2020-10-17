@@ -66,6 +66,31 @@ const styles = StyleSheet.create({
   iconLoadMore: {
     width: width * 0.0163,
     height: width * 0.0195,
+  },
+  upperContainer: {
+    width: width,
+    height: height,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  heading: {
+    fontSize: 22,
+    fontWeight: '700',
+    color: COLOR.BLACK,
+    alignSelf: 'center',
+    marginBottom: 41,
+  },
+  image: {
+    width: width * 0.436,
+    height: width * 0.436,
+    marginBottom: 33,
+  },
+  subHeading: {
+    fontSize: 18,
+    fontWeight: '300',
+    color: COLOR.LIGHT_TEXT_EMPORER,
+    width: '45%',
+    textAlign: 'center',
   }
 });
 

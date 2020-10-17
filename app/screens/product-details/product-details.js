@@ -47,7 +47,9 @@ class ProductDetails extends Component {
           { value: 'purple', name: 'PURPLE' }
         ],
       },
-      userColorsSelections: [],
+      userColorsSelections: {
+        colors: []
+      },
 
       materials: {
         availableMaterials: [
@@ -134,12 +136,21 @@ class ProductDetails extends Component {
 
   _addToCart = () => {
     const {productsData: {productDetails}, authData} = this.props;
+    
     const callback = () => {
       const {authData} = this.props;
+      console.log("productDetails: ", productDetails.variations);
+      console.log("authData: ", authData.data);
+      console.log("colors: ", this.state.userColorsSelections.selectedColorData);
       const params = {
         product_id: productDetails.details.id,
-        user_id: authData.data.id,
-        quantity: 1,
+        user_id: authData.data.ID,
+        material_id: this.state.userMaterialsSelections.material !== undefined ? this.state.userMaterialsSelections.material.term_id : 0,
+        color_id: this.state.userColorsSelections.selectedColorData !== undefined ? this.state.userColorsSelections.selectedColorData : 0,
+        size_id: 0,
+        price: this.state.userColorsSelections.selectedColorData !== undefined ? this.state.userColorsSelections.selectedColorData.price : 0,
+        qty: 1,
+        variation_id: this.state.userColorsSelections.selectedColorData !== undefined ? this.state.userColorsSelections.selectedColorData.variation_id : 0,
       };
       this.props.addToCartRequest(params);
     }
@@ -157,18 +168,20 @@ class ProductDetails extends Component {
   }
 
   _renderGivenColors = () => {
+    console.log("this.state.userColorsSelections.selectedColor: ", this.state.userColorsSelections);
     return (
       <View style={styles.selectColorsContainer}>
         <View style={styles.colorContainer}>
           {
-            this.state.userColorsSelections !== undefined && this.state.userColorsSelections.map((color, index) => (
+            this.state.userColorsSelections !== undefined && this.state.userColorsSelections.colors.map((color, index) => (
               <View key={index}>
                 <Touchable
                   onPress={() => {
                     this.setState({
                       userColorsSelections: {
                         ...this.state.userColorsSelections,
-                        selectedColor: index
+                        selectedColor: index,
+                        selectedColorData: color,
                       }
                     })
                   }}
@@ -181,7 +194,7 @@ class ProductDetails extends Component {
             ))
           }
           {
-            this.state.userColorsSelections.length === 0 && this.state.colors.availableColors.map((color, index) => (
+            this.state.userColorsSelections.colors.length === 0 && this.state.colors.availableColors.map((color, index) => (
               <View key={index}>
                 <Touchable
                   onPress={() => {
@@ -208,7 +221,6 @@ class ProductDetails extends Component {
   }
 
   _renderGivenMaterials = (brands) => {
-    console.log('brands: ', brands);
     return (
       <View style={styles.selectColorsContainer}>
         <View style={styles.colorContainer}>
@@ -223,7 +235,9 @@ class ProductDetails extends Component {
                         selectedMaterial: index,
                         selectedColors: material.child
                       }, 
-                      userColorsSelections: material.child
+                      userColorsSelections: {
+                        colors: material.child,
+                      }
                     })
                   }}
                   style={[styles.color, { backgroundColor: material.color !== "" ? material.color : '#000000' }]}

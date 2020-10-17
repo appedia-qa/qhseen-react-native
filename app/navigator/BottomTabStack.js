@@ -62,7 +62,7 @@ function tabNavigator() {
         options={{
           tabBarLabel: 'Cart',
           tabBarIcon: icons.cart,
-          }}
+        }}
         component={CartStack}
       />
       <BottomTabs.Screen
@@ -70,7 +70,7 @@ function tabNavigator() {
         options={{
           tabBarLabel: 'Profile',
           tabBarIcon: icons.profile,
-          }}
+        }}
         component={AuthStack}
       />
     </BottomTabs.Navigator>

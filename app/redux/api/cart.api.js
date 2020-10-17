@@ -11,9 +11,8 @@ export function addToCart(params) {
 
 export function fetchCart(params) {
   return API.fetch({
-    url: `${SERVER_URL}${END_POINTS.get_cart}`,
-    data: params,
-    method: 'POST',
+    url: `${SERVER_URL}${END_POINTS.get_cart}/${params.user_id}`,
+    method: 'GET',
   }).then(response => response.data);
 }
 

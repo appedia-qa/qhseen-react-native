@@ -22,12 +22,21 @@ class ProfileSection extends Component {
     super(props);
   }
 
+  componentDidMount() {
+    const {authData} = this.props;
+    if (authData.data) {
+      this.props.userProfileRequest({id: authData.data.ID});
+    }
+  }
+
+
   render() {
     const profile = data.profile;
+    const {profileData} = this.props;
+    console.log("user: ", profileData);
+
     return (
-      <View
-        style={styles.screen}
-      >
+      <View style={styles.screen}>
         <Header
           onSearchPress={() =>      
             this.props.navigation.navigate(screens.mainStack, {
@@ -36,16 +45,25 @@ class ProfileSection extends Component {
           }
           onSubmitEditing={()=>{    
             this.props.navigation.navigate(screens.mainStack, {
-            screen: screens.searchresult,
-          })
+              screen: screens.searchresult,
+            })
           }}
         />
         <View style={styles.contentContainer}>
           <Card style={styles.profileImage}>
-            <View style={styles.profileEdit}/>
+            {profileData.data !== null && profileData.data.user_image !== null && profileData.data.user_image !== '' && 
+              <Image 
+                source={{uri: profileData.data.user_image}} 
+                style={styles.imageStyle}
+                resizeMode='contain'
+              />
+            }
+            {(profileData.data === null || profileData.data.user_image === null || profileData.data.user_image === '') && 
+              <View style={styles.profileEdit}/>
+            }
           </Card>
           <View style={styles.align}>
-            <Text style={styles.heading}>User Name</Text>
+            <Text style={styles.heading}>{profileData.data !== null ? profileData.data.display_name : 'User Name'}</Text>
             <ScrollView 
               style={{flex:1,paddingVertcal:15,}}
               showsVerticalScrollIndicator={false}

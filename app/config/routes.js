@@ -3,17 +3,18 @@ export const STORAGE_URL = 'https://qsheen.com/';
 
 export const END_POINTS = {
   login: `user/login`,
-  sign_up: 'users/register',
+  sign_up: `users/register`,
+  profile: `user/profile`,
   home: `home`,
   designers: `designers/1?page=1`,
   categories: `categories/subcat`,
   brands: `brands/1?page=1`,
   products_by_categories: `productbycategory`,
-  product_details: 'productbyid',
+  product_details: `productbyid`,
   save_measurements: 'measurment/add',
   update_measurements: 'measurment/update',
-  add_to_cart: 'cart/store',
-  get_cart: 'cart',
+  add_to_cart: 'addtocart',
+  get_cart: 'viewcart',
   update_cart_item: 'cart/update',
   delete_cart_item: 'cart/delete',
 };

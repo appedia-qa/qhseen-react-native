@@ -12,9 +12,7 @@ const AuthStack = createStackNavigator();
 
 export default function authStack() {
   return (
-    <AuthStack.Navigator
-      headerMode='none'
-    > 
+    <AuthStack.Navigator headerMode='none'>
       <AuthStack.Screen  name={screens.profile} component={Profile} />
       <AuthStack.Screen  name={screens.resetemail} component={ResetEmail} />
       <AuthStack.Screen  name={screens.resetpassword} component={ResetPassword} />

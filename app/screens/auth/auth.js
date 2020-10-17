@@ -49,6 +49,7 @@ class Auth extends Component {
 
     } else if (authData.data) {
       if (route) {
+        console.log("authData: ", authData);
         route.params.callback && route.params.callback();
         route.params.resetTo && this.props.navigation.navigate(route.params.resetTo);
       }

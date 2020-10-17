@@ -12,12 +12,14 @@ function* loginSaga({ payload }) {
   try {
     const response = yield call(login, payload);
     console.log("response for login: ", response);
-    if (response.success) {
+    if (response.code === 200) {
       const user = {
-        ...response.user,
-        token: response.success.token,
+        ...response.user.data,
+        token: response.user.data,
       };
       yield put(authActionsCreator.userLoginSuccess({ user }));
+    }else{
+      yield put(authActionsCreator.userLoginFailed({ error: response.message }));
     }
   } catch(err) {
     yield put(authActionsCreator.userLoginFailed({ error: err? err : 'User Login Failed!' }));
@@ -27,16 +29,17 @@ function* loginSaga({ payload }) {
 function* signupSaga({ payload }) {
   try {
     const response = yield call(signUp, payload);
-    if (response.success) {
-      console.log("response for signup: ", response);
+    if (response.code === 200) {
       const user = {
-        ...response.success.user,
-        token: response.success.token,
+        ...response.user,
+        token: response.user,
       };
       yield put(authActionsCreator.userSignupSuccess({ user }));
-    } 
+    }else{
+      yield put(authActionsCreator.userSignupFailed({ error: response.message }));
+    }
   } catch(error) {
-    yield put(authActionsCreator.userSignupRequest({ error: error? error : 'User Signup Failed' }));
+    yield put(authActionsCreator.userSignupFailed({ error: error? error : 'User Signup Failed' }));
   }
 }
 

@@ -13,11 +13,16 @@ import { addToCart, fetchCart, updateCartItem, deleteCartItem } from '../api';
 function* addToCartSaga({payload}) {
   try {
     const response = yield call(addToCart, payload);
-    const cart_item = {
-      ...response.cart_item,
-      products: response.product_detail,
-    };
-    yield put(cartActionsCreator.addToCartSuccess({cart_item, success: response.message}));
+    console.log("response: ", response);
+    if(response.code === 200){
+      const cart_item = {
+        ...response.order_id,
+      };
+      yield put(cartActionsCreator.addToCartSuccess({cart_item, success: response.order_inserted}));
+    }else{
+      error = 'Item cannot be added to cart.'
+      yield put(cartActionsCreator.addToCartFailed({error}));
+    }
   } catch (error) {
     error = 'Item cannot be added to cart.'
     yield put(cartActionsCreator.addToCartFailed({error}));
@@ -27,7 +32,15 @@ function* addToCartSaga({payload}) {
 function* fetchCartSaga({payload}) {
   try {
     const response = yield call(fetchCart, payload);
-    yield put(cartActionsCreator.fetchCartSuccess({cart: response.data.cart.cart_items}));
+    if(response.code === 200){
+      yield put(cartActionsCreator.fetchCartSuccess({
+        cart: response.items, 
+        sub_total: response.sub_total, 
+        discount: response.discount, 
+        shipping: response.shipping, 
+        total: response.total
+      }));
+    }
   } catch (error) {
     console.log(error);
     yield put(cartActionsCreator.fetchCartFaied({error: 'No items found in cart.'}));

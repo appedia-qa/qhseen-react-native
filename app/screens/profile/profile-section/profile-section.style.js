@@ -24,7 +24,12 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     top:height * 0.04,
     zIndex: -10,
-
+  },
+  imageStyle: {
+    width: width * 0.362,
+    height: width * 0.362,
+    borderRadius: width * 0.362,
+    backgroundColor: COLOR.PRIMARY_COLOR,
   },
   profileEdit: {
     width: width * 0.1,
@@ -48,7 +53,8 @@ const styles = StyleSheet.create({
     paddingBottom: 120,
   },
   heading:{
-    width:width * 0.32,
+    textAlign: 'center',
+    width:width,
     height:height * 0.036,
     color: COLOR.PROFILE_BG,
     fontWeight: '700',
