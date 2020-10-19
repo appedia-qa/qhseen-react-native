@@ -19,7 +19,7 @@ class Step3 extends Component {
 
   _onPressStep3() {
     this.props.onboardingStepsComplete();
-    this.props.navigation.dispatch(CommonActions.reset({ index: 0, routes: [{name:screens.bottomTabs}] }));
+    this.props.navigation.dispatch(CommonActions.reset({ index: 0, routes: [{name:screens.sideMenu}] }));
   };
 
   render() {

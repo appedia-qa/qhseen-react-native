@@ -24,6 +24,7 @@ class Cart extends Component {
   
   componentDidMount() {
     const {authData} = this.props;
+    console.log("authData: ", authData.data);
     if (authData.data) {
       this.props.fetchCartRequest({user_id: authData.data.ID});
     }

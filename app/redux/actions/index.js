@@ -9,3 +9,4 @@ export * from './app.actions';
 export * from './user.actions';
 export * from './cart.actions';
 export * from './profile.actions';
+export * from './checkout.actions';

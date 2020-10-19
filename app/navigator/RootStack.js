@@ -28,10 +28,7 @@ function DrawerStack() {
 
 export default function rootStack() {
   return (
-    <RootNavigator.Navigator 
-      headerMode='none'
-      initialRouteName={screens.sideMenu}
-    > 
+    <RootNavigator.Navigator headerMode='none' initialRouteName={screens.mainStack}>
       <RootNavigator.Screen name={screens.mainStack} component={MainStack} />
       <RootNavigator.Screen name={screens.sideMenu} component={DrawerStack} />
     </RootNavigator.Navigator>

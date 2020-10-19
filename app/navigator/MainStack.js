@@ -27,9 +27,7 @@ const MainStack = createStackNavigator();
 
 export default function mainStack() {
   return (
-    <MainStack.Navigator
-      headerMode='none'
-    > 
+    <MainStack.Navigator headerMode='none'>
       <MainStack.Screen name={screens.step1} component={Step1} />
       <MainStack.Screen name={screens.step2} component={Step2} />
       <MainStack.Screen name={screens.step3} component={Step3} />
@@ -38,16 +36,13 @@ export default function mainStack() {
       <MainStack.Screen name={screens.filterresult} component={FilterResult} />
       <MainStack.Screen name={screens.sortresult} component={SortResult} />
       <MainStack.Screen name={screens.productDetails} component={ProductDetails} />
-
       <MainStack.Screen name={screens.categorydetail} component={CategoryDetail} />
-      
-      <MainStack.Screen  name={screens.profile} component={Profile} />
-      <MainStack.Screen  name={screens.resetemail} component={ResetEmail} />
-      <MainStack.Screen  name={screens.resetpassword} component={ResetPassword} />
-      <MainStack.Screen  name={screens.profilesection} component={ProfileSection} />
-      <MainStack.Screen  name={screens.otp} component={Otp} />
-      <MainStack.Screen  name={screens.auth} component={Auth} />
-
+      <MainStack.Screen name={screens.profile} component={Profile} />
+      <MainStack.Screen name={screens.resetemail} component={ResetEmail} />
+      <MainStack.Screen name={screens.resetpassword} component={ResetPassword} />
+      <MainStack.Screen name={screens.profilesection} component={ProfileSection} />
+      <MainStack.Screen name={screens.otp} component={Otp} />
+      <MainStack.Screen name={screens.auth} component={Auth} />
       <MainStack.Screen name={screens.cartStack} component={CartStack} />
     </MainStack.Navigator>
   );

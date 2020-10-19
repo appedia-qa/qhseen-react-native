@@ -29,10 +29,7 @@ const barStyleIos = {
 
 function tabNavigator() {
   return(
-    <BottomTabs.Navigator
-      headerMode='none'
-      tabBarOptions= {barStyleIos.tabBarOptions}         
-    >
+    <BottomTabs.Navigator headerMode='none' tabBarOptions={barStyleIos.tabBarOptions}>
       <BottomTabs.Screen
         name={screens.home}
         options={{
@@ -44,7 +41,7 @@ function tabNavigator() {
       <BottomTabs.Screen
         name={screens.brandStack}
         options={{
-          tabBarLabel: 'Brands',
+          tabBarLabel: 'Outlets',
           tabBarIcon: icons.brand,
         }}
         component={BrandStack}

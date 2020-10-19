@@ -37,13 +37,13 @@ class Designers extends Component {
           leftIconPress={() => this.props.navigation.openDrawer()}
           onSearchPress={() =>      
             this.props.navigation.navigate(screens.mainStack, {
-            screen: screens.recommendations,
+              screen: screens.recommendations,
             })
           }
           onSubmitEditing={()=>{    
             this.props.navigation.navigate(screens.mainStack, {
-            screen: screens.searchresult,
-          })
+              screen: screens.searchresult,
+            })
           }}
         />
         <SnapCarousel

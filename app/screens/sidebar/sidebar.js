@@ -20,7 +20,6 @@ class Sidebar extends Component {
   }
   render() {
     const {categoriesData} = this.props;
-    console.log('categoriesData: ', categoriesData);
     return (
       <SafeAreaView style={styles.screen}>
         <View style={styles.header}>

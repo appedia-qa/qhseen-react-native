@@ -9,9 +9,7 @@ const DesignerStack = createStackNavigator();
 
 export default function designerStack() {
   return (
-    <DesignerStack.Navigator
-      headerMode='none'
-    > 
+    <DesignerStack.Navigator headerMode='none'>
       <DesignerStack.Screen  name={screens.designers} component={Designers} />
       <DesignerStack.Screen  name={screens.designerdetail} component={DesignerDetails} />
     </DesignerStack.Navigator>

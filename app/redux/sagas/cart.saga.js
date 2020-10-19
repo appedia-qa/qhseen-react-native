@@ -13,7 +13,6 @@ import { addToCart, fetchCart, updateCartItem, deleteCartItem } from '../api';
 function* addToCartSaga({payload}) {
   try {
     const response = yield call(addToCart, payload);
-    console.log("response: ", response);
     if(response.code === 200){
       const cart_item = {
         ...response.order_id,

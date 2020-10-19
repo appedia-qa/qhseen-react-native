@@ -9,3 +9,4 @@ export * from './app.types';
 export * from './user.types';
 export * from './cart.types';
 export * from './profile.types';
+export * from './checkout.types';

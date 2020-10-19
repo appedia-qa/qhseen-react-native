@@ -17,4 +17,5 @@ export const END_POINTS = {
   get_cart: 'viewcart',
   update_cart_item: 'cart/update',
   delete_cart_item: 'cart/delete',
+  checkout: `checkout`,
 };

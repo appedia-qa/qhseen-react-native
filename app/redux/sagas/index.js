@@ -9,6 +9,7 @@ import productsSaga from './products.saga';
 import userSaga from './user.saga';
 import cartSaga from './cart.saga';
 import profileSaga from './profile.saga';
+import checkoutSaga from './checkout.saga';
 
 export default function* rootSaga() {
   yield all([
@@ -21,5 +22,6 @@ export default function* rootSaga() {
     fork(userSaga),
     fork(cartSaga),
     fork(profileSaga),
+    fork(checkoutSaga),
   ]);
 }

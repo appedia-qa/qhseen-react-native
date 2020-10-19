@@ -9,9 +9,7 @@ const BrandStack = createStackNavigator();
 
 export default function brandStack() {
   return (
-    <BrandStack.Navigator
-      headerMode='none'
-    > 
+    <BrandStack.Navigator headerMode='none'> 
       <BrandStack.Screen  name={screens.brands} component={Brands} />
     </BrandStack.Navigator>
   );

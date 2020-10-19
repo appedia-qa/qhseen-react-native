@@ -11,7 +11,7 @@ export const screens = {
   auth: 'Auth',
   home: 'Home',
   category: 'Category',
-  brands: 'Brands',
+  brands: 'Outlets',
   categorydetail: 'CategoryDetail',
   cart: 'Cart',
   designers: 'Designers',
@@ -33,4 +33,5 @@ export const screens = {
   searchresult: 'SearchResult',
   filterresult: 'FilterResult',
   sortresult: 'SortResult',
+  webView: 'webView',
 };

@@ -25,13 +25,13 @@ class DesignerDetails extends Component {
           placeholder={'Designers'}
           onSearchPress={() =>      
             this.props.navigation.navigate(screens.mainStack, {
-            screen: screens.recommendations,
+              screen: screens.recommendations,
             })
           }
           onSubmitEditing={()=>{    
             this.props.navigation.navigate(screens.mainStack, {
-            screen: screens.searchresult,
-          })
+              screen: screens.searchresult,
+            })
           }}
         />
         <Image
