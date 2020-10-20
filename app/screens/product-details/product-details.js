@@ -381,6 +381,7 @@ class ProductDetails extends Component {
           <Reviews />
         </ScrollView>
         <Measurements
+          navigation={this.props.navigation}
           visible={this.state.isModalVisible}
           toggleModal={() => this.toggleModal()}
           validateMeasurements={() => this.validateMeasurements()}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
   View,
   Image,
+  Platform
 } from 'react-native';
 import Modal from 'react-native-modal';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
@@ -10,8 +11,9 @@ import {
   Text,
   Input,
   Button,
+  Touchable
 } from '../../../components';
-import {images, COLOR} from '../../../constants';
+import {images, COLOR,getPercentageHeight, getPercentageWidth} from '../../../constants';
 import measurementsStyles from './measurements.styles';
 
 class Measurements extends Component {
@@ -47,6 +49,11 @@ class Measurements extends Component {
       });
     }
   }
+
+  showVideo=()=>{
+    this.props.toggleModal();
+    this.props.navigation.navigate("MeasurementsVideo");
+  }
   render() {
     return (
       <Modal isVisible={this.props.visible}>
@@ -61,10 +68,17 @@ class Measurements extends Component {
                 resizeMode='contain'
               />
             </View>
-            <View style={measurementsStyles.errorMessageContainer}>
-              <Text style={measurementsStyles.errorText}>{this.state.ErrorMessage}</Text>
-            </View>
-
+            <Touchable style={measurementsStyles.takeMeasurementsContainer} onPress={() => this.showVideo()}>
+              <View style={[measurementsStyles.flexOneCenter, {flexDirection:'row', width:getPercentageWidth(250)}]}>
+                <Image source={images.playCircle} style={measurementsStyles.measurementsStyles} resizeMode='contain' />
+                <Text style={{marginTop: Platform.OS=='ios' ? getPercentageHeight(5) :0 }}>How to take Measurements?</Text>
+              </View>
+              
+              <View style={{flex:0.25}}>
+                <Image source={images.rightArrow} style={measurementsStyles.rightArrow} resizeMode='contain' />
+              </View>
+            </Touchable>
+          
             <View style={measurementsStyles.fieldsContainer}>
               <View style={measurementsStyles.row}>
                 <Input

@@ -17,6 +17,7 @@ export const screens = {
   designers: 'Designers',
   designerdetail: 'DesignerDetails',
   productDetails:'ProductDetails',
+  measurementsVideo:'MeasurementsVideo',
   resetemail: 'ResetEmail',
   resetpassword: 'ResetPassword',
   otp: 'Otp',

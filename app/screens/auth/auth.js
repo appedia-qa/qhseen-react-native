@@ -31,7 +31,7 @@ class Auth extends Component {
 
     this.state = {
       selectedAuthType: authType.LOGIN,
-      showSocialAuthOptions: true,
+      showSocialAuthOptions: false,
     };
 
     this._onPressAuthType = this._onPressAuthType.bind(this);

@@ -14,6 +14,9 @@ def add_flipper_pods!(versions = {})
   pod 'FlipperKit/SKIOSNetworkPlugin', versions['Flipper'], :configuration => 'Debug'
   pod 'FlipperKit/FlipperKitUserDefaultsPlugin', versions['Flipper'], :configuration => 'Debug'
   pod 'FlipperKit/FlipperKitReactPlugin', versions['Flipper'], :configuration => 'Debug'
+  pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
+  +  `pod 'react-native-video', :path => '../node_modules/react-native-video/react-native-video.podspec'`
+  
 
   # List all transitive dependencies for FlipperKit pods
   # to avoid them being linked in Release builds

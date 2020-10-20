@@ -13,7 +13,7 @@ import FilterResult from '../screens/filter_results';
 import SortResult from '../screens/sort_results';
 
 import ProductDetails from '../screens/product-details';
-
+import MeasurementsVideo from '../screens/product-details/measurements/measurements-video';
 import Profile from '../screens/profile/index';
 import ResetEmail from '../screens/reset-email';
 import ResetPassword from '../screens/reset-password';
@@ -36,6 +36,7 @@ export default function mainStack() {
       <MainStack.Screen name={screens.filterresult} component={FilterResult} />
       <MainStack.Screen name={screens.sortresult} component={SortResult} />
       <MainStack.Screen name={screens.productDetails} component={ProductDetails} />
+      <MainStack.Screen name={screens.measurementsVideo} component={MeasurementsVideo} />
       <MainStack.Screen name={screens.categorydetail} component={CategoryDetail} />
       <MainStack.Screen name={screens.profile} component={Profile} />
       <MainStack.Screen name={screens.resetemail} component={ResetEmail} />

@@ -28,7 +28,10 @@ class Sidebar extends Component {
             <Text style={styles.userName}>Guest User</Text>
             <Text style={styles.loginAction}>Guest User</Text>
           </View>
-          <Text style={styles.accountAction}>ACCOUNT</Text>
+          <Touchable onPress={()=>{this.props.navigation.navigate("Profile")}}>
+            <Text style={styles.accountAction}>ACCOUNT</Text>
+          </Touchable>
+          
         </View>
         <View style={styles.headerSeperator} />
 

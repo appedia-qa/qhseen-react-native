@@ -79,6 +79,9 @@ const designers = require('../assets/image/bottomTabIcons/designers.png');
 const cart_bottom = require('../assets/image/bottomTabIcons/cart.png');
 const brands = require('../assets/image/bottomTabIcons/brands.png');
 const profile = require('../assets/image/bottomTabIcons/profile.png');
+const playCircle=require ('../assets/image/product/play-circle.png');
+const measurementsVideo=require ('../assets/image/product/qsheen.mp4');
+
 const images = {
   logo,
   step1Image,
@@ -161,6 +164,8 @@ const images = {
   cart_bottom,
   brands,
   profile,
+  playCircle,
+  measurementsVideo
 };
 
 export { images };
