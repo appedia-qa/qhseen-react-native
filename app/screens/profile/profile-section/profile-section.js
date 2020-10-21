@@ -16,16 +16,25 @@ import {
 } from '../../../constants';
 
 import styles from './profile-section.style';
+import AsyncStorage from '@react-native-community/async-storage';
 
 class ProfileSection extends Component {
   constructor(props) {
     super(props);
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     const {authData} = this.props;
     if (authData.data) {
       this.props.userProfileRequest({id: authData.data.ID});
+    }
+    else{
+        var user_id = await AsyncStorage.getItem('user_id', null);
+        console.log('user_id',user_id);
+        if(user_id != undefined && user_id !=null){
+          this.props.userProfileRequest({id:user_id});
+        }
+      
     }
   }
 

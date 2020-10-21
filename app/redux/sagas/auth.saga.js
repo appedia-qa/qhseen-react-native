@@ -7,16 +7,27 @@ import {
   authActionsCreator,
 } from '../actions';
 import { login, signUp } from '../api';
+import AsyncStorage from '@react-native-community/async-storage';
 
 function* loginSaga({ payload }) {
   try {
-    const response = yield call(login, payload);
-    console.log("response for login: ", response);
+    const params = {
+      "username": payload.username,
+      "password": payload.password
+    };
+    const response = yield call(login, params);
+    console.log("rememberMe: ", payload.rememberMe);
+
     if (response.code === 200) {
       const user = {
         ...response.user.data,
         token: response.user.data,
       };
+      if(payload.rememberMe==true){
+        AsyncStorage.setItem("user_id",user.ID.toString());
+        console.log("response for login: ", user);
+      }
+      
       yield put(authActionsCreator.userLoginSuccess({ user }));
     }else{
       yield put(authActionsCreator.userLoginFailed({ error: response.message }));

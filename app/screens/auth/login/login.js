@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {
+  Alert,
   View,
 } from 'react-native';
 import Checkbox from 'react-native-custom-checkbox';
@@ -10,6 +11,7 @@ import {
 import {screens} from '../../../config';
 import {COLOR, images} from '../../../constants';
 import styles from './login.styles';
+
 
 class Login extends Component {
   constructor(props) {
@@ -29,7 +31,7 @@ class Login extends Component {
   }
 
   _handleHandleLogin() {
-    const { form } = this.state;
+    const { form,rememberMe } = this.state;
     if (form.email.length == 0 || form.password.length == 0) {
       this.setState({
         showWarning: true,
@@ -38,6 +40,7 @@ class Login extends Component {
       this.props.loginPress({
         email: form.email,
         password: form.password,
+        rememberMe: rememberMe
       });
     }
   }

@@ -18,6 +18,7 @@ import {Login} from './login';
 import {Signup} from './signup';
 import styles from './auth.styles';
 import { SignupDesigner } from './signupDesigner';
+import AsyncStorage from '@react-native-community/async-storage';
 
 let authType = {
   LOGIN: 'LOG IN',
@@ -61,9 +62,11 @@ class Auth extends Component {
   }
 
   _loginUser(params) {
+    console.log('params',params);
     const user_params = {
       "username": params.email,
       "password": params.password,
+      "rememberMe": params.rememberMe
     };
     this.props.userLoginRequest(user_params);
   }
@@ -84,7 +87,15 @@ class Auth extends Component {
       this.props.userSignupRequest(user_params);
     }
   }
-
+  async UNSAFE_componentWillMount() {
+    var user_id = await AsyncStorage.getItem('user_id', null);
+    console.log('user_id',user_id);
+    if(user_id != undefined && user_id !=null){
+        this.props.navigation.navigate("Profile",{
+          alreadyLoggedIn:true
+        });
+    }
+  }
   render() {
     const {selectedAuthType} = this.state;
     const {authData} = this.props;

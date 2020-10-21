@@ -17,10 +17,12 @@ class Profile extends Component {
 
   render() {
     const {authData} = this.props;
+    const { alreadyLoggedIn} = this.props.route.params? this.props.route.params:false;
+    console.log('authData=>',authData)
     return (
       <View style={styles.screen}>
         {
-          !authData.data?     
+          !authData.data && !alreadyLoggedIn ?     
           <Auth navigation={this.props.navigation} />
           :
           <ProfileSection/>
