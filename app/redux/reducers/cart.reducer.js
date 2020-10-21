@@ -79,11 +79,12 @@ export default function (state = initial_state, action) {
       };
     }
     case UPDATE_CART_ITEM_SUCCESS: {
-      const cartItems = _.map(state.data, cartItem => {
+      console.log("data: ", state.data);
+      const cart = _.map(state.data.cart, cartItem => {
         if (cartItem.product_id == payload.cart_item.product_id) {
           return {
             ...cartItem,
-            quantity: payload.cart_item.quantity
+            qty: payload.cart_item.qty
           };
         }
         return cartItem;
@@ -92,7 +93,13 @@ export default function (state = initial_state, action) {
         ...state,
         requesting: false,
         success: payload.success,
-        data: cartItems,
+        data: {
+          cart: cart,
+          sub_total: state.data.sub_total,
+          discount: state.data.discount,
+          shipping: state.data.shipping,
+          total: state.data.total
+        }
       };
     }
     case UPDATE_CART_ITEM_FAILED: {
@@ -111,12 +118,18 @@ export default function (state = initial_state, action) {
       };
     }
     case DELETE_CART_ITEM_SUCCESS: {
-      const cartItems = _.filter(state.data, cartItem => cartItem.product_id != payload.cart_item.product_id);
+      const cart = _.filter(state.data.cart, cartItem => cartItem.product_id != payload.cart_item.product_id);
       return {
         ...state,
         requesting: false,
-        data: cartItems,
         success: payload.success,
+        data: {
+          cart: cart,
+          sub_total: state.data.sub_total,
+          discount: state.data.discount,
+          shipping: state.data.shipping,
+          total: state.data.total
+        }
       };
     }
     case DELETE_CART_ITEM_FAILED: {

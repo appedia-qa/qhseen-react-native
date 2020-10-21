@@ -24,7 +24,6 @@ class Cart extends Component {
   
   componentDidMount() {
     const {authData} = this.props;
-    console.log("authData: ", authData.data);
     if (authData.data) {
       this.props.fetchCartRequest({user_id: authData.data.ID});
     }
@@ -40,12 +39,18 @@ class Cart extends Component {
   }
 
   deleteItem = () => {
-    const params = {
-      cart_id: this.state.modalData.cart_id,
-      product_id: this.state.modalData.product_id,
-    };
+
+    const {authData} = this.props;
+    if(authData.data){
+      const params = {
+        user_id: authData.data.ID,
+        variation_id: this.state.modalData.variation_id,
+        product_id: this.state.modalData.product_id,
+      };
+      this.props.deleteCartItemRequest(params);
+    }
+    
     this.setState({isModalVisible: false, modalData: null});
-    this.props.deleteCartItemRequest(params);
   }
   
   showConfirmationModal = (cartItem) => {
@@ -64,10 +69,10 @@ class Cart extends Component {
         const {authData} = this.props;
         if (authData.data) {
           const params = {
-            "user_id": authData.data.id,
+            "user_id": authData.data.ID,
             "product_id": cart_item.product_id,
-            "quantity": quantity,
-            "cart_id": cart_item.cart_id,
+            "qty": quantity,
+            "variation_id": cart_item.variation_id,
           };
 
           this.props.updateCartItemRequest(params);

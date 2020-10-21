@@ -49,11 +49,16 @@ function* fetchCartSaga({payload}) {
 function* updateCartItemSaga({payload}) {
   try {
     const response = yield call(updateCartItem, payload);
-    const cart_item = {
-      product_id: response.product_detail.id,
-      quantity: response.cart_item.quantity,
-    };
-    yield put(cartActionsCreator.updateCartItemSuccess({cart_item, success: response.message}));
+    if(response.code === 200){
+      console.log("payload: ", payload);
+      const cart_item = {
+        product_id: payload.product_id,
+        qty: payload.qty,
+      };
+      yield put(cartActionsCreator.updateCartItemSuccess({cart_item, success: response.order_inserted}));
+    }else{
+      yield put(cartActionsCreator.updateCartItemFailed({error: 'Product cannot be updated.'}));
+    }
   } catch (error) {
     console.log(error);
     yield put(cartActionsCreator.updateCartItemFailed({error: 'Product cannot be updated.'}));
@@ -63,10 +68,14 @@ function* updateCartItemSaga({payload}) {
 function* deleteCartItemSaga({payload}) {
   try {
     const response = yield call(deleteCartItem, payload);
-    const cart_item = {
-      product_id: payload.product_id
-    };
-    yield put(cartActionsCreator.deleteCartItemSuccess({cart_item, success: response.message}));
+    if(response.code === 200){
+      const cart_item = {
+        product_id: payload.product_id
+      };
+      yield put(cartActionsCreator.deleteCartItemSuccess({cart_item, success: response.message}));
+    }else{
+      yield put(cartActionsCreator.updateCartItemFailed({error: 'Product Cannot be deleted.'}));
+    }
   } catch (error) {
     console.log(error);
     yield put(cartActionsCreator.updateCartItemFailed({error: 'Product Cannot be deleted.'}));

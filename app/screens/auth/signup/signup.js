@@ -20,10 +20,10 @@ class Signup extends Component {
     showPassword: false,
     showConfirmPassword: false,
     values: {
-      email: 'muhammadnaeemashiq2@gmail.com',
-      username: 'Muhammad Naeem Ashiq',
-      password: '12345',
-      confirmPassword: '12345',
+      email: '',
+      username: '',
+      password: '',
+      confirmPassword: '',
     },
   };
 
