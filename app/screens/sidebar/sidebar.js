@@ -19,14 +19,14 @@ class Sidebar extends Component {
     this.props.fetchCategoriesRequest();
   }
   render() {
-    const {categoriesData} = this.props;
+    const {categoriesData, profileData} = this.props;
     return (
       <SafeAreaView style={styles.screen}>
         <View style={styles.header}>
           <Image source={images.userAccount} />
           <View style={{ flex: 1, marginLeft: 6, marginTop: 6 }}>
-            <Text style={styles.userName}>Guest User</Text>
-            <Text style={styles.loginAction}>Guest User</Text>
+            <Text style={styles.userName}>{profileData.data !== null ? profileData.data.display_name : 'User Name'}</Text>
+            <Text style={styles.loginAction}>{profileData.data !== null ? profileData.data.display_name : 'User Name'}</Text>
           </View>
           <Touchable onPress={()=>{this.props.navigation.navigate("Profile")}}>
             <Text style={styles.accountAction}>ACCOUNT</Text>
