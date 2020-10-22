@@ -6,7 +6,9 @@ import {
 } from 'react-native';
 
 import { STORAGE_URL } from '../../../config';
-import {Text} from '../../../components';
+import {Text,Touchable} from '../../../components';
+import {screens} from '../../../config';
+
 import {data} from '../../../constants';
 import styles from './designers.style';
 
@@ -15,14 +17,19 @@ class Designers extends Component {
     const designers = item;
     return (
       <> 
-        <View style={styles.subContainer}>
+        <Touchable style={styles.subContainer} onPress={()=>this.props.navigation.navigate(screens.designerStack, {
+          screen:screens.designerdetail,
+          params:{
+            item: designers
+          }
+          })}>
           <Image
             source={{uri: designers.cover_image !== undefined ? designers.cover_image : designers.profile_image}}
             style={styles.designImage}
           />
           <Text style={styles.designName}>{designers.name}</Text>
           <Text style={styles.designLocation}>{designers.store_location}</Text>
-        </View>
+        </Touchable>
       </>
     );
   }

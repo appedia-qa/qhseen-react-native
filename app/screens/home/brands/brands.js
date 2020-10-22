@@ -5,24 +5,33 @@ import {
   FlatList
 } from 'react-native';
 
-import {Card} from '../../../components';
+import {Card,Touchable} from '../../../components';
 import {data} from '../../../constants';
 import styles from './brands.style';
 import { STORAGE_URL } from '../../../config';
+import {screens} from '../../../config';
 
 class Brands extends Component {
   _renderItem = (item) => {
     const brands = item;
     return (
-      <Card style={styles.card}>
-        <View style={styles.imageContainer}>
-          <Image
-            source={{uri: item.avatar}}
-            style={styles.brandImage}
-            resizeMode='center'
-          />
-        </View>
-      </Card>
+      <Touchable onPress={()=>this.props.navigation.navigate(screens.designerStack, {
+        screen:screens.designerdetail,
+        params:{
+          item: brands
+        }
+        })}>
+        <Card style={styles.card}>
+          <View style={styles.imageContainer}>
+            <Image
+              source={{uri: item.avatar}}
+              style={styles.brandImage}
+              resizeMode='center'
+            />
+          </View>
+        </Card>
+      </Touchable>
+      
     );
   }
   render() {

@@ -24,6 +24,7 @@ class Home extends Component {
   render() {
     const {homeData} = this.props;
     const {data} = homeData;
+    console.log(data);
     return (
       <View style={styles.container}>
         <Header
@@ -52,23 +53,30 @@ class Home extends Component {
           <View style={styles.productsContainer}>
             <Text style={styles.sectionHeading}>{'DESIGNERS'}</Text>
             <Touchable
-              onPress={() => {}}
+              onPress={() => this.props.navigation.navigate(screens.designerStack,{
+                screen: screens.designers
+              })}
               style={{alignSelf: 'flex-end', marginRight: 16, marginBottom: 11}}
             >
               <Text style={styles.viewAll}>{'View All'}</Text>
             </Touchable>
             <Designers
               data={data ? data.designers.items : []}
+              navigation={this.props.navigation}
             />
             <Text style={styles.sectionHeading}>{'OUTLETS'}</Text>
             <Touchable
-              onPress={() => {}}
+              onPress={() => this.props.navigation.navigate(screens.brandStack,{
+                screen: screens.brands
+              })}
               style={{alignSelf: 'flex-end', marginRight: 16, marginBottom: 11}}
             >
               <Text style={styles.viewAll}>{'View All'}</Text>
             </Touchable>
             <Brands
               data={data ? data.brands.items : []}
+              navigation={this.props.navigation}
+
             />
             <Text style={styles.sectionHeading}>{'NEW COLLECTION'}</Text>
             <Touchable

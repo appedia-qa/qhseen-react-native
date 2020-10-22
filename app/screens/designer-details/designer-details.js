@@ -19,6 +19,7 @@ import styles from './designer-details.styles';
 class DesignerDetails extends Component {
   render() {
     const designer = this.props.route.params.item;
+    console.log(designer);
     return (
       <View style={styles.screen}>
         <Header
@@ -61,7 +62,7 @@ class DesignerDetails extends Component {
                   <Text style={styles.about}>{'About Me'}</Text>
                   <Text style={styles.message}>{designer.about_me}</Text>
                   <View style={styles.divider}/>
-                  {designer.vendor_tags.length !== 0 && 
+                  {designer.vendor_tags && designer.vendor_tags.length !== 0 && 
                     <Text style={styles.tagsHeading}>{'Tags'}</Text>
                   }
                 </View>
